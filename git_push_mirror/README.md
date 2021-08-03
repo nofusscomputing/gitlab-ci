@@ -1,6 +1,7 @@
 # git push mirror Admin Manual Manual
 This job does a git push to a remote git repo.
 
+
 This job provides the following badge:
 
 - None
@@ -21,7 +22,7 @@ include:
 
 Github (Push --mirror):
     variables:
-        GIT_SYNC_URL: "https://$GITHUB_USERNAME_ROBOT:$GITHUB_TOKEN_ROBOT@github.com/NoFussComputing/gitlab-ci.git"
+        GIT_SYNC_URL: "https://${username variable}:${pasword variable}@github.com/NoFussComputing/gitlab-ci.git"
     extends:
         - .git_push_mirror
 
@@ -36,10 +37,25 @@ Github (Push --mirror):
 
 ## Job Workflow
 
+ - This job is designed to run on successful completion of the validation tasks and only on the `development` and `master` branches. You can safely override the `rules` when creating the job with your own. i.e.
+
+``` yaml
+Github (Push --mirror):
+    variables:
+        GIT_SYNC_URL: "https://$GITHUB_USERNAME_ROBOT:$GITHUB_TOKEN_ROBOT@github.com/NoFussComputing/gitlab-ci.git"
+    extends:
+        - .git_push_mirror
+    rules:
+      - if: '$CI_COMMIT_BRANCH == "master"'
+        when: never
+      - if: '$CI_COMMIT_BRANCH == "development"'
+        when: always
+```
+This will cause the job to only run on the `development` branch.
 
 ## Artifacts
 
- - 
+ - None
 
 ## License
 To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)
