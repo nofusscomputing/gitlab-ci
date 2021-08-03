@@ -2,7 +2,7 @@
 .ansible_linter_defaults:
     stage: validation
     before_script:
-        - if [ "0$JOB_ROOT_DIR" == "0" ]; then ROOT_DIR=$DEFAULT_ROOT_DIR; else ROOT_DIR=$JOB_ROOT_DIR ; fi
+        - if [ "0$JOB_ROOT_DIR" == "0" ]; then ROOT_DIR=gitlab-ci; else ROOT_DIR=$JOB_ROOT_DIR ; fi
         - echo "[DEBUG] ROOT_DIR[$ROOT_DIR]"
         - mkdir -p "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"
         - mkdir -p "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests"
