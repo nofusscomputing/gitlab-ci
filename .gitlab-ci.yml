@@ -1,0 +1,14 @@
+variables:
+    JOB_ROOT_DIR: '.'
+    MY_PROJECT_ID: "28543717"
+
+stages:
+    - validation
+    - release
+    - sync
+
+include:
+  - local: $JOB_ROOT_DIR/conventional_commits/.gitlab-ci.yml
+
+
+
