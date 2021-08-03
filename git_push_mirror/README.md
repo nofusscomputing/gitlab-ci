@@ -42,7 +42,7 @@ Github (Push --mirror):
 ``` yaml
 Github (Push --mirror):
     variables:
-        GIT_SYNC_URL: "https://$GITHUB_USERNAME_ROBOT:$GITHUB_TOKEN_ROBOT@github.com/NoFussComputing/gitlab-ci.git"
+        GIT_SYNC_URL: "https://${username variable}:${pasword variable}@github.com/NoFussComputing/gitlab-ci.git"
     extends:
         - .git_push_mirror
     rules:
