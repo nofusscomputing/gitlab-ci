@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 
+import os
+
 from commitizen import git
 from commitizen.cz.base import BaseCommitizen
 
@@ -26,7 +28,7 @@ class nfc_cz(BaseCommitizen):
     def changelog_message_builder_hook(self, parsed_message: dict, commit: git.GitCommit) -> dict:
         rev = commit.rev
         m = parsed_message["message"]
-        parsed_message["message"] = f"[{rev}]($CI_PROJECT_URL/-/commit/{rev}) - {m}"
+        parsed_message["message"] = f"[{rev}](" + os.environ['CI_PROJECT_URL'] + f"/-/commit/{rev}) - {m}"
         return parsed_message
 
 
