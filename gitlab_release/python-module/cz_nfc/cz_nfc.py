@@ -9,7 +9,7 @@ class nfc_cz(BaseCommitizen):
     bump_pattern = r"^(break|new|fix|feat|hotfix|ci|docs)"
     bump_map = {"break": "MAJOR", "new": "MINOR", "feat": "MINOR","fix": "PATCH", "hotfix": "PATCH", "ci": "PATCH", "docs": "PATCH"}
 
-    changelog_pattern = "^(break|new|fix|feat|hotfix|ci|docs)"
+    changelog_pattern = "^(break|new|fix|feat|hotfix|refactor|ci|docs)"
     change_type_order = ["BREAKING CHANGE", "feat", "fix", "refactor", "perf", "docs", "ci"]
     change_type_map = {
         "feat": "Features",
@@ -20,7 +20,7 @@ class nfc_cz(BaseCommitizen):
         "ci": "Continious Integration"
     }
 
-    commit_parser = r"^(?P<change_type>feat|fix|refactor|perf|BREAKING CHANGE|ci|docs)(?:\((?P<scope>[^()\r\n]*)\)|\()?(?P<breaking>!)?:\s(?P<message>.*)?"
+    commit_parser = r"^(?P<change_type>feat|fix|refactor|perf|BREAKING CHANGE|refactor|ci|docs)(?:\((?P<scope>[^()\r\n]*)\)|\()?(?P<breaking>!)?:\s(?P<message>.*)?"
 
 
     def changelog_message_builder_hook(self, parsed_message: dict, commit: git.GitCommit) -> dict:
