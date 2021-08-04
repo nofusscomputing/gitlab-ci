@@ -30,7 +30,7 @@ Gitlab Release:
 
 | var name | Description |
 |:----:|:----|
-| API_RO_GIT_WR | *this must be a personal token that has write access to the repository* |
+| GIT_COMMIT_TOKEN | *this must be a personal token that has write access to the repository* |
 
 
 ## Job Workflow

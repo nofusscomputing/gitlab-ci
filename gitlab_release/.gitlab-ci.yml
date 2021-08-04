@@ -13,7 +13,7 @@
         - pip install --upgrade pip
         - pip install -r $ROOT_DIR/gitlab_release/requirements.txt
         - pip install $ROOT_DIR/gitlab_release/python-module/cz_nfc/.
-        - 'CLONE_URL="https://gitlab-ci-token:$API_RO_GIT_WR@gitlab.com/$CI_PROJECT_PATH.git"'
+        - 'CLONE_URL="https://gitlab-ci-token:$GIT_COMMIT_TOKEN@gitlab.com/$CI_PROJECT_PATH.git"'
         - echo "[DEBUG] CLONE_URL[$CLONE_URL]"
         - git clone -b $CI_COMMIT_BRANCH $CLONE_URL repo
         - cd repo
