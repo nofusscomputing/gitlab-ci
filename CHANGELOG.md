@@ -1,3 +1,18 @@
+## v0.2.0 (2021-08-04)
+
+### Code Refactor
+
+- **gitlab_release**: [7a69685b53cbe5bd7341a176bf63fd17d36bc7f0]($CI_PROJECT_URL/-/commit/7a69685b53cbe5bd7341a176bf63fd17d36bc7f0) - Dont conduct any release, git push or tag delete if the version was not bumped
+- **gitlab_release**: [72e8b6c84defdb903c5741e3469651987769713f]($CI_PROJECT_URL/-/commit/72e8b6c84defdb903c5741e3469651987769713f) - build gitlab commit url for changelog so that there is a weblink to the changes
+
+### Documentaton / Guides
+
+- **gitlab_release**: [eebe8e30dcb11cd239f35fcb98216b2ae4d20ece]($CI_PROJECT_URL/-/commit/eebe8e30dcb11cd239f35fcb98216b2ae4d20ece) - Include custom command instructions
+
+### Features
+
+- **gitlab_release**: [287b4c954dddfaaf0a66af387676ea438cc80e61]($CI_PROJECT_URL/-/commit/287b4c954dddfaaf0a66af387676ea438cc80e61) - Include code refactor as part of the changelog
+
 ## v0.1.0 (2021-08-04)
 
 ### Bug Fixes
