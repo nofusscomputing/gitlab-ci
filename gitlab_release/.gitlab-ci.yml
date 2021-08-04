@@ -32,7 +32,7 @@
         - echo "[DEBUG] RELEASE_CHANGELOG[$RELEASE_CHANGELOG]"
         - echo "[DEBUG] RELEASE_VERSION_NEW[$RELEASE_VERSION_NEW]"
         - echo "[DEBUG] RELEASE_TAG[$RELEASE_TAG]"
-        - RELEASE_TAG_SHA1=$(git rev-parse $CI_COMMIT_BRANCH)
+        - RELEASE_TAG_SHA1=$(git log -n1 --format=format:"%H")
         - echo "[DEBUG] RELEASE_TAG_SHA1[$RELEASE_TAG_SHA1]"
         - git push
         - release-cli create --name "Release $RELEASE_TAG" --tag-name "$RELEASE_TAG" --ref "$RELEASE_TAG_SHA1" --description "$RELEASE_CHANGELOG"
