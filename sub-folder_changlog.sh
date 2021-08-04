@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 
 
@@ -14,6 +14,8 @@ for D in *; do
 
         echo "" >> ${D}/CHANGELOG.md
         echo "$CHANGELOG_DATA" >> ${D}/CHANGELOG.md
+
+        git add ${D}/CHANGELOG.md
 
     fi
 done

@@ -8,7 +8,7 @@ This job provides the following badge:
 
 ## Dependencies
 
-- None
+- This job will only run if all previous jobs run.
 
 ## your .gitlab-ci.yml changes
 To use this job add the following to your `.gitlab-ci.yml` file
