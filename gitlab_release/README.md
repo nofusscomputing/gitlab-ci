@@ -21,10 +21,13 @@ include:
     - remote: https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/raw/development/gitlab_release/.gitlab-ci.yml
 
 Gitlab Release:
+    variables:
+        MY_COMMAND: "{your command here}"
     extends:
         - .gitlab_release
 ```
-> if you wish to run any commands you can safely override `script` with your own commands. if these commands create any output that is not excluded in `.gitignore` they will be commited to the repository.
+> if you wish to run any commands you can add them to variable `MY_COMMAND`. The custom command will run under shell `/bin/sh`. This command is set to run before the version bump commit is conducted so any changes you wish to add as part of the version bump, you can do here as long as you `git add {changed file name}`.
+
 
 ## CI/CD Variables required
 
