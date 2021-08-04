@@ -24,7 +24,7 @@
         - RELEASE_VERSION_CURRENT=$(cz -n cz_nfc version --project)        
     script:
         - "$MY_COMMAND"
-        - RELEASE_CHANGELOG=$(cz -n cz_nfc bump --changelog --changelog-to-stdout)
+        - if [ "$CI_COMMIT_BRANCH" == "development" ] ; then RELEASE_CHANGELOG=$(cz -n cz_nfc bump --changelog --changelog-to-stdout --prerelease rc); else RELEASE_CHANGELOG=$(cz -n cz_nfc bump --changelog --changelog-to-stdout); fi
         - RELEASE_VERSION_NEW=$(cz -n cz_nfc version --project)
         - RELEASE_TAG=v$RELEASE_VERSION_NEW
         - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No tag to delete, version was not bumped"; else git tag -d $RELEASE_TAG; fi
