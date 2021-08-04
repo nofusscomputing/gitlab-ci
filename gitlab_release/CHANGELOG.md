@@ -1,5 +1,7 @@
 # Changelog
 
+2021-08-04 12:05:01 +0930 [588698d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/588698df2668853a97fe60901ab324310f34f279) - fix(gitlab_release): Correctly fetch the CI_PROJECT_URL for the environment  
+2021-08-04 02:24:12 +0000 [856f2e1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/856f2e1770d0bda823996122ee70916dc0fe455b) - build(version): bump version 0.1.0 → 0.2.0  
 2021-08-04 11:50:41 +0930 [287b4c9](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/287b4c954dddfaaf0a66af387676ea438cc80e61) - feat(gitlab_release): Include code refactor as part of the changelog  
 2021-08-04 11:48:28 +0930 [eebe8e3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/eebe8e30dcb11cd239f35fcb98216b2ae4d20ece) - docs(gitlab_release): Include custom command instructions  
 2021-08-04 11:29:22 +0930 [7a69685](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7a69685b53cbe5bd7341a176bf63fd17d36bc7f0) - refactor(gitlab_release): Dont conduct any release, git push or tag delete if the version was not bumped  

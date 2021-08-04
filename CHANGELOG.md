@@ -1,3 +1,9 @@
+## v0.2.1 (2021-08-04)
+
+### Bug Fixes
+
+- **gitlab_release**: [588698df2668853a97fe60901ab324310f34f279](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/588698df2668853a97fe60901ab324310f34f279) - Correctly fetch the CI_PROJECT_URL for the environment
+
 ## v0.2.0 (2021-08-04)
 
 ### Code Refactor
