@@ -23,8 +23,7 @@
         - git push --set-upstream origin $CI_COMMIT_BRANCH
         - RELEASE_VERSION_CURRENT=$(cz -n cz_nfc version --project)        
     script:
-        - echo "your script here"
-    after_script:
+        - "$MY_COMMAND"
         - RELEASE_CHANGELOG=$(cz -n cz_nfc bump --changelog --changelog-to-stdout)
         - RELEASE_VERSION_NEW=$(cz -n cz_nfc version --project)
         - RELEASE_TAG=v$RELEASE_VERSION_NEW
@@ -37,6 +36,7 @@
         - echo "[DEBUG] RELEASE_TAG_SHA1[$RELEASE_TAG_SHA1]"
         - git push
         - release-cli create --name "Release $RELEASE_TAG" --tag-name "$RELEASE_TAG" --ref "$RELEASE_TAG_SHA1" --description "$RELEASE_CHANGELOG"
+    after_script:
         - rm -Rf repo
     rules:
         - if: "$CI_COMMIT_AUTHOR =='NFC CI <CI@nfc-gitlab>'"

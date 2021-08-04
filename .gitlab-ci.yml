@@ -14,10 +14,11 @@ include:
 
 
 Gitlab Release:
+    variables:
+        MY_COMMAND: ./sub-folder_changlog.sh
     extends:
         - .gitlab_release
-    script:
-        - ./sub-folder_changlog.sh
+
 
 
 Github (Push --mirror):
