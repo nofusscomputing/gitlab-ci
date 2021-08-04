@@ -1,3 +1,13 @@
+## v0.3.0rc0 (2021-08-04)
+
+### Code Refactor
+
+- **gitlab_release**: [cc3fabda](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/cc3fabdaa28f97c3e1600e4a0d95a05bb547e772) - Use Short commit SHA1 in main changelog link to gitlab
+
+### Features
+
+- **gitlab_release**: [3e8c3ce7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3e8c3ce7cd64a6e9110818d32c15c3602fefb76c) - On the development brnach, releases to be 'rc' to denote considered non-stable
+
 ## v0.2.1 (2021-08-04)
 
 ### Bug Fixes

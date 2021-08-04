@@ -1,5 +1,8 @@
 # Changelog
 
+2021-08-04 12:39:01 +0930 [3e8c3ce](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3e8c3ce7cd64a6e9110818d32c15c3602fefb76c) - feat(gitlab_release): On the development brnach, releases to be 'rc' to denote considered non-stable  
+2021-08-04 12:24:02 +0930 [cc3fabd](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/cc3fabdaa28f97c3e1600e4a0d95a05bb547e772) - refactor(gitlab_release): Use Short commit SHA1 in main changelog link to gitlab  
+2021-08-04 02:49:45 +0000 [4453b43](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/4453b433c8966a334f02af592a6ce8092f2ac9de) - build(version): bump version 0.2.0 → 0.2.1  
 2021-08-04 12:05:01 +0930 [588698d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/588698df2668853a97fe60901ab324310f34f279) - fix(gitlab_release): Correctly fetch the CI_PROJECT_URL for the environment  
 2021-08-04 02:24:12 +0000 [856f2e1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/856f2e1770d0bda823996122ee70916dc0fe455b) - build(version): bump version 0.1.0 → 0.2.0  
 2021-08-04 11:50:41 +0930 [287b4c9](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/287b4c954dddfaaf0a66af387676ea438cc80e61) - feat(gitlab_release): Include code refactor as part of the changelog  
