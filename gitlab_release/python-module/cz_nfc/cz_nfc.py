@@ -27,8 +27,9 @@ class nfc_cz(BaseCommitizen):
 
     def changelog_message_builder_hook(self, parsed_message: dict, commit: git.GitCommit) -> dict:
         rev = commit.rev
+        rev_short = str(rev)[0:8]
         m = parsed_message["message"]
-        parsed_message["message"] = f"[{rev}](" + os.environ['CI_PROJECT_URL'] + f"/-/commit/{rev}) - {m}"
+        parsed_message["message"] = f"[{rev_short}](" + os.environ['CI_PROJECT_URL'] + f"/-/commit/{rev}) - {m}"
         return parsed_message
 
 
