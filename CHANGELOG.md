@@ -1,4 +1,10 @@
-## Unreleased
+## v0.3.0rc1 (2021-08-04)
+
+### Documentaton / Guides
+
+- **changelog**: [cb78ab82](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/cb78ab82182a9edcd568a8b4c315490041539149) - regenerated so that all entries use the new url format
+
+## v0.3.0rc0 (2021-08-04)
 
 ### Code Refactor
 
