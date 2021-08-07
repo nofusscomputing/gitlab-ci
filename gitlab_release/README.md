@@ -1,5 +1,17 @@
 # Gitlab Release
-This job bumps the version, updates the changelog, creates a git tag and creates a gitlab release. The git tag and release title use [semantic versioning](https://semver.org/). for this job to function correctly a `.cz.yaml` is required in the root of the repository. this file contains the [commitizen](https://github.com/commitizen-tools/commitizen) config and the version details. This job runs on successful completion of previous jobs and only on `development` and `master` branches.
+This job bumps the version, updates the changelog, creates a git tag and creates a gitlab release. The git tag and release title use [semantic versioning](https://semver.org/). for this job to function correctly a `.cz.yaml` is required in the root of the repository. this file contains the [commitizen](https://github.com/commitizen-tools/commitizen) config and the version details. 
+
+This job has the following workflow:
+
+- `master` Branch
+     > Automatically increment the version
+
+- `development` Branch
+     > Manual CI job made available to increment the version. (release-candidate increment only)
+
+|  :octagonal_sign: Danger  |
+|:----|
+|  *If prior to merging to the master branch you do a version increment, and there are no commits prior to merging. the job will not increment the version and the job will fail. it is recommended that you only do a version increment on the `development` branch if you are going to commit further changes to the `development` branch*  |
 
 
 This job provides the following badge:
@@ -8,7 +20,7 @@ This job provides the following badge:
 
 ## Dependencies
 
-- This job will only run if all previous jobs run.
+- None
 
 ## your .gitlab-ci.yml changes
 To use this job add the following to your `.gitlab-ci.yml` file
@@ -53,16 +65,4 @@ This CI job's workflow is:
 
 ## License
 To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)
-
-
-
-
-
-
-
-
-
-
-
-
 

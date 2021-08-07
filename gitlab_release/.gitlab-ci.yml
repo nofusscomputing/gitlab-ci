@@ -15,12 +15,12 @@
         - pip install $ROOT_DIR/gitlab_release/python-module/cz_nfc/.
         - 'CLONE_URL="https://gitlab-ci-token:$GIT_COMMIT_TOKEN@gitlab.com/$CI_PROJECT_PATH.git"'
         - echo "[DEBUG] CLONE_URL[$CLONE_URL]"
-        - git clone -b $CI_COMMIT_BRANCH $CLONE_URL repo
+        - git clone -b development $CLONE_URL repo
         - cd repo
         - git branch
         - git config --global user.email "CI@nfc-gitlab"
         - git config --global user.name "NFC CI"
-        - git push --set-upstream origin $CI_COMMIT_BRANCH
+        - git push --set-upstream origin development
         - RELEASE_VERSION_CURRENT=$(cz -n cz_nfc version --project)        
     script:
         - "$MY_COMMAND"
@@ -36,14 +36,20 @@
         - echo "[DEBUG] RELEASE_TAG_SHA1[$RELEASE_TAG_SHA1]"
         - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No push will be conducted, version was not bumped"; else git push; fi
         - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No release will be created, version was not bumped"; else release-cli create --name "Release $RELEASE_TAG" --tag-name "$RELEASE_TAG" --ref "$RELEASE_TAG_SHA1" --description "$RELEASE_CHANGELOG"; fi
+        - if [ "$CI_COMMIT_BRANCH" == "master" ] ; then git checkout master; fi
+        - if [ "$CI_COMMIT_BRANCH" == "master" ] ; then git push --set-upstream origin master; fi
+        - if [ "$CI_COMMIT_BRANCH" == "master" ] ; then git merge --no-ff development; fi
+        - if [ "$CI_COMMIT_BRANCH" == "master" ] ; then git push origin master; fi
     after_script:
         - rm -Rf repo
     rules:
         - if: "$CI_COMMIT_AUTHOR =='NFC CI <CI@nfc-gitlab>'"
           when: never
-        - if: '$CI_COMMIT_BRANCH == "development"'
-        - if: '$TRIGGER_RELEASE == "True" && $CI_COMMIT_BRANCH == "development"'
-          when: on_success
+        - if: '$CI_COMMIT_BRANCH == "master"'
+          when: always
           allow_failure: false
+        - if: '$CI_COMMIT_BRANCH == "development"'
+          when: manual
+          allow_failure: true
         - when: never
 
