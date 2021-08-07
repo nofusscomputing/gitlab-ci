@@ -6,5 +6,5 @@ setup(
     py_modules=['cz_nfc'],
     license='MIT',
     long_description='this is a long description',
-    install_requires=['commitizen']
+    install_requires=['commitizen', 'gitpython']
 )
