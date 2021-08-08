@@ -68,8 +68,19 @@ class nfc_cz(BaseCommitizen):
                 except Exception:
                     pass
 
-        if footer_references != '':
+        add_references = True
+        try:
+
+            if os.environ['CHANGELOG_FOOTER_REFERENCES'] == 'False':
+                add_references = False
+
+        except KeyError: # continue if the os var doesn't exist
+            add_references = True
+
+        if footer_references != '' and add_references:
             footer_references = ' [' + footer_references + ' ]'
+        else:
+            footer_references = ''
 
         m = parsed_message["message"]
         parsed_message["message"] = f"[{rev_short}](" + os.environ['CI_PROJECT_URL'] + f"/-/commit/{rev}) - {m}" + footer_references
