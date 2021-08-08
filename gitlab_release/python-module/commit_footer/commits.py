@@ -76,7 +76,7 @@ class Commits:
         for commit in self._failed:
             for key in commit:
                 junit_testcase += '''
-                <testcase classname="{0}" file="https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/blob/development/gitlab_release/README.md" line="0" name="commit footer references" time="0" timestamp="date">
+                <testcase classname="{0}" file="https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/blob/development/gitlab_release/README.md" line="0" name="No commit footer references found" time="0" timestamp="date">
                     <failure message="No References in the commit footer" type="validation">{1}</failure>
                     <system-out>
                         <![CDATA[ {1} ]]>
