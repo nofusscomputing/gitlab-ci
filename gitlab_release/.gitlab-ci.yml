@@ -62,7 +62,7 @@ commit footer refs:
     before_script:
         - mkdir -p "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"
         - mkdir -p "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests"
-        - if [ "0$JOB_ROOT_DIR" == "0" ]; then ROOT_DIR=$DEFAULT_ROOT_DIR; else ROOT_DIR=$JOB_ROOT_DIR ; fi
+        - if [ "0$JOB_ROOT_DIR" == "0" ]; then export ROOT_DIR=$DEFAULT_ROOT_DIR; else export ROOT_DIR=$JOB_ROOT_DIR ; fi
         - echo "[DEBUG] ROOT_DIR[$ROOT_DIR]"
         - apt update
         - apt install --no-install-recommends -y git

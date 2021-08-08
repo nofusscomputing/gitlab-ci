@@ -76,7 +76,7 @@ class Commits:
         for commit in self._failed:
             for key in commit:
                 junit_testcase += '''
-                <testcase classname="{0}" file="https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/blob/development/gitlab_release/README.md" line="0" name="No commit footer references found" time="0" timestamp="date">
+                <testcase classname="{0}" file="{2}/gitlab_release/README.md" line="0" name="No commit footer references found" time="0" timestamp="date">
                     <failure message="No References in the commit footer" type="validation">{1}</failure>
                     <system-out>
                         <![CDATA[ {1} ]]>
@@ -84,11 +84,11 @@ class Commits:
                     <system-err>
                     <![CDATA[ {1} ]]>
                 </system-err>
-            </testcase>'''.format(key, str(commit[key]))
+            </testcase>'''.format(key, str(commit[key], os.environ['ROOT_DIR']))
 
 
         if junit_testcase == '':
-           junit_testcase = '<testcase classname="nil" file="https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/blob/development/gitlab_release/README.md" name="commit footer references"/>'
+           junit_testcase = '<testcase classname="Commit footer references check" file="' + os.environ['ROOT_DIR'] + '/gitlab_release/README.md" name="has commit footer references"/>'
 
         junit_close = '</testsuite></testsuites>'
         print(str(junit_testsuites))
