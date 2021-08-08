@@ -88,7 +88,7 @@ commit footer refs:
       - if: '$CI_COMMIT_BRANCH == "master"'
       - if: '$CI_COMMIT_BRANCH == "development"'
         when: never
-      - if: '$CI_COMMIT_BRANCH'
+      - if: '$CI_COMMIT_BRANCH && $CHANGELOG_FOOTER_REFERENCES != "False"'
         when: always
       - when: never
 
