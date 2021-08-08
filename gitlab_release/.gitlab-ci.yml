@@ -53,3 +53,42 @@
           allow_failure: true
         - when: never
 
+
+commit footer refs:
+    stage: validation
+    image: python:3.6-slim
+    variables:
+        DEFAULT_ROOT_DIR: './gitlab-ci'
+    before_script:
+        - mkdir -p "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"
+        - mkdir -p "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests"
+        - if [ "0$JOB_ROOT_DIR" == "0" ]; then ROOT_DIR=$DEFAULT_ROOT_DIR; else ROOT_DIR=$JOB_ROOT_DIR ; fi
+        - echo "[DEBUG] ROOT_DIR[$ROOT_DIR]"
+        - apt update
+        - apt install --no-install-recommends -y git
+        - pip install -e $ROOT_DIR/gitlab_release/python-module/commit_footer/.
+        - git clone --depth 150 -b development $CI_REPOSITORY_URL check
+        - cd check
+        - git remote rm origin
+        - git remote add origin $CI_REPOSITORY_URL
+        - git fetch --all
+        - git checkout --track origin/$CI_COMMIT_BRANCH
+        - git submodule update --init
+    script:
+        - commit_footer > "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/$CI_JOB_NAME.junit.xml"
+    artifacts:
+        expire_in: 1 days
+        when: always
+        paths:
+            - "$CI_PROJECT_DIR/artifacts/*"
+        reports:
+            junit:
+                - "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/*.junit.xml"
+    rules:
+      - if: '$CI_COMMIT_BRANCH == "master"'
+      - if: '$CI_COMMIT_BRANCH == "development"'
+        when: never
+      - if: '$CI_COMMIT_BRANCH'
+        when: always
+      - when: never
+
