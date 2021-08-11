@@ -73,7 +73,8 @@ git submodule update --remote
 
 |  :bulb: Tip  |
 |:-----|
-|  NOTE: `{ref}` should be replaced with the branch name, `master` is the stable branch and recommended. by default the sub-module will be created in folder `gitlab-ci`, it is recommended that you **don't** change this folder name.  |
+|  NOTE: `{ref}` should be replaced with the branch name, `master` is the stable branch and recommended. by default the sub-module will be created in folder `gitlab-ci`, it is recommended that you **don't** change this folder name.  
+You can also substitute the gitlab url with the github url `https://github.com/NoFussComputing/gitlab-ci.git` for the submodule if you desire. this repo is auto-synced with github on each change to the repo.  |
 
 After each `git submodule update --remote` you will have to commit the sub-module update to your repo. Suggested commands as follows:
 ``` bash
