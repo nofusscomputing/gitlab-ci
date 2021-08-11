@@ -12,6 +12,12 @@ include:
   - local: $JOB_ROOT_DIR/conventional_commits/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/git_push_mirror/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/gitlab_release/.gitlab-ci.yml
+  - local: $JOB_ROOT_DIR/python/.gitlab-ci.yml
+
+PyLint:
+    extends:
+        - .PyLint
+    image: python:3.6-slim
 
 
 gilab-ci.yml Lint (python 3.6):
