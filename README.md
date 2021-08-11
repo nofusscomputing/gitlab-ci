@@ -21,6 +21,15 @@ This repository has been designed as a central point for your repositories CI/CD
 Each CI/CD job is contained within its own sub-folder. Each sub-folder has a readme specific to the job, which includes the details on how to implement, use etc.
 
 
+### gitlab-ci layout
+
+We use the following branches:
+ - `master` - Considered as the stable branch
+ - `development` considered as unstable
+
+We also tag each branch to denote the version of release. We use our own repo to do the version increment automagically in line with [semantic versioning](https://semver.org/).
+
+
 
 ### CI Stages
 The CI stages for these jobs are as follows, and in the order expected by the jobs:
@@ -45,6 +54,7 @@ The CI stages for these jobs are as follows, and in the order expected by the jo
 
 - publish
     > placement of build objects to external sources
+
 
 ### Artifacts
 Any artifacts by jobs will be created in folders named after the stage.
@@ -76,6 +86,7 @@ git commit -m "ci(gitlab-ci): updated to use version x
 {your reason here or explain what is provided/changed}"
 ```
 Then push the changes to your source.
+
 
 ## Contributing
 All contributions for this project must conducted from [Gitlab](https://gitlab.com/nofusscomputing/projects/gitlab-ci).
