@@ -13,7 +13,7 @@ class Commits:
         self._repository = git.Repo(os.getcwd())
         
         self._failed = []
-        merge_base = self._repository.merge_base('development', 'changelog-footer-toggle')
+        merge_base = self._repository.merge_base('development', self._repository.active_branch)
         self._merge_base = str(merge_base[0])
 
         self.fetch_all()
