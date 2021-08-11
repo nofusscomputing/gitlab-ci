@@ -50,11 +50,11 @@
             junit:
                 - "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/*.junit.xml"
     rules:
-      - if: '$CI_COMMIT_BRANCH == "master"'
-        when: never
-      - if: '$CI_COMMIT_BRANCH'
-        when: always
-      - when: never
+        - if: '$CI_COMMIT_BRANCH == "master"'
+          when: never
+        - if: '$CI_COMMIT_BRANCH'
+          when: always
+        - when: never
 
 
 MR Title:
