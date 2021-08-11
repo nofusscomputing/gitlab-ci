@@ -22,13 +22,13 @@
     after_script:
         - echo deactivate
     artifacts:
-      expire_in: 3 days
-      when: always
-      paths:
-          - "artifacts/*"
-      reports:
-          junit:
-              - "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/*.junit.xml"
+        expire_in: 3 days
+        when: always
+        paths:
+            - "artifacts/*"
+        reports:
+            junit:
+                - "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/*.junit.xml"
     rules:
         - if: '$CI_COMMIT_BRANCH == "master"'
           when: never
