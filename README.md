@@ -65,6 +65,17 @@ git submodule update --remote
 |:-----|
 |  NOTE: `{ref}` should be replaced with the branch name, `master` is the stable branch and recommended. by default the sub-module will be created in folder `gitlab-ci`, it is recommended that you **don't** change this folder name.  |
 
+After each `git submodule update --remote` you will have to commit the sub-module update to your repo. Suggested commands as follows:
+``` bash
+git add .gitmodules 
+
+git add gitlab-ci
+
+git commit -m "ci(gitlab-ci): updated to use version x
+
+{your reason here or explain what is provided/changed}"
+```
+Then push the changes to your source.
 
 ## Contributing
 All contributions for this project must conducted from [Gitlab](https://gitlab.com/nofusscomputing/projects/gitlab-ci).
