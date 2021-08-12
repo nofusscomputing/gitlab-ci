@@ -11,3 +11,7 @@ dev_env/
 
 # ignore gitlab-ci artifacts
 artifacts/
+
+
+__pycache__
+*.egg-info
