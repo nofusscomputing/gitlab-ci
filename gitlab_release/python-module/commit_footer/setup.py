@@ -11,4 +11,3 @@ setup(
         'console_scripts': ['commit_footer=cli:main'],
     },
 )
-
