@@ -61,6 +61,7 @@ include:
 PyLint:
     variables:
         PYLINT_PATH: "/*/*.py"
+        PYLINT_RC_PATH: "."
     extends:
         - .PyLint
     image: python:3.6-slim
@@ -72,6 +73,7 @@ PyLint:
 | var name | Description |
 |:----:|:----|
 | PYLINT_PATH | *The path you wish the linter to search for python files* |
+| PYLINT_RC_PATH | *The path to your `.pylintrc` file.* |
 
 
 ## Job Workflow
