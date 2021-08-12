@@ -1,5 +1,18 @@
 # Changelog
 
+2021-08-11 13:47:34 +0930 [def31ef](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/def31ef562c0002713401652657d59320548ee85) - style(yaml_lint): fixed yaml lint errors  
+2021-08-11 12:17:50 +0930 [63af1ef](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/63af1efb4fd92a9f8755f766728a18d8f390b805) - fix(commit_footer_refs): Use the current git branch for comparison.  
+2021-08-08 15:57:50 +0930 [dc13d4f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/dc13d4f2841038c085dcf29dfb0b0c5d2f00f099) - docs(gitlab_release): Added user docs to fix errors from ci job 'commit footer refs'  
+2021-08-08 15:28:00 +0930 [22136f7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/22136f7dd22b9487d362a7ed63ca1b76e52b9cc7) - feat(gitlab_release): Toggle var added to enable switching changelog references.  
+2021-08-08 15:18:11 +0930 [eb0bf4c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/eb0bf4c1740dbd7a47ceb031c0d1c854899a1e40) - refactor(gitlab_release): file link to be in local repository for helping fix commit footer ref check failures  
+2021-08-08 15:05:35 +0930 [8177622](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/81776223c5cb392c12c7ca63488a1df10290e9d1) - refactor(gitlab_release): use a name for failed test to denote the issue  
+2021-08-08 15:03:12 +0930 [756b940](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/756b9406dde8cf0bf0030ac72855a054ece3a883) - feat(gitlab_release): be able to toggle commit footer check job  
+2021-08-08 14:51:57 +0930 [7cb676e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7cb676eb98a7de30d47a6b49a87067116684cfd2) - ci(gitlab_release): Add a validation job to check if commit messages contain a gitlab reference in the footer  
+2021-08-08 14:50:34 +0930 [11e1566](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/11e156619d0d820e534897bafd5f39e6f9defcbf) - feat(gitlab_release): python module to check if a commit message has gitlab references in the footer  
+2021-08-07 17:11:17 +0930 [8699c41](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8699c41219d70e6f41f42dc7f2c1bcf542b3f723) - feat(gitlab_release): Add commit footer to changelog  
+2021-08-07 14:56:51 +0930 [5f273ce](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5f273ce23a331eaf11623207ec4aba8b856c14f0) - docs(gitlab_release): Updated docs with new instructions on version incrementing  
+2021-08-07 14:31:19 +0930 [f76cabe](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/f76cabeeb04b028a231dc1c232862db5fcad4345) - fix(gitlab_release): Adjust release workflow  
+2021-08-04 03:23:08 +0000 [eb5cc8a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/eb5cc8a0e2885a9ed16a8d1a81611aec4d5a4d31) - build(version): bump version 0.3.0rc0 → 0.3.0rc1  
 2021-08-04 03:13:54 +0000 [09dcb65](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/09dcb65b090f59e9f8a6bea5eba4bb98bddbad3d) - build(version): bump version 0.2.1 → 0.3.0rc0  
 2021-08-04 12:39:01 +0930 [3e8c3ce](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3e8c3ce7cd64a6e9110818d32c15c3602fefb76c) - feat(gitlab_release): On the development brnach, releases to be 'rc' to denote considered non-stable  
 2021-08-04 12:24:02 +0930 [cc3fabd](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/cc3fabdaa28f97c3e1600e4a0d95a05bb547e772) - refactor(gitlab_release): Use Short commit SHA1 in main changelog link to gitlab  
