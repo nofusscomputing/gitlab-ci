@@ -1,22 +1,17 @@
-# No Fuss Computing - Gitlab-CI
-
 <div align="center">
+
+# No Fuss Computing - Gitlab-CI
 
 [![Open Issues](https://img.shields.io/badge/dynamic/json?color=ff782e&logo=gitlab&style=plastic&label=Open%20Issues&query=%24.statistics.counts.opened&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F28543717%2Fissues_statistics)](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues)
 
 
-| Stable Branch |  
-[![Gitlab build status - stable](https://img.shields.io/badge/dynamic/json?color=ff782e&label=Build&query=0.status&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F28543717%2Fpipelines%3Fref%3Dmaster&logo=gitlab&style=plastic)](https://gitlab.com/nofusscomputing/projects/gitlab-ci)  |
-[![PyLint Score](https://img.shields.io/badge/dynamic/json?&style=plastic&logo=python&label=PyLint%20Score&query=%24.PyLintScore&url=https%3A%2F%2Fgitlab.com%2Fnofusscomputing%2Fprojects%2Fgitlab-ci%2F-%2Fjobs%2Fartifacts%2Fmaster%2Fraw%2Fartifacts%2Fvalidation%2FPyLint%2Fbadge_pylint.json%3Fjob%3DPyLint)](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/jobs/artifacts/master/file/artifacts/validation/tests/gl-code-quality-report.html?job=PyLint)  |
+| Stable Branch |  [![Gitlab build status - stable](https://img.shields.io/badge/dynamic/json?color=ff782e&label=Build&query=0.status&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F28543717%2Fpipelines%3Fref%3Dmaster&logo=gitlab&style=plastic)](https://gitlab.com/nofusscomputing/projects/gitlab-ci)  |  [![PyLint Score](https://img.shields.io/badge/dynamic/json?&style=plastic&logo=python&label=PyLint%20Score&query=%24.PyLintScore&url=https%3A%2F%2Fgitlab.com%2Fnofusscomputing%2Fprojects%2Fgitlab-ci%2F-%2Fjobs%2Fartifacts%2Fmaster%2Fraw%2Fartifacts%2Fvalidation%2FPyLint%2Fbadge_pylint.json%3Fjob%3DPyLint)](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/jobs/artifacts/master/file/artifacts/validation/tests/gl-code-quality-report.html?job=PyLint)  |
 |:----|:----|:----|
 
-| development Branch |  
-[![Gitlab build status - development](https://img.shields.io/badge/dynamic/json?color=ff782e&label=Build&query=0.status&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F28543717%2Fpipelines%3Fref%3Ddevelopment&logo=gitlab&style=plastic)](https://gitlab.com/nofusscomputing/projects/gitlab-ci)  | 
-[![PyLint Score](https://img.shields.io/badge/dynamic/json?&style=plastic&logo=python&label=PyLint%20Score&query=%24.PyLintScore&url=https%3A%2F%2Fgitlab.com%2Fnofusscomputing%2Fprojects%2Fgitlab-ci%2F-%2Fjobs%2Fartifacts%2Fdevelopment%2Fraw%2Fartifacts%2Fvalidation%2FPyLint%2Fbadge_pylint.json%3Fjob%3DPyLint)](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/jobs/artifacts/development/file/artifacts/validation/tests/gl-code-quality-report.html?job=PyLint)  | 
+| development Branch |  [![Gitlab build status - development](https://img.shields.io/badge/dynamic/json?color=ff782e&label=Build&query=0.status&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F28543717%2Fpipelines%3Fref%3Ddevelopment&logo=gitlab&style=plastic)](https://gitlab.com/nofusscomputing/projects/gitlab-ci)  |  [![PyLint Score](https://img.shields.io/badge/dynamic/json?&style=plastic&logo=python&label=PyLint%20Score&query=%24.PyLintScore&url=https%3A%2F%2Fgitlab.com%2Fnofusscomputing%2Fprojects%2Fgitlab-ci%2F-%2Fjobs%2Fartifacts%2Fdevelopment%2Fraw%2Fartifacts%2Fvalidation%2FPyLint%2Fbadge_pylint.json%3Fjob%3DPyLint)](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/jobs/artifacts/development/file/artifacts/validation/tests/gl-code-quality-report.html?job=PyLint)  | 
 |:----|:----|:----|
 
 </div>
-
 
 This repository is hosted on [gitlab.com](https://gitlab.com/nofusscomputing/projects/gitlab-ci) and has a read-only copy hosted on [github.com](https://github.com/NoFussComputing/gitlab-ci).
 
