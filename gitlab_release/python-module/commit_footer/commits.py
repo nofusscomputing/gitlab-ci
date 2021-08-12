@@ -59,7 +59,7 @@ class Commits:
 
             commit_footer = re.findall(r"([\!|\#][0-9]+)", str(git_message))
 
-            if len(footer) > 0:
+            if len(commit_footer) > 0:
                 footer = commit_footer
             else:
                 footer = False
