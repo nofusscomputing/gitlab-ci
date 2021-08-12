@@ -1,3 +1,46 @@
+## v0.3.0 (2021-08-12)
+
+### BREAKING CHANGE
+
+- !2
+
+### Bug Fixes
+
+- **commit_message**: [3360a15f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3360a15fde12682edfd9044d2541dc819615b838) - fixed commit message check if there is only one commit to the branch [ [!7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/7) ]
+- **commit_footer_refs**: [63af1efb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/63af1efb4fd92a9f8755f766728a18d8f390b805) - Use the current git branch for comparison. [ [!5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/5) [#1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/1) ]
+- **gitlab_release**: [f76cabee](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/f76cabeeb04b028a231dc1c232862db5fcad4345) - Adjust release workflow [ [!2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/2) ]
+
+### Code Refactor
+
+- **gitlab_release**: [eb0bf4c1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/eb0bf4c1740dbd7a47ceb031c0d1c854899a1e40) - file link to be in local repository for helping fix commit footer ref check failures [ [#4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/4) ]
+- **gitlab_release**: [81776223](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/81776223c5cb392c12c7ca63488a1df10290e9d1) - use a name for failed test to denote the issue [ [#4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/4) ]
+
+### Continious Integration
+
+- **gitlab_release**: [7cb676eb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7cb676eb98a7de30d47a6b49a87067116684cfd2) - Add a validation job to check if commit messages contain a gitlab reference in the footer [ [#4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/4) ]
+
+### Documentaton / Guides
+
+- **readme**: [0653766c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0653766c935cb117082bfe1481ae83e4a1b2bb5c) - Updated badges and intro [ [!5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/5) ]
+- **gitlab_templates**: [9f7a24c1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9f7a24c1ebc0bdb5a153977dcb1c53d7ec2fb140) - added issue and merge request templates [ [#1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/1) ]
+- **template**: [da8eb5c3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/da8eb5c3381379f6e405c3ebe14d9a883c52f41a) - added template readme for CI job folders [ [#1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/1) ]
+- **readme**: [ace7a034](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ace7a03456861d59e2f904405f45409c53e831ab) - explain sync and using github to link gitlab-ci [ [!5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/5) [#1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/1) ]
+- **readme**: [8790917e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8790917e7d959aa7b8305912bb443ba6b72200c6) - explain repo layout and versioning [ [!5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/5) ]
+- **readme**: [19900945](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/19900945e763249b6ef7a9e2e2cbcf11748b1eea) - added how to update gitlab-ci [ [!5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/5) ]
+- **readme**: [8a988ebf](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8a988ebf09015211f8f6566acc0ba71c1f00bee1) - Added how to use this repository [ [!5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/5) ]
+- **gitlab_release**: [dc13d4f2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/dc13d4f2841038c085dcf29dfb0b0c5d2f00f099) - Added user docs to fix errors from ci job 'commit footer refs' [ [#3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/3) [#4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/4) ]
+- **changelog**: [35edb7cf](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/35edb7cfc59e2d147bdb5cb5d03710ec747073ae) - Updated changelog to new layout [ [!3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/3) [#3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/3) ]
+- **gitlab_release**: [5f273ce2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5f273ce23a331eaf11623207ec4aba8b856c14f0) - Updated docs with new instructions on version incrementing [ [!2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/2) ]
+
+### Features
+
+- **python_linting**: [d6105624](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d61056243804728e059b99fce1644a8cc37230bb) - added ci job, python linting, code quality and scoring [ [#1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/1) ]
+- **yaml_lint**: [d20a56fa](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d20a56fa0ca492e3fc2ad7c548fc891cc8ffc8ec) - Added job yaml lint for checking yaml files [ [#1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/1) ]
+- **gitlab_release**: [22136f7d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/22136f7dd22b9487d362a7ed63ca1b76e52b9cc7) - Toggle var added to enable switching changelog references. [ [#3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/3) ]
+- **gitlab_release**: [756b9406](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/756b9406dde8cf0bf0030ac72855a054ece3a883) - be able to toggle commit footer check job [ [#4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/4) ]
+- **gitlab_release**: [11e15661](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/11e156619d0d820e534897bafd5f39e6f9defcbf) - python module to check if a commit message has gitlab references in the footer [ [#4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/4) ]
+- **gitlab_release**: [8699c412](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8699c41219d70e6f41f42dc7f2c1bcf542b3f723) - Add commit footer to changelog [ [!1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/1) [#3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/3) ]
+
 ## v0.3.0rc1 (2021-08-04)
 
 ### Documentaton / Guides
