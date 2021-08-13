@@ -2,19 +2,37 @@
 #-*- coding: utf-8 -*-
 
 import os
-import git as Git
 import re
+
+import git as Git
 
 from commitizen import git
 from commitizen.cz.base import BaseCommitizen
 
 
-class nfc_cz(BaseCommitizen):
+class NoFussCz(BaseCommitizen):
     bump_pattern = r"^(break|new|fix|feat|hotfix|ci|docs)"
-    bump_map = {"break": "MAJOR", "new": "MINOR", "feat": "MINOR","fix": "PATCH", "hotfix": "PATCH", "ci": "PATCH", "docs": "PATCH"}
+    bump_map = {
+        "break": "MAJOR",
+        "new": "MINOR",
+        "feat": "MINOR",
+        "fix": "PATCH",
+        "hotfix": "PATCH",
+        "ci": "PATCH",
+        "docs": "PATCH"
+    }
 
     changelog_pattern = "^(break|new|fix|feat|hotfix|refactor|ci|docs)"
-    change_type_order = ["BREAKING CHANGE", "feat", "fix", "refactor", "perf", "docs", "ci"]
+    change_type_order = [
+        "BREAKING CHANGE",
+        "feat",
+        "fix",
+        "refactor",
+        "perf",
+        "docs",
+        "ci"
+    ]
+
     change_type_map = {
         "feat": "Features",
         "fix": "Bug Fixes",
@@ -82,8 +100,9 @@ class nfc_cz(BaseCommitizen):
         else:
             footer_references = ''
 
-        m = parsed_message["message"]
-        parsed_message["message"] = f"[{rev_short}](" + os.environ['CI_PROJECT_URL'] + f"/-/commit/{rev}) - {m}" + footer_references
+        msg = parsed_message["message"]
+        project_url = os.environ['CI_PROJECT_URL']
+        parsed_message["message"] = f"[{rev_short}]({project_url}/-/commit/{rev}) - {msg}{footer_references}"
 
         return parsed_message
 
@@ -95,4 +114,4 @@ class nfc_cz(BaseCommitizen):
         raise NotImplementedError("Not Implemented yet")
 
 
-discover_this = nfc_cz
+discover_this = NoFussCz

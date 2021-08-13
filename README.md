@@ -17,7 +17,7 @@ This repository is hosted on [gitlab.com](https://gitlab.com/nofusscomputing/pro
 
 links:
 
-- [![Open Issues](https://img.shields.io/badge/dynamic/json?color=ff782e&logo=gitlab&style=plastic&label=Open%20Issues&query=%24.statistics.counts.opened&url=https%3A%2F%2Fgitlab.com%2Fapi%2Fv4%2Fprojects%2F28543717%2Fissues_statistics) Issues](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues)
+- [Issues](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues)
 
 - [Merge Requests (Pull Requests)](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests)
 
@@ -30,7 +30,7 @@ Each CI/CD job is contained within its own sub-folder. Each sub-folder has a rea
 
 ### gitlab-ci layout
 
-We use the following branches:
+We use the following branches *(these jobs assume you do as well)*:
  - `master` - Considered as the stable branch
  - `development` considered as unstable
 
@@ -62,12 +62,45 @@ The CI stages for these jobs are as follows, and in the order expected by the jo
 - publish
     > placement of build objects to external sources
 
+### .gitlab-ci.yml example
+
+example:
+``` yaml
+stages:
+    - validation
+    - build
+    - prepare
+    - test
+    - release
+    - sync
+    - publish
+
+variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+    MY_PROJECT_ID: "{your_project_id}"
+
+include:
+  - project: nofusscomputing/projects/gitlab-ci
+    ref: 68b6bc3bfacf0770e10d2e10a5c57952070d44fe
+    file:
+      - conventional_commits/.gitlab-ci.yml
+      - gitlab_release/.gitlab-ci.yml
+      - git_push_mirror/.gitlab-ci.yml
+      - ansible/.gitlab-ci.yml
+
+```
+| :bulb: Tip |
+|:----|
+|  *Use a project import in your `.gitlab-ci.yml` file that is tied to a specific `ref`. for example a commit or tag. Also ensure that the `gitlab-ci` `git sub-module` and the `ref` as part of the includes matches.*  |
+
 
 ### Artifacts
 Any artifacts by jobs will be created in folders named after the stage.
 
 preference is placed on jobs to output JUnit.xml test reports. This is because they are visible in merge requests.
 
+
+## Git Sub-Module setup
 
 It is recommended that you set-up this repo as a git sub-module to your repo and that you configure it to a set commit/tag. This ensures that any change to `gitlab-ci` repo, does not effect your CI/CD jobs.
 

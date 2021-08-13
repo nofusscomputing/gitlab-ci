@@ -1,7 +1,6 @@
 #-*- coding: utf-8 -*-
 
-from commit_footer.cli import main
+import cli
 
 if __name__ == '__main__':
-   main()
-
+    cli.main()
