@@ -1,5 +1,6 @@
 # Changelog
 
+2021-08-12 03:32:36 +0000 [389bc08](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/389bc08d7686153fb374aa83d440c35c9b4eac90) - build(version): bump version 0.3.0rc1 → 0.3.0  
 2021-08-12 12:47:23 +0930 [3360a15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3360a15fde12682edfd9044d2541dc819615b838) - fix(commit_message): fixed commit message check if there is only one commit to the branch  
 2021-08-11 13:47:34 +0930 [def31ef](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/def31ef562c0002713401652657d59320548ee85) - style(yaml_lint): fixed yaml lint errors  
 2021-08-04 03:23:08 +0000 [eb5cc8a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/eb5cc8a0e2885a9ed16a8d1a81611aec4d5a4d31) - build(version): bump version 0.3.0rc0 → 0.3.0rc1  
