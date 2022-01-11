@@ -7,6 +7,7 @@
 .PyLint:
     variables:
         PYLINT_PATH: "/*/python-module/*/*.py"
+        PYLINT_RC_PATH: "/python/.pylintrc"
     stage: validation
     before_script:
         - if [ "0$JOB_ROOT_DIR" == "0" ]; then ROOT_DIR=gitlab-ci; else ROOT_DIR=$JOB_ROOT_DIR ; fi
@@ -24,11 +25,13 @@
     script:
         - PYLINT_PATH=$ROOT_DIR$PYLINT_PATH
         - echo "[DEBUG] PYLINT_PATH[$PYLINT_PATH]"
-        - python3 -m pylint --exit-zero --output-format=pylint_gitlab.GitlabCodeClimateReporter $PYLINT_PATH > "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/gl-code-quality-report.json"
+        - PYLINT_RC_PATH=$ROOT_DIR$PYLINT_RC_PATH
+        - echo "[DEBUG] PYLINT_RC_PATH[$PYLINT_RC_PATH]"
+        - python3 -m pylint --rcfile $PYLINT_RC_PATH --exit-zero --output-format=pylint_gitlab.GitlabCodeClimateReporter $PYLINT_PATH > "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/gl-code-quality-report.json"
 
-        - python3 -m pylint --exit-zero --output-format=pylint_gitlab.GitlabPagesHtmlReporter $PYLINT_PATH > "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/gl-code-quality-report.html"
+        - python3 -m pylint --rcfile $PYLINT_RC_PATH --exit-zero --output-format=pylint_gitlab.GitlabPagesHtmlReporter $PYLINT_PATH > "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/gl-code-quality-report.html"
 
-        - PyPIScore=$(python3 -m pylint --exit-zero $PYLINT_PATH | sed -n 's/^Your code has been rated at \([-0-9./]*\).*/\1/p')
+        - PyPIScore=$(python3 -m pylint --rcfile $PYLINT_RC_PATH --exit-zero $PYLINT_PATH | sed -n 's/^Your code has been rated at \([-0-9./]*\).*/\1/p')
 
         - *pylint_badge
 
