@@ -1,5 +1,11 @@
 # Changelog
 
+2021-08-12 14:46:26 +0930 [2ac22c0](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/2ac22c0e914016a8944ff9b94640f3e87f409069) - fix(commit_footer): fix bug introduced in code quality commit  
+2021-08-12 14:42:16 +0930 [ccc601f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ccc601f641a9b07b63a160d779c5037481316e75) - style(cz_nfc): code quality on cz_nfc.py  
+2021-08-12 14:27:41 +0930 [5676c5e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5676c5ee376f574a8581e8c8f4810eb5a7c511ba) - style(commit_footer): code quality on setup.py  
+2021-08-12 14:26:43 +0930 [3d69e57](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3d69e57714cd529b13ddc9c575c2dc955a350dd9) - style(commit_footer): code quality on __main__.py  
+2021-08-12 14:21:34 +0930 [c093c31](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/c093c31cbd12989f7109dbcb6fd4f029c42a3919) - style(commit_footer): code quality on commits.py  
+2021-08-12 03:32:36 +0000 [389bc08](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/389bc08d7686153fb374aa83d440c35c9b4eac90) - build(version): bump version 0.3.0rc1 → 0.3.0  
 2021-08-11 13:47:34 +0930 [def31ef](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/def31ef562c0002713401652657d59320548ee85) - style(yaml_lint): fixed yaml lint errors  
 2021-08-11 12:17:50 +0930 [63af1ef](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/63af1efb4fd92a9f8755f766728a18d8f390b805) - fix(commit_footer_refs): Use the current git branch for comparison.  
 2021-08-08 15:57:50 +0930 [dc13d4f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/dc13d4f2841038c085dcf29dfb0b0c5d2f00f099) - docs(gitlab_release): Added user docs to fix errors from ci job 'commit footer refs'  

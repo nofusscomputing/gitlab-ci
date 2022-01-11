@@ -1,3 +1,15 @@
+## v0.3.1 (2022-01-11)
+
+### Bug Fixes
+
+- **pylint**: [4b6cc317](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/4b6cc3176fc4acc3b7dbb954162802af9cbb4c68) - install the required packages for files being checked [ [#7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/7) ]
+- **pylint**: [936299ae](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/936299aefc6eadf9cbfec3152b352b321969cfab) - fix bug introduced in code quality commit [ [#7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/7) ]
+- **commit_footer**: [2ac22c0e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/2ac22c0e914016a8944ff9b94640f3e87f409069) - fix bug introduced in code quality commit [ [#7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/7) ]
+
+### Documentaton / Guides
+
+- **readme**: [8ac36de8](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8ac36de8e0f113ce17d54dfce1345a0adab41bc8) - Updated with an example .gitlab-ci.yml example [ [#2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/2) [!10](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/10) ]
+
 ## v0.3.0 (2021-08-12)
 
 ### BREAKING CHANGE
