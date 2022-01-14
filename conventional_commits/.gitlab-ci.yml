@@ -23,18 +23,12 @@
         - echo "[DEBUG] CI_PROJECT_ID[$CI_PROJECT_ID]"
         - echo "[DEBUG] CI_COMMIT_BRANCH[$CI_COMMIT_BRANCH]"
         - $ROOT_DIR/conventional_commits/scripts/commit.py --token "$MR_ACCESS_TOKEN" --project $PROJECT_ID --branch $CI_COMMIT_BRANCH --target-branch
-        - target_branch=$($ROOT_DIR/conventional_commits/scripts/commit.py --token "$MR_ACCESS_TOKEN" --project $PROJECT_ID --branch $CI_COMMIT_BRANCH --target-branch)
-
-        - echo "[DEBUG] Target Branch[$target_branch]"
-        - git clone --depth 150 -b $target_branch $CI_REPOSITORY_URL check
-        - cd check
-        - git remote rm origin
-        - git remote add origin $CI_REPOSITORY_URL
-        - git fetch --all
         - git checkout --track origin/$CI_COMMIT_BRANCH
-        - git submodule update --init
+        - git show-branch -a
+        - target_branch=$(git show-branch -a | awk 'BEGIN { FS="\n\s+*" } { print $1 }' | awk '{print $2}' | grep '\[' | sed 's/.*\[origin\/\(.*\)\].*/\1/' | grep -v '\[' | grep -v $(git rev-parse --abbrev-ref HEAD) | grep -vi 'HEAD' | awk 'BEGIN{ RS = "" ; FS = "\n" }{print $1}')
+        - echo "[DEBUG] Target Branch[$target_branch]"
         - if [ -d "gitlab-ci" ]; then ls -la gitlab-ci; fi
-        - first_sha1=$(git log $target_branch..$CI_COMMIT_BRANCH --format=format:%H | tail -1)
+        - first_sha1=$(git log origin/$target_branch..$CI_COMMIT_BRANCH --format=format:%H | tail -1)
         - echo "[DEBUG] First Commit SHA[$first_sha1]"
         - echo "[DEBUG] artifacts directory [$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME]"
     after_script:
