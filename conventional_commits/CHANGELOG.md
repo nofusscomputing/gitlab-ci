@@ -1,5 +1,13 @@
 # Changelog
 
+2022-01-15 13:14:58 +0930 [e5531fc](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e5531fc77b5bdb1ccc0741e388df2d8d25ba6ade) - feat(commit.py): throw an error if no token was supplied. i.e. empty variable.  
+2022-01-15 13:07:56 +0930 [6b7ad95](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6b7ad95fc0ccccf79ff645bad3f86660f5096a4e) - feat(commit.py): confirm a merge request was found, if not output 'ci: No Merge Request found'  
+2022-01-15 13:05:30 +0930 [c543c47](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/c543c47af8c7c386ae57f5a7a50904d396758c3a) - feat(commit.py): try to us `CI_JOB_TOKEN` before the specified token, if any.  
+2022-01-15 12:29:23 +0930 [99bdc2a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/99bdc2a0929d4e7036e50e8ce22ce9b0f90f0736) - fix(commit.py): fix typo that caused exception  
+2022-01-15 12:23:54 +0930 [d03d9fe](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d03d9fefc916dd6730d9ffa778c11d48d621318e) - fix(conventional_commits): fetch all branches prior to check for parent branch  
+2022-01-15 12:18:15 +0930 [b01550e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/b01550e09f273edc8a57f4ad4b41ee2d67705d41) - feat(commit.py): removed ability to fetch first commit or target branch  
+2022-01-15 12:04:07 +0930 [42ad02e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/42ad02ee5db65c3c6c33ad14fe0371c9916897bf) - fix(conventional_commits): use git show-branch to find origin branch  
+2022-01-11 07:03:09 +0000 [7751fd9](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7751fd9494f610fff0ea16bd303bfe62d0034eec) - build(version): bump version 0.3.0 → 0.3.1  
 2021-08-12 03:32:36 +0000 [389bc08](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/389bc08d7686153fb374aa83d440c35c9b4eac90) - build(version): bump version 0.3.0rc1 → 0.3.0  
 2021-08-12 12:47:23 +0930 [3360a15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3360a15fde12682edfd9044d2541dc819615b838) - fix(commit_message): fixed commit message check if there is only one commit to the branch  
 2021-08-11 13:47:34 +0930 [def31ef](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/def31ef562c0002713401652657d59320548ee85) - style(yaml_lint): fixed yaml lint errors  

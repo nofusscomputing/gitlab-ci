@@ -1,5 +1,6 @@
 # Changelog
 
+2022-01-11 07:03:09 +0000 [7751fd9](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7751fd9494f610fff0ea16bd303bfe62d0034eec) - build(version): bump version 0.3.0 → 0.3.1  
 2021-08-12 14:46:26 +0930 [2ac22c0](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/2ac22c0e914016a8944ff9b94640f3e87f409069) - fix(commit_footer): fix bug introduced in code quality commit  
 2021-08-12 14:42:16 +0930 [ccc601f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ccc601f641a9b07b63a160d779c5037481316e75) - style(cz_nfc): code quality on cz_nfc.py  
 2021-08-12 14:27:41 +0930 [5676c5e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5676c5ee376f574a8581e8c8f4810eb5a7c511ba) - style(commit_footer): code quality on setup.py  

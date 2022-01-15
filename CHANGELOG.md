@@ -1,3 +1,19 @@
+## v0.4.0 (2022-01-15)
+
+### Bug Fixes
+
+- **commit.py**: [99bdc2a0](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/99bdc2a0929d4e7036e50e8ce22ce9b0f90f0736) - fix typo that caused exception [ [#6](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/6) [!12](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/12) ]
+- **conventional_commits**: [d03d9fef](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d03d9fefc916dd6730d9ffa778c11d48d621318e) - fetch all branches prior to check for parent branch [ [#6](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/6) [!12](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/12) ]
+- **ci**: [d5782d95](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d5782d95e825d406ea805c425cfefd6752fb6e35) - added variable 'GIT_SUBMODULE_STRATEGY' to be 'recursive' [ [#10](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/10) [!12](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/12) ]
+- **conventional_commits**: [42ad02ee](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/42ad02ee5db65c3c6c33ad14fe0371c9916897bf) - use git show-branch to find origin branch [ [#6](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/6) [!11](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/11) ]
+
+### Features
+
+- **commit.py**: [e5531fc7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e5531fc77b5bdb1ccc0741e388df2d8d25ba6ade) - throw an error if no token was supplied. i.e. empty variable. [ [#11](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/11) [!12](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/12) ]
+- **commit.py**: [6b7ad95f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6b7ad95fc0ccccf79ff645bad3f86660f5096a4e) - confirm a merge request was found, if not output 'ci: No Merge Request found' [ [#11](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/11) [!12](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/12) ]
+- **commit.py**: [c543c47a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/c543c47af8c7c386ae57f5a7a50904d396758c3a) - try to us `CI_JOB_TOKEN` before the specified token, if any. [ [#11](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/11) [!12](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/12) ]
+- **commit.py**: [b01550e0](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/b01550e09f273edc8a57f4ad4b41ee2d67705d41) - removed ability to fetch first commit or target branch [ [#6](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/6) [#6](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/6) [!12](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/12) ]
+
 ## v0.3.1 (2022-01-11)
 
 ### Bug Fixes
