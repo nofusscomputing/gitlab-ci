@@ -85,8 +85,7 @@ commit footer refs:
             junit:
                 - "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/*.junit.xml"
     rules:
-        - if: '$CI_COMMIT_BRANCH == "master"'
-        - if: '$CI_COMMIT_BRANCH == "development"'
+        - if: '$CI_COMMIT_BRANCH == "development" || $CI_COMMIT_BRANCH == "master"'
           when: never
         - if: '$CI_COMMIT_BRANCH && $CHANGELOG_FOOTER_REFERENCES != "False"'
           when: always
