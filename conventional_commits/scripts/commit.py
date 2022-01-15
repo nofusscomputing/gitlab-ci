@@ -13,7 +13,7 @@ get_mr_title = False
 project_id = ''
 
 try:
-   opts, args = getopt.getopt(sys.argv[1:],"hi:t:ti:p:b",["token=", "title", "project=", "branch=""])
+   opts, args = getopt.getopt(sys.argv[1:],"hi:t:ti:p:b",["token=", "title", "project=", "branch="])
 
 except getopt.GetoptError:
    print('test.py [-c | --commit] [-t | --token {token}]')
