@@ -1,5 +1,6 @@
 variables:
     JOB_ROOT_DIR: '.'
+    GIT_SUBMODULE_STRATEGY: recursive
     MY_PROJECT_ID: "28543717"
 
 stages:
