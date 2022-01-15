@@ -26,6 +26,8 @@ for opt, arg in opts:
         print('[commit.py] -i <inputfile> -o <outputfile>')
         sys.exit()
     elif opt in ("-t", "--token"):
+       if arg is None:
+         raise ValueError('Token switch was specified, however no token was supplied.')
        ci_job_token = arg
     elif opt in ("-ti", "--title"):
        get_mr_title = True
