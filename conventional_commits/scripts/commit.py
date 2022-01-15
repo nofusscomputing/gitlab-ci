@@ -40,21 +40,32 @@ for opt, arg in opts:
 
 
 url = 'https://gitlab.com/api/v4/projects/' + project_id + '/merge_requests'
-headers = {'PRIVATE-TOKEN': ci_job_token}
+
+merge_requests = ""
 
 try:
-    if os.environ['CI_JOB_TOKEN'] == ci_job_token:
 
-        headers = {'JOB_TOKEN': os.environ['CI_JOB_TOKEN']}
+  if os.environ['CI_JOB_TOKEN'] is not None:
+
+    headers = {'JOB_TOKEN': os.environ['CI_JOB_TOKEN']}
+
+  if os.environ['CI_JOB_TOKEN'] == ci_job_token:
+
+    headers = {'JOB_TOKEN': os.environ['CI_JOB_TOKEN']}
+
+  merge_requests = requests.get(url, headers=headers, data='')
+  merge_requests = merge_requests.json()
   
 except:
     pass
 
-#print('[DEBUG] headers[{0}]'.format(headers))
 
-merge_requests = requests.get(url, headers=headers, data='')
+if not isinstance(merge_requests, list):
+  headers = {'PRIVATE-TOKEN': ci_job_token}
 
-merge_requests = merge_requests.json()
+  merge_requests = requests.get(url, headers=headers, data='')
+
+  merge_requests = merge_requests.json()
 
 
 #print('\n\nmerge_requests=[-{0}-][]\n\n\n\n\n'.format(merge_requests))

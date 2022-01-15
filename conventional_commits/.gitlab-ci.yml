@@ -55,6 +55,10 @@ MR Title:
     extends:
         - .conventional_commit
     script:
+
+        - $ROOT_DIR/conventional_commits/scripts/commit.py --token "$MR_ACCESS_TOKEN" --project $PROJECT_ID --title --branch $CI_COMMIT_BRANCH
+
+
         - cz_exit=0 && cz check --message "$($ROOT_DIR/conventional_commits/scripts/commit.py --token "$MR_ACCESS_TOKEN" --project $PROJECT_ID --title --branch $CI_COMMIT_BRANCH)" > "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/cz_output.log" 2>&1 || cz_exit=$?
         - . $ROOT_DIR/conventional_commits/scripts/cz_junit.sh > "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/$CI_JOB_NAME-cz.junit.xml"
 
