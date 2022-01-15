@@ -9,13 +9,11 @@ import getopt
 import json
 import requests
 
-get_first_commit = False
 get_mr_title = False
-get_target_branch = False
 project_id = ''
 
 try:
-   opts, args = getopt.getopt(sys.argv[1:],"hic:t:ti:p:b:o",["commit","token=", "title", "project=", "branch=", "target-branch"])
+   opts, args = getopt.getopt(sys.argv[1:],"hi:t:ti:p:b",["token=", "title", "project=", "branch=""])
 
 except getopt.GetoptError:
    print('test.py [-c | --commit] [-t | --token {token}]')
@@ -27,8 +25,6 @@ for opt, arg in opts:
     if opt == '-h':
         print('[commit.py] -i <inputfile> -o <outputfile>')
         sys.exit()
-    elif opt in ("-c", "--commit"):
-        get_first_commit = True
     elif opt in ("-t", "--token"):
        ci_job_token = arg
     elif opt in ("-ti", "--title"):
@@ -37,8 +33,7 @@ for opt, arg in opts:
        project_id = str(arg)
     elif opt in ("-b", "--branch"):
        git_branch = arg
-    elif opt in ("-o", "--target-branch"):
-       get_target_branch = True
+
 
 # private token or personal token authentication
 #gl = gitlab.Gitlab('https://gitlab.com', private_token=ci_job_token)
@@ -79,19 +74,7 @@ for mr in merge_requests:
 
     if mr['source_branch'] == git_branch and str(mr['target_project_id']) == str(project_id) and str(mr['state']) == 'opened':
         mr_title = mr['title']
-        mr_first_commit = mr['sha']
-        target_branch = mr['target_branch']
-
         
-
-
-if get_target_branch:
-    print('{0}'.format(target_branch))
-
-
-if get_first_commit:
-
-    print('{0}'.format(mr_first_commit))
 
 
 if get_mr_title:

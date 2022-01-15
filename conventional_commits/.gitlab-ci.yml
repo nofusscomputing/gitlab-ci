@@ -22,7 +22,6 @@
         - pip install -r $ROOT_DIR/conventional_commits/requirements.txt
         - echo "[DEBUG] CI_PROJECT_ID[$CI_PROJECT_ID]"
         - echo "[DEBUG] CI_COMMIT_BRANCH[$CI_COMMIT_BRANCH]"
-        - $ROOT_DIR/conventional_commits/scripts/commit.py --token "$MR_ACCESS_TOKEN" --project $PROJECT_ID --branch $CI_COMMIT_BRANCH --target-branch
         - git checkout --track origin/$CI_COMMIT_BRANCH
         - git show-branch -a
         - target_branch=$(git show-branch -a | awk 'BEGIN { FS="\n\s+*" } { print $1 }' | awk '{print $2}' | grep '\[' | sed 's/.*\[origin\/\(.*\)\].*/\1/' | grep -v '\[' | grep -v $(git rev-parse --abbrev-ref HEAD) | grep -vi 'HEAD' | awk 'BEGIN{ RS = "" ; FS = "\n" }{print $1}')
