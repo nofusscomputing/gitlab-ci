@@ -9,13 +9,11 @@ import getopt
 import json
 import requests
 
-get_first_commit = False
 get_mr_title = False
-get_target_branch = False
 project_id = ''
 
 try:
-   opts, args = getopt.getopt(sys.argv[1:],"hic:t:ti:p:b:o",["commit","token=", "title", "project=", "branch=", "target-branch"])
+   opts, args = getopt.getopt(sys.argv[1:],"hi:t:ti:p:b",["token=", "title", "project=", "branch="])
 
 except getopt.GetoptError:
    print('test.py [-c | --commit] [-t | --token {token}]')
@@ -27,9 +25,9 @@ for opt, arg in opts:
     if opt == '-h':
         print('[commit.py] -i <inputfile> -o <outputfile>')
         sys.exit()
-    elif opt in ("-c", "--commit"):
-        get_first_commit = True
     elif opt in ("-t", "--token"):
+       if arg is None:
+         raise ValueError('Token switch was specified, however no token was supplied.')
        ci_job_token = arg
     elif opt in ("-ti", "--title"):
        get_mr_title = True
@@ -37,29 +35,39 @@ for opt, arg in opts:
        project_id = str(arg)
     elif opt in ("-b", "--branch"):
        git_branch = arg
-    elif opt in ("-o", "--target-branch"):
-       get_target_branch = True
+
 
 # private token or personal token authentication
 #gl = gitlab.Gitlab('https://gitlab.com', private_token=ci_job_token)
 
 
 url = 'https://gitlab.com/api/v4/projects/' + project_id + '/merge_requests'
-headers = {'PRIVATE-TOKEN': ci_job_token}
+
+merge_requests = ""
 
 try:
-    if os.environ['CI_JOB_TOKEN'] == ci_job_token:
 
-        headers = {'JOB_TOKEN': os.environ['CI_JOB_TOKEN']}
+  if os.environ['CI_JOB_TOKEN'] is not None:
+
+    headers = {'JOB_TOKEN': os.environ['CI_JOB_TOKEN']}
+
+  if os.environ['CI_JOB_TOKEN'] == ci_job_token:
+
+    headers = {'JOB_TOKEN': os.environ['CI_JOB_TOKEN']}
+
+  merge_requests = requests.get(url, headers=headers, data='')
+  merge_requests = merge_requests.json()
   
 except:
     pass
 
-#print('[DEBUG] headers[{0}]'.format(headers))
 
-merge_requests = requests.get(url, headers=headers, data='')
+if not isinstance(merge_requests, list):
+  headers = {'PRIVATE-TOKEN': ci_job_token}
 
-merge_requests = merge_requests.json()
+  merge_requests = requests.get(url, headers=headers, data='')
+
+  merge_requests = merge_requests.json()
 
 
 #print('\n\nmerge_requests=[-{0}-][]\n\n\n\n\n'.format(merge_requests))
@@ -73,28 +81,20 @@ mr_title = ''
 mr_first_commit = ''
 target_branch = ''
 
-for mr in merge_requests:
+if isinstance(merge_requests, list):
 
-#    print('\n\nMR=[-{0}-]'.format(mr))
+  if len(merge_requests) > 0:
 
-    if mr['source_branch'] == git_branch and str(mr['target_project_id']) == str(project_id) and str(mr['state']) == 'opened':
+    for mr in merge_requests:
+
+      if mr['source_branch'] == git_branch and str(mr['target_project_id']) == str(project_id) and str(mr['state']) == 'opened':
         mr_title = mr['title']
-        mr_first_commit = mr['sha']
-        target_branch = mr['target_branch']
 
-        
+    if get_mr_title:
 
+      print('{0}'.format(mr_title))
 
-if get_target_branch:
-    print('{0}'.format(target_branch))
+  else:
 
-
-if get_first_commit:
-
-    print('{0}'.format(mr_first_commit))
-
-
-if get_mr_title:
-
-    print('{0}'.format(mr_title))
+    print('ci: No Merge Request found')
 
