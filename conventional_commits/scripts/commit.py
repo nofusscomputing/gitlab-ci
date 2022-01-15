@@ -79,16 +79,20 @@ mr_title = ''
 mr_first_commit = ''
 target_branch = ''
 
-for mr in merge_requests:
+if isinstance(merge_requests, list):
 
-#    print('\n\nMR=[-{0}-]'.format(mr))
+  if len(merge_requests) > 0:
 
-    if mr['source_branch'] == git_branch and str(mr['target_project_id']) == str(project_id) and str(mr['state']) == 'opened':
+    for mr in merge_requests:
+
+      if mr['source_branch'] == git_branch and str(mr['target_project_id']) == str(project_id) and str(mr['state']) == 'opened':
         mr_title = mr['title']
-        
 
+    if get_mr_title:
 
-if get_mr_title:
+      print('{0}'.format(mr_title))
 
-    print('{0}'.format(mr_title))
+  else:
+
+    print('ci: No Merge Request found')
 
