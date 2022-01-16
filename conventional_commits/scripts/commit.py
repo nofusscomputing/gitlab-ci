@@ -41,7 +41,7 @@ for opt, arg in opts:
 #gl = gitlab.Gitlab('https://gitlab.com', private_token=ci_job_token)
 
 
-url = 'https://gitlab.com/api/v4/projects/' + project_id + '/merge_requests'
+url = 'https://gitlab.com/api/v4/projects/' + project_id + '/merge_requests?state=opened&source_branch=' + git_branch
 
 merge_requests = ""
 
@@ -77,7 +77,7 @@ if not isinstance(merge_requests, list):
 #mrs = gl.mergerequests.list()
 
 
-mr_title = ''
+mr_title = 'failed to fetch Merge Request title'
 mr_first_commit = ''
 target_branch = ''
 
@@ -96,5 +96,5 @@ if isinstance(merge_requests, list):
 
   else:
 
-    print('ci: No Merge Request found')
+    print('ci: No Merge Request found, MR count "0"')
 
