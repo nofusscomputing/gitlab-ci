@@ -1,3 +1,22 @@
+## v0.5.0 (2022-01-16)
+
+### Bug Fixes
+
+- **commit.py**: [73918f2f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/73918f2f5e19440d0e300da3a20712739c316d88) - filter merge request search to 'opened' and on current branch. [ [#6](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/6) [!13](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/13) ]
+
+### Continious Integration
+
+- **MR_Title**: [31517b4b](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/31517b4bf00c1f177ef925d09b1a6714577f62c5) - save the merge request title as a variable and debug output in job log. [ [!13](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/13) ]
+
+### Documentaton / Guides
+
+- **README.md**: [f4670844](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/f4670844cc0961bf38fbf760f8eee505a54ab495) - Added project header template [ [!13](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/13) ]
+
+### Features
+
+- **.yaml_lint_defaults**: [140985c3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/140985c3a4ea07cf30f7fe8c970fb07cc61b776d) - Always run on all branches as this denotes quality. [ [!13](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/13) ]
+- **commit_footer_refs**: [82c6c9f5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/82c6c9f5d53594544cea9a7bc59a10ab1e9ebedd) - never run on development or master. [ [!13](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/13) ]
+
 ## v0.4.0 (2022-01-15)
 
 ### Bug Fixes
