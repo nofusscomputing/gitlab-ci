@@ -1,5 +1,8 @@
 # Changelog
 
+2022-01-16 09:02:02 +0930 [31517b4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/31517b4bf00c1f177ef925d09b1a6714577f62c5) - ci(MR_Title): save the merge request title as a variable and debug output in job log.  
+2022-01-16 08:48:24 +0930 [73918f2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/73918f2f5e19440d0e300da3a20712739c316d88) - fix(commit.py): filter merge request search to 'opened' and on current branch.  
+2022-01-15 03:53:53 +0000 [5c9000a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5c9000a74859504ed64bbefa1fd193f80a2b69c2) - build(version): bump version 0.3.1 → 0.4.0  
 2022-01-15 13:14:58 +0930 [e5531fc](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e5531fc77b5bdb1ccc0741e388df2d8d25ba6ade) - feat(commit.py): throw an error if no token was supplied. i.e. empty variable.  
 2022-01-15 13:07:56 +0930 [6b7ad95](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6b7ad95fc0ccccf79ff645bad3f86660f5096a4e) - feat(commit.py): confirm a merge request was found, if not output 'ci: No Merge Request found'  
 2022-01-15 13:05:30 +0930 [c543c47](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/c543c47af8c7c386ae57f5a7a50904d396758c3a) - feat(commit.py): try to us `CI_JOB_TOKEN` before the specified token, if any.  

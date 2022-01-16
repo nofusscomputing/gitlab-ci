@@ -1,5 +1,6 @@
 # Changelog
 
+2022-01-15 03:53:53 +0000 [5c9000a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5c9000a74859504ed64bbefa1fd193f80a2b69c2) - build(version): bump version 0.3.1 → 0.4.0  
 2022-01-11 07:03:09 +0000 [7751fd9](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7751fd9494f610fff0ea16bd303bfe62d0034eec) - build(version): bump version 0.3.0 → 0.3.1  
 2021-08-12 03:32:36 +0000 [389bc08](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/389bc08d7686153fb374aa83d440c35c9b4eac90) - build(version): bump version 0.3.0rc1 → 0.3.0  
 2021-08-11 13:47:34 +0930 [def31ef](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/def31ef562c0002713401652657d59320548ee85) - style(yaml_lint): fixed yaml lint errors  
