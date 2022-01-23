@@ -1,6 +1,8 @@
 # Markdown File Linting
 This job lints markdown files as part of the validation CI stage. It is designated to run on all branches. If any errors are found, the generated JUnit test report will let you know what errors were found.
 
+You can include your linting rules in `.markdownlint.json` which should be within the root of your repository. for the available rules please see the [docs](https://github.com/DavidAnson/markdownlint/blob/main/README.md#rules--aliases).
+
 This job provides the following badge:
 
 - _None_
