@@ -15,6 +15,10 @@ include:
   - local: $JOB_ROOT_DIR/git_push_mirror/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/gitlab_release/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/python/.gitlab-ci.yml
+  - template: Security/Dependency-Scanning.gitlab-ci.yml
+  - template: Security/License-Scanning.gitlab-ci.yml
+
+
 
 PyLint:
     extends:
