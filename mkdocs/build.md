@@ -31,7 +31,6 @@ MKDocs build:
 
 | var name | Description |
 |:----:|:----|
-| MKDOCS_VERSION | **Optional** The MKDocs version to install. Defaults to `"==1.2.3"` |
 | MKDOCS_BUILD_PATH | **Mandatory, if different from default** The path where MKDocs places the build files. Defaults to `build` |
 | MKDOCS_INCLUDE_SOURCE | **Optional** Include the build source files in the artifacts. Default is Not set. Any value in this variable, will include the source files. |
 | MKDOCS_SOURCE_PATH | **Optional, if source files are not to be included** Set to the path where mkdocs uses to build the static html. |
