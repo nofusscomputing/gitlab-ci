@@ -22,7 +22,7 @@ stages:
 include:
     - local: CI/validation/.gitlab-ci.yml
 
-Markdown:
+Markdown Linting:
   extends:
     - .Lint_Markdown
 

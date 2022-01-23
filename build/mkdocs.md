@@ -13,9 +13,6 @@ This job provides the following badge:
 To use this job add the following to your `.gitlab-ci.yml` file
 
 ``` yaml
-variables:
-    VARNAME: "a var value"
-
 stages:
     - build
 
