@@ -23,6 +23,8 @@ include:
     - local: CI/build/.gitlab-ci.yml
 
 MKDocs build:
+  variables:
+    MKDOCS_BUILD_PATH: "build"
   extends:
     - .MKDocs_Build
 
