@@ -19,6 +19,79 @@ include:
   - template: Security/Dependency-Scanning.gitlab-ci.yml
   - template: Security/License-Scanning.gitlab-ci.yml
 
+# Scanner doesn't Pickup multiple pip files. Disable and specify jobs with pip file.
+gemnasium-python-dependency_scanning:
+  rules:
+    - when: never
+
+# source: https://gitlab.com/gitlab-org/gitlab/-/blob/2f33a8cb4dcea7b875e360d4cd9e016e027d2973/lib/gitlab/ci/templates/Security/Dependency-Scanning.gitlab-ci.yml
+.gemnasium-python-dependency_scanning:
+  extends: .ds-analyzer
+  image:
+    name: "$DS_ANALYZER_IMAGE"
+  variables:
+    # DS_ANALYZER_IMAGE is an undocumented variable used internally to allow QA to
+    # override the analyzer image with a custom value. This may be subject to change or
+    # breakage across GitLab releases.
+    DS_ANALYZER_IMAGE: "$SECURE_ANALYZERS_PREFIX/gemnasium-python:$DS_MAJOR_VERSION"
+    # Stop reporting Pipenv and Setuptools as "pip".
+    # See https://gitlab.com/gitlab-org/gitlab/-/issues/338252
+    DS_REPORT_PACKAGE_MANAGER_PIP_WHEN_PYTHON: "false"
+  rules:
+    - if: $DEPENDENCY_SCANNING_DISABLED
+      when: never
+    - if: $DS_EXCLUDED_ANALYZERS =~ /gemnasium-python/
+      when: never
+    - if: $CI_COMMIT_BRANCH &&
+          $GITLAB_FEATURES =~ /\bdependency_scanning\b/ &&
+          $DS_DEFAULT_ANALYZERS =~ /gemnasium-python/
+      exists:
+        - '{requirements.txt,*/requirements.txt,*/*/requirements.txt}'
+        - '{requirements.pip,*/requirements.pip,*/*/requirements.pip}'
+        - '{Pipfile,*/Pipfile,*/*/Pipfile}'
+        - '{requires.txt,*/requires.txt,*/*/requires.txt}'
+        - '{setup.py,*/setup.py,*/*/setup.py}'
+        # Support passing of $PIP_REQUIREMENTS_FILE
+        # See https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#configuring-specific-analyzers-used-by-dependency-scanning
+    - if: $CI_COMMIT_BRANCH &&
+          $GITLAB_FEATURES =~ /\bdependency_scanning\b/ &&
+          $DS_DEFAULT_ANALYZERS =~ /gemnasium-python/ &&
+          $PIP_REQUIREMENTS_FILE
+
+Ansible Dependencies:
+  extends: .gemnasium-python-dependency_scanning
+  variables:
+    PIP_REQUIREMENTS_FILE: ansible/requirements.txt
+
+
+conventional_commits Dependencies:
+  extends: .gemnasium-python-dependency_scanning
+  variables:
+    PIP_REQUIREMENTS_FILE: conventional_commits/requirements.txt
+
+
+gitlab_release Dependencies:
+  extends: .gemnasium-python-dependency_scanning
+  variables:
+    PIP_REQUIREMENTS_FILE: gitlab_release/requirements.txt
+
+
+mkdocs Dependencies:
+  extends: .gemnasium-python-dependency_scanning
+  variables:
+    PIP_REQUIREMENTS_FILE: mkdocs/requirements.txt
+
+
+python Dependencies:
+  extends: .gemnasium-python-dependency_scanning
+  variables:
+    PIP_REQUIREMENTS_FILE: python/requirements.txt
+
+
+yaml_lint Dependencies:
+  extends: .gemnasium-python-dependency_scanning
+  variables:
+    PIP_REQUIREMENTS_FILE: yaml_lint/requirements.txt
 
 
 PyLint:
