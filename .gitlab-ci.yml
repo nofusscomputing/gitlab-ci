@@ -56,19 +56,19 @@ Ansible Dependencies:
 conventional_commits Dependencies:
   extends: .gemnasium-python-dependency_scanning
   variables:
-    PIP_REQUIREMENTS_FILE: conventional_commits/requirements.txt
+    PIP_REQUIREMENTS_FILE: "conventional_commits/requirements.txt"
 
 
 gitlab_release Dependencies:
   extends: .gemnasium-python-dependency_scanning
   variables:
-    PIP_REQUIREMENTS_FILE: gitlab_release/requirements.txt
+    PIP_REQUIREMENTS_FILE: ./gitlab_release/requirements.txt
 
 
 mkdocs Dependencies:
   extends: .gemnasium-python-dependency_scanning
   variables:
-    PIP_REQUIREMENTS_FILE: mkdocs/requirements.txt
+    PIP_REQUIREMENTS_FILE: "./mkdocs/requirements.txt"
 
 
 python Dependencies:
