@@ -1,5 +1,5 @@
 # Markdown File Linting
-Summary of job here
+This job lints markdown files as part of the validation CI stage. It is designated to run on all branches. If any errors are found, the generated JUnit test report will let you know what errors were found.
 
 This job provides the following badge:
 
@@ -7,7 +7,9 @@ This job provides the following badge:
 
 ## Dependencies
 
-- _None_
+- **Optional** file `.markdownlint.json` in repository root with any rules you wish to specify
+
+- **Mandatory** file `.markdownlint-cli2.jsonc` in the repository root so that a Junit test report is created.
 
 ## your .gitlab-ci.yml changes
 To use this job add the following to your `.gitlab-ci.yml` file
