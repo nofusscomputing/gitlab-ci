@@ -5,6 +5,7 @@ variables:
 
 stages:
     - validation
+    - test
     - release
     - sync
 
