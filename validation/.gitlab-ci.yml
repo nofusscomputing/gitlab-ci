@@ -14,7 +14,7 @@
     - echo DEBUG EXITCODE[$EXITCODE]
     - mv *.junit.xml $CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/markdown.junit.xml
   artifacts:
-    expire_in: 3 days
+    expire_in: 24 hrs
     when: always
     paths:
       - "$CI_PROJECT_DIR/artifacts/*"

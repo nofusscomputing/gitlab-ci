@@ -16,6 +16,7 @@
     - if [ "0$MKDOCS_INCLUDE_SOURCE" != "0" ]; then cp $MKDOCS_SOURCE_PATH "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/$MKDOCS_SOURCE_PATH"; fi
     - ls -laR "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"
   artifacts:
+    expire_in: 24 hrs
     paths:
       - "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"
   rules:
