@@ -43,6 +43,10 @@ gemnasium-python-dependency_scanning:
   # Can't find pillow 9.0, check python version. 3.6 only available, 3.7 not.
   before_script:
     - python --version
+    # Bug reported at gitlab-org/gitlab#350949. 
+    # workaround, delete all other pip files except the one to be scanned
+    # Delete all existing pipfiles except the one to be scanned.
+    - for found_file in $(find . -type f -name 'requirements.txt'); do if [ $found_file != "./$PIP_REQUIREMENTS_FILE" ]; then echo "[DEBUG] Removing '$found_file' due to bug reported at gitlab-org/gitlab#350949"; rm -f $found_file; fi done;
   rules:
     - if: $DEPENDENCY_SCANNING_DISABLED
       when: never
@@ -62,19 +66,19 @@ Ansible Dependencies:
 conventional_commits Dependencies:
   extends: .gemnasium-python-dependency_scanning
   variables:
-    PIP_REQUIREMENTS_FILE: "conventional_commits/requirements.txt"
+    PIP_REQUIREMENTS_FILE: conventional_commits/requirements.txt
 
 
 gitlab_release Dependencies:
   extends: .gemnasium-python-dependency_scanning
   variables:
-    PIP_REQUIREMENTS_FILE: ./gitlab_release/requirements.txt
+    PIP_REQUIREMENTS_FILE: gitlab_release/requirements.txt
 
 
 mkdocs Dependencies:
   extends: .gemnasium-python-dependency_scanning
   variables:
-    PIP_REQUIREMENTS_FILE: "./mkdocs/requirements.txt"
+    PIP_REQUIREMENTS_FILE: mkdocs/requirements.txt
 
 
 python Dependencies:
