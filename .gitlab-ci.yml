@@ -16,6 +16,7 @@ include:
   - local: $JOB_ROOT_DIR/conventional_commits/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/git_push_mirror/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/gitlab_release/.gitlab-ci.yml
+  - local: $JOB_ROOT_DIR/validation/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/python/.gitlab-ci.yml
   - template: Security/Dependency-Scanning.gitlab-ci.yml
   - template: Security/License-Scanning.gitlab-ci.yml
@@ -105,6 +106,11 @@ gilab-ci.yml Lint (python 3.6):
     extends:
         - .yaml_lint_defaults
     image: python:3.6-slim
+
+
+Markdown Linting:
+  extends:
+    - .Lint_Markdown
 
 
 Gitlab Release:
