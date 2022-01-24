@@ -1,5 +1,11 @@
 # Changelog
 
+2022-01-24 13:37:23 +0930 [4e1da5e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/4e1da5e87281284e021791a4b600a1bff53b8431) - ci(dependency_scanning): python 3.7 not available for dependecy scanning.  
+2022-01-23 07:14:32 +0000 [6668c2f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6668c2fb8d7545b4f9052ad3065e58f00d11be62) - refactor: test specifying must equal.  
+2022-01-23 06:12:35 +0000 [0df60b1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0df60b12dbfff983ca3a671b90ab1be126597e52) - fix(ansible): remove duplicate lines that last code review didn't remove.  
+2022-01-23 05:57:43 +0000 [484d987](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/484d98792a27c9d967331e9d3cd1afdca435bdd6) - fix(ansible): fix typo in job pip file  
+2022-01-23 05:46:31 +0000 [e1894ec](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e1894ec0c4fe7504901682f008c2ff0db7e351fe) - fix(dependency_scanning): upgraded versions from vulnerability scan.  
+2022-01-16 00:09:42 +0000 [1ef6c41](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1ef6c41818c40183f8019ea5cde48b4278e4d694) - build(version): bump version 0.4.0 → 0.5.0  
 2022-01-15 03:53:53 +0000 [5c9000a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5c9000a74859504ed64bbefa1fd193f80a2b69c2) - build(version): bump version 0.3.1 → 0.4.0  
 2022-01-11 07:03:09 +0000 [7751fd9](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7751fd9494f610fff0ea16bd303bfe62d0034eec) - build(version): bump version 0.3.0 → 0.3.1  
 2021-08-12 03:32:36 +0000 [389bc08](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/389bc08d7686153fb374aa83d440c35c9b4eac90) - build(version): bump version 0.3.0rc1 → 0.3.0  
