@@ -1,0 +1,29 @@
+.MKDocs_Build:
+  image: python:3.7.5-buster
+  stage: build
+  variables:
+    GIT_DEPTH: 0
+    MKDOCS_BUILD_PATH: build
+    MKDOCS_SOURCE_PATH: pages
+    DEFAULT_ROOT_DIR: './gitlab-ci'
+  before_script:
+    - mkdir -p "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"
+    - if [ "0$JOB_ROOT_DIR" == "0" ]; then ROOT_DIR=$DEFAULT_ROOT_DIR; else ROOT_DIR=$JOB_ROOT_DIR ; fi
+    - echo "[DEBUG] ROOT_DIR[$ROOT_DIR]"
+    - if [ ! -f "requirements.txt" ]; then pip install --upgrade pip -r $ROOT_DIR/mkdocs/requirements.txt; fi
+    - if [ -f "requirements.txt" ]; then pip install --upgrade pip -r $ROOT_DIR/mkdocs/requirements.txt; pip install -r requirements.txt; fi
+  script:
+    - mkdocs build --clean --strict
+    - mv "$MKDOCS_BUILD_PATH" "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/$MKDOCS_BUILD_PATH"
+    - if [ "0$MKDOCS_INCLUDE_SOURCE" != "0" ]; then cp $MKDOCS_SOURCE_PATH "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/$MKDOCS_SOURCE_PATH"; fi
+    - ls -laR "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"
+  artifacts:
+    expire_in: 24 hrs
+    paths:
+      - "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"
+  rules:
+    - if: '$CI_COMMIT_BRANCH'
+      exists:
+        - "mkdocs.yml"
+    - when: never
+
