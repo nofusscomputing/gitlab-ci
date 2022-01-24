@@ -39,6 +39,9 @@ gemnasium-python-dependency_scanning:
     # Stop reporting Pipenv and Setuptools as "pip".
     # See https://gitlab.com/gitlab-org/gitlab/-/issues/338252
     DS_REPORT_PACKAGE_MANAGER_PIP_WHEN_PYTHON: "false"
+  # Can't find pillow 9.0, check python version
+  before_script:
+    - python --version
   rules:
     - if: $DEPENDENCY_SCANNING_DISABLED
       when: never
