@@ -1,3 +1,49 @@
+## v0.6.0 (2022-01-24)
+
+### Bug Fixes
+
+- **ansible**: [0df60b12](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0df60b12dbfff983ca3a671b90ab1be126597e52) - remove duplicate lines that last code review didn't remove.
+- **ansible**: [484d9879](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/484d98792a27c9d967331e9d3cd1afdca435bdd6) - fix typo in job pip file
+- **dependency_scanning**: [e1894ec0](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e1894ec0c4fe7504901682f008c2ff0db7e351fe) - upgraded versions from vulnerability scan.
+
+### Code Refactor
+
+- [6668c2fb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6668c2fb8d7545b4f9052ad3065e58f00d11be62) - test specifying must equal.
+
+### Continious Integration
+
+- **markdown_lint**: [3096d7ee](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3096d7ee0a86d104de04e77b4b734ec0d266020d) - Added Linting of Markdown for files in this repository. [ [!15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/15) ]
+- **mkdcos**: [a2d705de](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a2d705deb1f3898b6d5fa4d55bd995b1a7ad4b68) - mkdocs requirements.txt had a '\n' in the filename. renamed. [ [!15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/15) ]
+- **dependency_scanning**: [39a76a08](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/39a76a08691dbdf487405f7c5e6b717eb862d80f) - delete all python 'requirements.txt' files that are not the specified one to be scanned. [ [#350949](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/350949) [!15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/15) ]
+- **dependency_scanning**: [4e1da5e8](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/4e1da5e87281284e021791a4b600a1bff53b8431) - python 3.7 not available for dependecy scanning. [ [!15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/15) ]
+- **dependency_scanning**: [a6afa766](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a6afa76600e07d40e8b94fa2d8385ad78634e3b0) - increase python version to 3.7 [ [!15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/15) ]
+- **dependency_scanning**: [7153f9b4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7153f9b42591e177112d279d2134fc0db1f5a14d) - check python version as pillow 9.0 reported as not found. [ [!15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/15) ]
+- **dependency_scanning**: [996ee64a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/996ee64ab43f926ca52ab3154ab43e20b6d48fcb) - scanner set to use python 3.6 [ [!15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/15) ]
+- [725bfaf8](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/725bfaf829069002e3b2cb944556d2ce5facb426) - debug logging for dep scanning
+- **python_dependency_scan**: [2fffa866](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/2fffa866d84f460893c8d9711bc21a74908edb3e) - disabled main job and manual setup for all ci jobs. [ [!15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/15) ]
+- **licence_finder**: [83cce72a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/83cce72af22b09bd8a245af99e9134d3be129eac) - set to recursive scan so all licence's can be detected.
+- **scanners**: [fc816192](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/fc816192be680f64ee1b4b96cccd0d605c529b86) - Added dependency and licence scanners
+- [5c872f16](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5c872f163e4de5834efd74a78e3e948d242916ec) - Added a test stage for gitlab specific tests.
+- **artifacts**: [e0d8885d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e0d8885d52319a6188c779e80c2064b773721184) - markdown lint and mkdocs build artifacts to expire after 24 hours
+
+### Documentaton / Guides
+
+- **markdown_lint**: [b6dcb47b](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/b6dcb47b1d1831784d36f482fd99c0ce5e56f088) - removed no longer needed requirement.
+- **markdown_lint**: [fd48316a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/fd48316ae763282fc106b7da184c05b35d9ae052) - updated docs on how to use and view rules.
+- **mkdocs_build**: [347597e3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/347597e3c1cb20eaa32d1e1cbb2d9d13661a663a) - include mandatory vars in template ci file.
+- **mkdocs**: [1ef0e224](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1ef0e2245facffb760ba2ad9a57af1d6178a2d1a) - Completed the mkdocs build readme [ [#15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/15) [!15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/15) ]
+- **markdown_lint**: [6363ea37](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6363ea377cd008bbc839e6f4ee4fca337b77bc19) - completed the job docs. [ [#12](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/12) ]
+- **mkdocs**: [5c05ed76](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5c05ed7605ddbecb1a3c7046716afa07829c264f) - initial adding of mkdocs build readme. [ [!15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/15) [#5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/5) ]
+- **markdown_lint**: [6383cde3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6383cde3bf9985b2cb43908bc2486d1dc67b7026) - initial adding of the docs [ [!15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/15) [#12](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/12) ]
+
+### Features
+
+- **markdown_lint**: [9ab336fb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9ab336fbddd6cba1d29c5a001ab52772ed4554b6) - include junit configuration file '.markdownlint-cli2.jsonc' in ci job.
+- **mkdocs_build**: [906f09e2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/906f09e2d3285681bd982d65eda3f56cf5a5169e) - use a pip file for job so that licence scanning can function.
+- **mkdocs_build**: [5a41962a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5a41962a994a54d99a3e7ab1bc0d7379ea14c1c2) - move ci job dependencies to a pip file so that the ci dependency job can check versions.
+- **build**: [50b5e854](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/50b5e8542b827e6b6cf70f3f4c26b4c1737fe0c1) - initial add of mkdocs build job [ [!15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/15) [#15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/15) ]
+- **validation**: [954aa28d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/954aa28dbf1073be05a3dd6d13da818a0bc7cb4e) - Added a Markdown linting validation job. [ [!15](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/15) [#12](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/12) ]
+
 ## v0.5.0 (2022-01-16)
 
 ### Bug Fixes
