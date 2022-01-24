@@ -10,7 +10,7 @@
     - mkdir -p "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests"
     - if [ "0$JOB_ROOT_DIR" == "0" ]; then ROOT_DIR=$DEFAULT_ROOT_DIR; else ROOT_DIR=$JOB_ROOT_DIR ; fi
     - echo "[DEBUG] ROOT_DIR[$ROOT_DIR]"
-    - cp -f "$CI_PROJECT_DIR/validation/.markdownlint-cli2.jsonc" "$CI_PROJECT_DIR/.markdownlint-cli2.jsonc"
+    - cp -f "$ROOT_DIR/validation/.markdownlint-cli2.jsonc" "$CI_PROJECT_DIR/.markdownlint-cli2.jsonc"
     - npm install markdownlint-cli2 --global
     - npm install markdownlint-cli2-formatter-junit --global
   script:
