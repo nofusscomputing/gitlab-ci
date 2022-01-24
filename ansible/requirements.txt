@@ -1,5 +1,10 @@
-Pillow==9.0.0
-numpy==1.22.0
+# Dependency scanning only has Python 3.6 available.
+
+# Python 3.7
+#   Pillow==9.0.0
+#   numpy==1.22.0
+
+# Python 3.6
 pipenv==2022.1.8
 wheel 
 ansible

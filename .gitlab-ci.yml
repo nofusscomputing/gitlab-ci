@@ -31,7 +31,8 @@ gemnasium-python-dependency_scanning:
   image:
     name: "$DS_ANALYZER_IMAGE"
   variables:
-    DS_PYTHON_VERSION: "3.7"
+    # Python 3.7 not available
+#    DS_PYTHON_VERSION: "3.7"
     # DS_ANALYZER_IMAGE is an undocumented variable used internally to allow QA to
     # override the analyzer image with a custom value. This may be subject to change or
     # breakage across GitLab releases.
@@ -39,7 +40,7 @@ gemnasium-python-dependency_scanning:
     # Stop reporting Pipenv and Setuptools as "pip".
     # See https://gitlab.com/gitlab-org/gitlab/-/issues/338252
     DS_REPORT_PACKAGE_MANAGER_PIP_WHEN_PYTHON: "false"
-  # Can't find pillow 9.0, check python version
+  # Can't find pillow 9.0, check python version. 3.6 only available, 3.7 not.
   before_script:
     - python --version
   rules:
