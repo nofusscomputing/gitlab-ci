@@ -11,8 +11,6 @@ This job provides the following badge:
 
 - **Optional** file `.markdownlint.json` in repository root with any rules you wish to specify
 
-- **Mandatory** file `.markdownlint-cli2.jsonc` in the repository root so that a Junit test report is created.
-
 ## your .gitlab-ci.yml changes
 To use this job add the following to your `.gitlab-ci.yml` file
 
