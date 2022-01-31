@@ -2,8 +2,8 @@
   image: node:alpine3.14
   stage: validation
   variables:
-    MDLINT_PATH: '"**/*.md"'
-    MDLINT_EXCLUDE_PATHS: '"!gitlab-ci"'
+    MDLINT_PATH: '**/*.md'
+    MDLINT_EXCLUDE_PATHS: '!gitlab-ci'
     DEFAULT_ROOT_DIR: './gitlab-ci'
   before_script:
     - mkdir -p "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"
@@ -14,7 +14,7 @@
     - npm install markdownlint-cli2 --global
     - npm install markdownlint-cli2-formatter-junit --global
   script:
-    - markdownlint-cli2 $MDLINT_PATH $MDLINT_EXCLUDE_PATHS 1>&1 || EXITCODE=$?
+    - markdownlint-cli2 "$MDLINT_PATH" "$MDLINT_EXCLUDE_PATHS" 1>&1 || EXITCODE=$?
     - echo DEBUG EXITCODE[$EXITCODE]
     - rm "$CI_PROJECT_DIR/.markdownlint-cli2.jsonc"
     - mv *.junit.xml $CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/markdown.junit.xml
