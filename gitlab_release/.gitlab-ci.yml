@@ -18,8 +18,8 @@
         - git clone -b development $CLONE_URL repo
         - cd repo
         - git branch
-        - git config --global user.email "CI@nfc-gitlab"
-        - git config --global user.name "NFC CI"
+        - git config --global user.email "helpdesk@nofusscomputing.com"
+        - git config --global user.name "nfc_bot"
         - git push --set-upstream origin development
         - RELEASE_VERSION_CURRENT=$(cz -n cz_nfc version --project)        
     script:
