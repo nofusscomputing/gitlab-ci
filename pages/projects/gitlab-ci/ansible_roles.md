@@ -1,4 +1,11 @@
-# Ansible
+---
+title: Ansible
+description: How to use No Fuss Computings gitlab-ci job for ansible
+date: 2021-08-03
+template: manual.html
+about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
+---
+
 This job does ansible role/playbook linting when any commit is pushed to any branch.
 
 

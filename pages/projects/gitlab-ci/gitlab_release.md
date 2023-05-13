@@ -1,4 +1,13 @@
-# Commit Message Footer References - User Manual
+---
+title: Gitlab Release / Commit Footer References
+description: How to use No Fuss Computings gitlab-ci job for Gitlab Releases and commit footer messages
+date: 2021-08-03
+template: manual.html
+about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
+---
+
+
+# User Manual
 All commit messages must be in [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/) and have a footer with a gitlab reference. The reference **must** be either a merge request or a gitlab issue. (format i.e. `!1` or `#2` *using the correct reference number*).
 
 

@@ -1,4 +1,11 @@
-# Yaml Lint
+---
+title: YAML Linting
+description: How to use No Fuss Computings gitlab-ci job for YAML Linting
+date: 2021-08-11
+template: manual.html
+about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
+---
+
 This job does yaml linting when any commit is pushed to any branch.
 
 

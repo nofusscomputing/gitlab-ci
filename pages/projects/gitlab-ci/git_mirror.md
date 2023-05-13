@@ -1,4 +1,11 @@
-# git push mirror Admin Manual Manual
+---
+title: Git push mirror
+description: How to use No Fuss Computings gitlab-ci job for repository mirrororing
+date: 2021-08-03
+template: manual.html
+about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
+---
+
 This job does a git push to a remote git repo.
 
 
