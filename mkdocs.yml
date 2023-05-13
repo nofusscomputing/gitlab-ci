@@ -1,0 +1,49 @@
+INHERIT: website-template/mkdocs.yml
+
+repo_name: Website
+repo_url: https://gitlab.com/nofusscomputing/projects/gitlab-ci
+edit_uri: ''
+
+nav:
+- Home: index.md
+
+- Articles: 
+
+  - articles/index.md
+
+  - Content Tags: tags.md
+
+- Projects: 
+
+  - projects/index.md
+
+  - Ansible Roles: projects/ansible-roles/README.md
+
+  - Gitlab CI: 
+    - projects/gitlab-ci/README.md
+
+    - projects/gitlab-ci/ansible_roles.md
+
+    - projects/gitlab-ci/conventional_commits.md
+
+    - projects/gitlab-ci/docker_container.md
+
+    - projects/gitlab-ci/git_mirror.md
+
+    - projects/gitlab-ci/gitlab_release.md
+
+    - projects/gitlab-ci/python.md
+
+    - projects/gitlab-ci/yaml_lint.md
+
+  - Python Gitlab Management: projects/python-gitlab-management/README.md
+
+
+
+
+- Operations: 
+
+  - operations/index.md
+
+- Contact Us: contact.md
+
