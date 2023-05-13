@@ -43,6 +43,8 @@
     after_script:
         - rm -Rf repo
     rules:
+        - if: '$JOB_STOP_GITLAB_RELEASE'
+          when: never
         - if: "$CI_COMMIT_AUTHOR =='NFC CI <CI@nfc-gitlab>'"
           when: never
         - if: '$CI_COMMIT_BRANCH == "master"'
