@@ -46,7 +46,7 @@
     rules:
         - if: '$JOB_STOP_GITLAB_RELEASE'
           when: never
-        - if: "$CI_COMMIT_AUTHOR =='NFC CI <CI@nfc-gitlab>'"
+        - if: "$CI_COMMIT_AUTHOR =='nfc_bot <helpdesk@nofusscomputing.com>'"
           when: never
         - if: '$CI_COMMIT_BRANCH == "master"'
           when: on_success
