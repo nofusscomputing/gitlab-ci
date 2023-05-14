@@ -103,6 +103,7 @@ PyLint:
 gilab-ci.yml Lint (python 3.6):
     variables:
         YAML_LINT_PATH: ".gitlab-ci* ./**/.gitlab-ci*"
+        YAML_LINT_EXTRA_ARGS: '-d "{ extends: $ROOT_DIR/yaml_lint/.yamllint.yaml, ignore: [website-template/*] }"'
     extends:
         - .yaml_lint_defaults
     image: python:3.6-slim
