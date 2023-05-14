@@ -36,6 +36,8 @@
             junit:
                 - "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/*.junit.xml"
     rules:
+        - if: '$JOB_STOP_YAML_LINT'
+          when: never
         - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
           when: never
         - if: '$CI_COMMIT_TAG'
