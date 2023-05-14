@@ -26,14 +26,15 @@
         - "$MY_COMMAND"
         - if [ "$CI_COMMIT_BRANCH" == "development" ] ; then RELEASE_CHANGELOG=$(cz -n cz_nfc bump --changelog --changelog-to-stdout --prerelease rc); else RELEASE_CHANGELOG=$(cz -n cz_nfc bump --changelog --changelog-to-stdout); fi
         - RELEASE_VERSION_NEW=$(cz -n cz_nfc version --project)
-        - RELEASE_TAG=v$RELEASE_VERSION_NEW
-        - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No tag to delete, version was not bumped"; else git tag -d $RELEASE_TAG; fi
+        - RELEASE_TAG=$RELEASE_VERSION_NEW
         - echo "[DEBUG] RELEASE_VERSION_CURRENT[$RELEASE_VERSION_CURRENT]"
         - echo "[DEBUG] RELEASE_CHANGELOG[$RELEASE_CHANGELOG]"
         - echo "[DEBUG] RELEASE_VERSION_NEW[$RELEASE_VERSION_NEW]"
         - echo "[DEBUG] RELEASE_TAG[$RELEASE_TAG]"
         - RELEASE_TAG_SHA1=$(git log -n1 --format=format:"%H")
         - echo "[DEBUG] RELEASE_TAG_SHA1[$RELEASE_TAG_SHA1]"
+        - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No tag to delete, version was not bumped"; else git tag -d $RELEASE_TAG; fi
+        
         - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No push will be conducted, version was not bumped"; else git push; fi
         - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No release will be created, version was not bumped"; else release-cli create --name "Release $RELEASE_TAG" --tag-name "$RELEASE_TAG" --ref "$RELEASE_TAG_SHA1" --description "$RELEASE_CHANGELOG"; fi
         - if [ "$CI_COMMIT_BRANCH" == "master" ] ; then git checkout master; fi
