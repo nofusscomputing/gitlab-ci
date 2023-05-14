@@ -48,7 +48,7 @@
         - if: "$CI_COMMIT_AUTHOR =='NFC CI <CI@nfc-gitlab>'"
           when: never
         - if: '$CI_COMMIT_BRANCH == "master"'
-          when: always
+          when: on_success
           allow_failure: false
         - if: '$CI_COMMIT_BRANCH == "development"'
           when: manual
