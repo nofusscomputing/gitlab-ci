@@ -100,13 +100,13 @@ PyLint:
     image: python:3.6-slim
 
 
-gilab-ci.yml Lint (python 3.6):
+gilab-ci.yml Lint (python 3.11):
     variables:
         YAML_LINT_PATH: ".gitlab-ci* ./**/.gitlab-ci*"
         YAML_LINT_EXTRA_ARGS: "{ extends: yaml_lint/.yamllint.yaml, ignore: [website-template/*] }"
     extends:
         - .yaml_lint_defaults
-    image: python:3.6-slim
+    image: python:3.11-slim
 
 
 Markdown Linting:
