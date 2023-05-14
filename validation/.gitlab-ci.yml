@@ -29,5 +29,6 @@
     - if: '$CI_COMMIT_BRANCH'
       exists:
         - "**.md"
+        - "**/**.md"
     - when: never
 
