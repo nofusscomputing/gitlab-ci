@@ -1,7 +1,7 @@
 
 .yaml_lint_defaults:
     variables:
-        YAML_LINT_PATH: "/*.yml"
+        YAML_LINT_PATH: "."
         YAML_LINT_CONFIG: "/yaml_lint/.yamllint.yaml"
         YAML_LINT_EXTRA_ARGS: '-d "{ extends: $ROOT_DIR/yaml_lint/.yamllint.yaml, ignore: [gitlab-ci/*] }"'
     stage: validation
