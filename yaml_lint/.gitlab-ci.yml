@@ -18,9 +18,7 @@
         - pip install -r $ROOT_DIR/yaml_lint/requirements.txt
         - mkdir $PYTHON_VERSION
     script:
-        - YAML_LINT_PATH=$ROOT_DIR$YAML_LINT_PATH
         - echo "[DEBUG] YAML_LINT_PATH[$YAML_LINT_PATH]"
-        - YAML_LINT_CONFIG=$ROOT_DIR$YAML_LINT_CONFIG
         - echo "[DEBUG] YAML_LINT_CONFIG[$YAML_LINT_CONFIG]"
         - yamllint $YAML_LINT_PATH -f parsable -d "$(echo $YAML_LINT_EXTRA_ARGS)" > "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/$PYTHON_VERSION-yaml-lint.log" 1>&1 || YAML_LINT=$?
         - cat "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/$PYTHON_VERSION-yaml-lint.log" | ansible-lint-to-junit-xml > "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/$PYTHON_VERSION-yaml-lint.junit.xml"
