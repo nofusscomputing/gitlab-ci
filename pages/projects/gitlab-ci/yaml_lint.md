@@ -1,4 +1,11 @@
-# Yaml Lint
+---
+title: YAML Linting
+description: How to use No Fuss Computings gitlab-ci job for YAML Linting
+date: 2021-08-11
+template: manual.html
+about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
+---
+
 This job does yaml linting when any commit is pushed to any branch.
 
 
@@ -22,8 +29,8 @@ include:
 
 Yaml Lint (python 3.6):
     variables:
-        YAML_LINT_PATH: "roles/"
-        YAML_LINT_CONFIG: ".yamllint.yaml"
+        YAML_LINT_PATH: "."
+        YAML_LINT_EXTRA_ARGS: "{ extends: $ROOT_DIR/yaml_lint/.yamllint.yaml, ignore: [gitlab-ci/*] }"
     extends:
         - .yaml_linter_defaults
     image: python:3.6-slim
@@ -34,8 +41,8 @@ Yaml Lint (python 3.6):
 
 | var name | Description |
 |:----:|:----|
-| YAML_LINT_PATH | *The path you wish the linter to search for yaml files* |
-| YAML_LINT_CONFOG | *The path you have stored the yaml config file in* |
+| YAML_LINT_PATH | *The path you wish the linter to search for yaml files, defaults to `.`* |
+| YAML_LINT_EXTRA_ARGS | *configuration in yaml format., defaults to `{ extends: $ROOT_DIR/yaml_lint/.yamllint.yaml, ignore: [gitlab-ci/*] }` for further info see the [YAML Lint docs](https://yamllint.readthedocs.io/en/stable/configuration.html?highlight=exclude#custom-configuration-without-a-config-file)* |
 
 
 ## Job Workflow

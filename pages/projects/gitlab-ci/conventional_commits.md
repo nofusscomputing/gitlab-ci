@@ -1,4 +1,12 @@
-# Conventional Commits User Manual
+---
+title: Conventional Commits
+description: How to use No Fuss Computings gitlab-ci job for Conventional Commits
+date: 2021-08-03
+template: manual.html
+about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
+---
+
+## User Manual
 Commitizen is used to validate the format of commit messages. we use [Conventional Commit Messages](https://www.conventionalcommits.org/en/v1.0.0/) format for our validation jobs.
 
 This repository may have two CI jobs to do with commitizen:
@@ -9,17 +17,17 @@ These CI Jobs output a test report that can be viewed inside of the merge reques
 
 To fix an error please refer to the titled sections below.
 
-## MR Title
+### MR Title
 Ensure that the merge request title is in the [conventional message](https://www.conventionalcommits.org/en/v1.0.0/) format. NOTE: the title is case sensitive.
 
 
-## Commit Messages
+### Commit Messages
 All commit messages that form part of your merge request must be in [conventional message](https://www.conventionalcommits.org/en/v1.0.0/) format. 
 
 To fix them go back and edit your commit messages.
 
 
-### fixing commit messages (suggestion)
+#### fixing commit messages (suggestion)
 
 If only the last commit is the commit with an error just use `git commit --amend` and edit your commit message to be in the correct format and save. now push your changes. 
 
@@ -51,18 +59,18 @@ Now push your changes upstream.
 |  *Ensure that all of your commits were exported prior to reseting the branch and when re-applying, that all of your commits were applied correctly*  |
 
 
-# Conventional Commits Admin Manual Manual
+## Conventional Commits Admin Manual Manual
 This job checks commit messages on a branch and the merge request title for validity against the [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/)
 
 This job provides the following badge:
 
 - None
 
-## Dependencies
+### Dependencies
 
 - None
 
-## your .gitlab-ci.yml changes
+### your .gitlab-ci.yml changes
 To use this job add the following to your `.gitlab-ci.yml` file
 
 ``` yaml
@@ -84,11 +92,11 @@ include:
 | MR_ACCESS_TOKEN | *only required if you are accessing a private repository.* <br>This token is a user access token that as a minimum requires read-only access to the api to fetch the projects merg requests. |
 
 
-## Job Workflow
+### Job Workflow
 
 
-## Artifacts
+### Artifacts
 
 
-## License
+### License
 To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)

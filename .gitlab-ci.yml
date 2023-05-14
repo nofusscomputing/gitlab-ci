@@ -1,15 +1,15 @@
 variables:
-    JOB_ROOT_DIR: '.'
-    SECURE_LOG_LEVEL: debug
-    GIT_SUBMODULE_STRATEGY: recursive
-    MY_PROJECT_ID: "28543717"
-    LICENSE_FINDER_CLI_OPTS: '--recursive'
+  JOB_ROOT_DIR: '.'
+  SECURE_LOG_LEVEL: debug
+  GIT_SUBMODULE_STRATEGY: recursive
+  MY_PROJECT_ID: "28543717"
+  LICENSE_FINDER_CLI_OPTS: '--recursive'
 
 stages:
-    - validation
-    - test
-    - release
-    - sync
+  - validation
+  - test
+  - release
+  - sync
 
 include:
   - local: $JOB_ROOT_DIR/yaml_lint/.gitlab-ci.yml
@@ -95,33 +95,37 @@ yaml_lint Dependencies:
 
 
 PyLint:
-    extends:
-        - .PyLint
-    image: python:3.6-slim
+  extends:
+    - .PyLint
+  image: python:3.6-slim
 
 
-gilab-ci.yml Lint (python 3.6):
-    variables:
-        YAML_LINT_PATH: "/*/.gitlab-ci.yml"
-    extends:
-        - .yaml_lint_defaults
-    image: python:3.6-slim
+gilab-ci.yml Lint (python 3.11):
+  variables:
+    YAML_LINT_PATH: ".gitlab-ci* ./**/*gitlab-ci*"
+    YAML_LINT_EXTRA_ARGS: "{ extends: yaml_lint/.yamllint.yaml, ignore: [website-template/*] }"
+  extends:
+    - .yaml_lint_defaults
+  image: python:3.11-slim
 
 
 Markdown Linting:
+  variables:
+    #MDLINT_PATHS: '!website_template** !.gitlab** !CHANGELOG.md **/*.md'
+    MDLINT_PATHS: "**/*.md **/**/*.md **/**/**/*.md **/**/**/**/*.md **/**/**/**/**/**/*.md #**CHANGELOG.md #CHANGELOG.md #website-template/** #.gitlab/**"
   extends:
     - .Lint_Markdown
 
 
 Gitlab Release:
-    variables:
-        MY_COMMAND: ./sub-folder_changlog.sh
-    extends:
-        - .gitlab_release
+  variables:
+    MY_COMMAND: ./sub-folder_changlog.sh
+  extends:
+    - .gitlab_release
 
 
 Github (Push --mirror):
-    variables:
-        GIT_SYNC_URL: "https://$GITHUB_USERNAME_ROBOT:$GITHUB_TOKEN_ROBOT@github.com/NoFussComputing/gitlab-ci.git"
-    extends:
-        - .git_push_mirror
+  variables:
+    GIT_SYNC_URL: "https://$GITHUB_USERNAME_ROBOT:$GITHUB_TOKEN_ROBOT@github.com/NoFussComputing/gitlab-ci.git"
+  extends:
+    - .git_push_mirror

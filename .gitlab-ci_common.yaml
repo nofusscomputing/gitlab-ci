@@ -1,0 +1,13 @@
+variables:
+    JOB_ROOT_DIR: 'gitlab-ci'
+    GIT_SUBMODULE_STRATEGY: recursive
+
+
+stages:
+    - validation
+    - build
+    - prepare
+    - test
+    - release
+    - sync
+    - publish

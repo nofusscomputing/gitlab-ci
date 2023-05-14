@@ -1,4 +1,12 @@
-# Python
+---
+title: Python
+description: How to use No Fuss Computings gitlab-ci job for Python
+date: 2021-08-11
+template: manual.html
+about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
+---
+
+
 This folder (`python`) covers jobs for python development
 
 
