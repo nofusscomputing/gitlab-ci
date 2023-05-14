@@ -102,7 +102,7 @@ PyLint:
 
 gilab-ci.yml Lint (python 3.6):
     variables:
-        YAML_LINT_PATH: "/*/.gitlab-ci.yml"
+        YAML_LINT_PATH: ".gitlab-ci* ./**/.gitlab-ci*"
     extends:
         - .yaml_lint_defaults
     image: python:3.6-slim
