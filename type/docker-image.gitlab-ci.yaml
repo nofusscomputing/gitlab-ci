@@ -24,7 +24,6 @@ variables:
   # JOB_STOP_GITLAB_RELEASE: 'any value'
 
 
-
 .build_docker_container:
   stage: build
   image: nofusscomputing/docker-buildx-qemu:dev
@@ -103,7 +102,6 @@ variables:
     - if: '$CI_COMMIT_BRANCH != "master"'
       when: always
     - when: never
-
 
 
 .publish-docker-hub:
@@ -206,8 +204,6 @@ variables:
     - when: never
 
 
-
-
 Docker Container:
   extends: .build_docker_container
 
@@ -217,10 +213,10 @@ Docker Hub:
 
 
 Gitlab Release:
-    extends:
-        - .gitlab_release
+  extends:
+    - .gitlab_release
 
 
 Github (Push --mirror):
-    extends:
-        - .git_push_mirror
+  extends:
+    - .git_push_mirror
