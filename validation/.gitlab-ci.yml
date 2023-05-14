@@ -2,9 +2,8 @@
   image: node:alpine3.14
   stage: validation
   variables:
-    MDLINT_PATH: '**/*.md'
-    MDLINT_EXCLUDE_PATHS: '!gitlab-ci'
-    DEFAULT_ROOT_DIR: './gitlab-ci'
+    MDLINT_PATHS: "**/*.md **/**/*.md **/**/**/*.md **/**/**/**/*.md **/**/**/**/**/**/*.md #CHANGELOG.md !gitlab-ci"
+    DEFAULT_ROOT_DIR: "./gitlab-ci"
   before_script:
     - mkdir -p "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/lint_markdown"
     - if [ "0$JOB_ROOT_DIR" == "0" ]; then ROOT_DIR=$DEFAULT_ROOT_DIR; else ROOT_DIR=$JOB_ROOT_DIR ; fi
@@ -13,7 +12,8 @@
     - npm install markdownlint-cli2 --global
     - npm install markdownlint-cli2-formatter-junit --global
   script:
-    - markdownlint-cli2 "$MDLINT_PATH" "$MDLINT_EXCLUDE_PATHS" 1>&1 || EXITCODE=$?
+    - echo "[DEBUG] MDLINT_PATHS=$MDLINT_PATHS"
+    - markdownlint-cli2 $MDLINT_PATHS 1>&1 || EXITCODE=$?
     - echo DEBUG EXITCODE[$EXITCODE]
     - rm "$CI_PROJECT_DIR/.markdownlint-cli2.jsonc"
     - mv *.junit.xml "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/lint_markdown/markdown_lint.junit.xml"
