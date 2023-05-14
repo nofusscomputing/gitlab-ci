@@ -109,6 +109,9 @@ gilab-ci.yml Lint (python 3.6):
 
 
 Markdown Linting:
+  variables:
+    MDLINT_EXCLUDE_PATHS: '!gitlab-ci !website_template'
+
   extends:
     - .Lint_Markdown
 
