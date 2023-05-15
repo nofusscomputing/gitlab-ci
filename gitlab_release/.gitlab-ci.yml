@@ -57,7 +57,7 @@
           allow_failure: false
         - if: '$CI_COMMIT_BRANCH == "development"'
           when: manual
-          allow_failure: false
+          allow_failure: true
         # for testing
         # - if: '$CI_COMMIT_BRANCH != "master"'
         #   when: always
