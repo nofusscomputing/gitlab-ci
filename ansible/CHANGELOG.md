@@ -1,5 +1,7 @@
 # Changelog
 
+2023-05-13 15:35:28 +0930 [408e4ea](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/408e4eab9e1f61004f1e38af6d1531747b7da99b) - refactor: move docs as part of restructure  
+2022-01-25 00:08:05 +0000 [ce1cc01](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ce1cc017e26ff7f6cee586cc7d98e4d292275672) - build(version): bump version 0.6.0 → 0.6.1rc0  
 2022-01-24 06:33:24 +0000 [46cc1fb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/46cc1fbb6a878e485af39e679b5184a9912c2e7f) - build(version): bump version 0.5.0 → 0.6.0  
 2022-01-24 13:37:23 +0930 [4e1da5e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/4e1da5e87281284e021791a4b600a1bff53b8431) - ci(dependency_scanning): python 3.7 not available for dependecy scanning.  
 2022-01-23 07:14:32 +0000 [6668c2f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6668c2fb8d7545b4f9052ad3065e58f00d11be62) - refactor: test specifying must equal.  

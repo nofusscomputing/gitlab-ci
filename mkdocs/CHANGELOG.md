@@ -1,5 +1,6 @@
 # Changelog
 
+2022-01-25 00:08:05 +0000 [ce1cc01](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ce1cc017e26ff7f6cee586cc7d98e4d292275672) - build(version): bump version 0.6.0 → 0.6.1rc0  
 2022-01-24 06:33:24 +0000 [46cc1fb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/46cc1fbb6a878e485af39e679b5184a9912c2e7f) - build(version): bump version 0.5.0 → 0.6.0  
 2022-01-24 14:08:14 +0930 [a2d705d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a2d705deb1f3898b6d5fa4d55bd995b1a7ad4b68) - ci(mkdcos): mkdocs requirements.txt had a '\n' in the filename. renamed.  
 2022-01-23 05:31:06 +0000 [906f09e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/906f09e2d3285681bd982d65eda3f56cf5a5169e) - feat(mkdocs_build): use a pip file for job so that licence scanning can function.  

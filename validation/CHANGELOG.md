@@ -1,5 +1,10 @@
 # Changelog
 
+2023-05-14 15:45:30 +0930 [8581981](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8581981a43c31d6903865f067fa3f77adae949e5) - fix(markdown_lint): fix search paths  
+2023-05-14 12:44:08 +0930 [cf10e28](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/cf10e289d21a5cc529bbe7effb189aab65875510) - fix(markdown_lint): enable job for md in sub folders  
+2022-01-31 10:19:16 +0930 [d75e959](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d75e95998b4a195cfcc36683ffa6f058bf7b05be) - feat(markdown_lint): artifact locations to be hard set  
+2022-01-31 10:15:54 +0930 [8391bf6](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8391bf659bf5dd39edf31205a68c699851e78be3) - fix(markdown_lint): remove quotes from search path variable.  
+2022-01-25 00:08:05 +0000 [ce1cc01](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ce1cc017e26ff7f6cee586cc7d98e4d292275672) - build(version): bump version 0.6.0 → 0.6.1rc0  
 2022-01-25 09:23:42 +0930 [e0402ec](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e0402ecfb2ab662a74bb70df7937b02576d5e41b) - fix(lint_markdown): ensure the correct path for the job directory is used  
 2022-01-24 06:33:24 +0000 [46cc1fb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/46cc1fbb6a878e485af39e679b5184a9912c2e7f) - build(version): bump version 0.5.0 → 0.6.0  
 2022-01-24 05:14:54 +0000 [b6dcb47](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/b6dcb47b1d1831784d36f482fd99c0ce5e56f088) - docs(markdown_lint): removed no longer needed requirement.  
