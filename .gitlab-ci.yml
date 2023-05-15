@@ -12,7 +12,7 @@ stages:
   - sync
 
 include:
-  - local: $JOB_ROOT_DIR/yaml_lint/.gitlab-ci.yml
+  - local: $JOB_ROOT_DIR/lint/yaml.gitlab-ci.yaml
   - local: $JOB_ROOT_DIR/conventional_commits/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/git_push_mirror/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/gitlab_release/.gitlab-ci.yml
