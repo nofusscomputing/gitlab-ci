@@ -19,7 +19,7 @@ include:
   - local: $JOB_ROOT_DIR/validation/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/python/.gitlab-ci.yml
   - template: Security/Dependency-Scanning.gitlab-ci.yml
-  - template: Security/License-Scanning.gitlab-ci.yml
+  #- template: Security/License-Scanning.gitlab-ci.yml
 
 # Scanner doesn't Pickup multiple pip files. Disable and specify jobs with pip file.
 gemnasium-python-dependency_scanning:
