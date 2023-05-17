@@ -34,6 +34,7 @@ variables:
   variables:
     DOCKER_HOST: tcp://docker:2375/
     DOCKER_DRIVER: overlay2
+    DOCKER_DOCKERFILE: dockerfile
     # See https://github.com/docker-library/docker/pull/166
     DOCKER_TLS_CERTDIR: ""
   before_script:
@@ -65,6 +66,7 @@ variables:
         --label org.opencontainers.image.revision="$CI_COMMIT_SHA" \
       --no-cache \
       --push \
+      --file $DOCKER_DOCKERFILE \
       --tag $DOCKER_IMAGE_BUILD_REGISTRY/$DOCKER_IMAGE_BUILD_NAME:$DOCKER_IMAGE_BUILD_TAG;
 
       docker buildx imagetools inspect $DOCKER_IMAGE_BUILD_REGISTRY/$DOCKER_IMAGE_BUILD_NAME:$DOCKER_IMAGE_BUILD_TAG;
@@ -89,6 +91,7 @@ variables:
         --label org.opencontainers.image.version="$(cz -n cz_nfc version --project)" \
         --label org.opencontainers.image.revision="$CI_COMMIT_SHA" \
       --no-cache \
+      --file $DOCKER_DOCKERFILE \
       --tag $DOCKER_IMAGE_BUILD_REGISTRY/$DOCKER_IMAGE_BUILD_NAME:$DOCKER_IMAGE_BUILD_TAG;
     
     docker push $DOCKER_IMAGE_BUILD_REGISTRY/$DOCKER_IMAGE_BUILD_NAME:$DOCKER_IMAGE_BUILD_TAG;
