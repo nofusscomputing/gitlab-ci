@@ -91,6 +91,7 @@ include:
 |:----:|:----|
 | MR_ACCESS_TOKEN | *only required if you are accessing a private repository.* <br>This token is a user access token that as a minimum requires read-only access to the api to fetch the projects merg requests. |
 
+In addition to the required variables above, the commitizen config file `.cz.yaml` must exist for the job to run.
 
 ### Job Workflow
 
