@@ -101,6 +101,8 @@ commit footer refs:
         - if: '$CI_COMMIT_BRANCH == "development" || $CI_COMMIT_BRANCH == "master"'
           when: never
         - if: '$CI_COMMIT_BRANCH && $CHANGELOG_FOOTER_REFERENCES != "False"'
+          exists:
+          - .cz.yaml
           when: always
         - when: never
 

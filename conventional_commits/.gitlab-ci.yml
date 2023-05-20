@@ -53,8 +53,12 @@
     - if: "$CI_COMMIT_AUTHOR =='nfc_bot <helpdesk@nofusscomputing.com>'"
       when: never
     - if: '$CI_COMMIT_BRANCH == "master"'
+      exists:
+      - .cz.yaml
       when: always
     - if: '$CI_COMMIT_BRANCH'
+      exists:
+      - .cz.yaml
       when: always
     - when: never
 

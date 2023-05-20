@@ -12,7 +12,7 @@ stages:
   - sync
 
 include:
-  - local: $JOB_ROOT_DIR/yaml_lint/.gitlab-ci.yml
+  - local: $JOB_ROOT_DIR/lint/yaml.gitlab-ci.yaml
   - local: $JOB_ROOT_DIR/conventional_commits/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/git_push_mirror/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/gitlab_release/.gitlab-ci.yml
@@ -91,7 +91,7 @@ python Dependencies:
 yaml_lint Dependencies:
   extends: .gemnasium-python-dependency_scanning
   variables:
-    PIP_REQUIREMENTS_FILE: yaml_lint/requirements.txt
+    PIP_REQUIREMENTS_FILE: lint/requirements.txt
 
 
 PyLint:
@@ -103,7 +103,7 @@ PyLint:
 gilab-ci.yml Lint (python 3.11):
   variables:
     YAML_LINT_PATH: ".gitlab-ci* ./**/*gitlab-ci*"
-    YAML_LINT_EXTRA_ARGS: "{ extends: yaml_lint/.yamllint.yaml, ignore: [website-template/*] }"
+    YAML_LINT_EXTRA_ARGS: "{ extends: lint/.yamllint.yaml, ignore: [website-template/*] }"
   extends:
     - .yaml_lint_defaults
   image: python:3.11-slim
