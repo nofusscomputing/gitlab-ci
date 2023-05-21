@@ -17,10 +17,13 @@ This job provides the following badge:
 
 - None
 
+
 ## your .gitlab-ci.yml changes
+
 To use this job add the following to your `.gitlab-ci.yml` file
 
 ``` yaml
+
 stages:
     - sync
 
@@ -35,6 +38,7 @@ Github (Push --mirror):
 
 ```
 
+
 ## CI/CD Variables required
 
 | var name | Description |
@@ -47,6 +51,7 @@ Github (Push --mirror):
  - This job is designed to run on successful completion of the validation tasks and only on the `development` and `master` branches. You can safely override the `rules` when creating the job with your own. i.e.
 
 ``` yaml
+
 Github (Push --mirror):
     variables:
         GIT_SYNC_URL: "https://${username variable}:${pasword variable}@github.com/NoFussComputing/gitlab-ci.git"
@@ -57,12 +62,16 @@ Github (Push --mirror):
         when: never
       - if: '$CI_COMMIT_BRANCH == "development"'
         when: always
+
 ```
+
 This will cause the job to only run on the `development` branch.
+
 
 ## Artifacts
 
  - None
 
 ## License
+
 To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)

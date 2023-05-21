@@ -8,7 +8,6 @@ about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
 
 This job does yaml linting when any commit is pushed to any branch.
 
-
 This job provides the following badge:
 
 - None
@@ -17,10 +16,13 @@ This job provides the following badge:
 
 - None
 
+
 ## your .gitlab-ci.yml changes
+
 To use this job add the following to your `.gitlab-ci.yml` file
 
 ``` yaml
+
 stages:
     - validation
 
@@ -34,8 +36,11 @@ Yaml Lint (python 3.6):
     extends:
         - .yaml_linter_defaults
     image: python:3.6-slim
+
 ```
+
 > You can use any python version you wish.
+
 
 ## CI/CD Variables required
 
@@ -49,11 +54,14 @@ Yaml Lint (python 3.6):
 
  - This job will lint any yaml file in the specified directory using the specified rules.
 
+
 ## Artifacts
 
  - `$CI_PROJECT_DIR/artifacts` - Root artifact directory
  - `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/$PYTHON_VERSION-yaml-lint.junit.xml` - JUnit Test report
  - `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/$PYTHON_VERSION-yaml-lint.log` - Linter log
 
+
 ## License
+
 To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)

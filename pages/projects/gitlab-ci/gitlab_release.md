@@ -8,8 +8,8 @@ about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
 
 
 # User Manual
-All commit messages must be in [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/) and have a footer with a gitlab reference. The reference **must** be either a merge request or a gitlab issue. (format i.e. `!1` or `#2` *using the correct reference number*).
 
+All commit messages must be in [conventional commit format](https://www.conventionalcommits.org/en/v1.0.0/) and have a footer with a gitlab reference. The reference **must** be either a merge request or a gitlab issue. (format i.e. `!1` or `#2` *using the correct reference number*).
 
 
 ## fixing commit messages (suggestion)
@@ -18,21 +18,29 @@ If only the last commit is the commit with an error just use `git commit --amend
 
 
 You will require the following information if the commit message with the error is further down the commit tree:
+
  - Commit message SHA1 of your first commit message to the branch `{original_commit}`
+
  - Commit message SHA1 prior to your first commit `{source_commit}`
 
 Run these commands once you have the information above.
+
 ``` bash
+
 git format-patch {original_commit}..HEAD -o diff-patches
 
 git reset {source_commit} --hard
+
 ```
 
 Now, navigate to the `diff-patches` folder, open up the offending patch (commit) and edit the `subject` or message body as appropriate and save. Once all the edits have been done, re-apply the patches to your tree with:
 
 ``` bash
+
 git am diff-patches/*.patch
+
 ```
+
 Now push your changes upstream.
 
 | :notebook_with_decorative_cover: Note  |
@@ -44,11 +52,8 @@ Now push your changes upstream.
 |  *Ensure that all of your commits were exported prior to reseting the branch and when re-applying, that all of your commits were applied correctly*  |
 
 
-
-
-
-
 # Gitlab Release - Developer Manual
+
 This job bumps the version, updates the changelog, creates a git tag and creates a gitlab release. The git tag and release title use [semantic versioning](https://semver.org/). for this job to function correctly a `.cz.yaml` is required in the root of the repository. this file contains the [commitizen](https://github.com/commitizen-tools/commitizen) config and the version details. 
 
 This job has the following workflow:
@@ -73,11 +78,13 @@ This job provides the following badge:
 - None
 
 ## your .gitlab-ci.yml changes
+
 To use this job add the following to your `.gitlab-ci.yml` file
 
 CI Job `ci commit footer` is automatically set to run on all branches except `development` and `master`. This job checks the commits on the users branch that they contain a footer with gitlab references. i.e. `#1` for issue one or `!1` for merge request one.
 
 ``` yaml
+
 stages:
     - validate
     - release
@@ -90,7 +97,9 @@ Gitlab Release:
         MY_COMMAND: "{your command here}"
     extends:
         - .gitlab_release
+
 ```
+
 > if you wish to run any commands you can add them to variable `MY_COMMAND`. The custom command will run under shell `/bin/sh`. This command is set to run before the version bump commit is conducted so any changes you wish to add as part of the version bump, you can do here as long as you `git add {changed file name}`.
 
 
@@ -107,9 +116,13 @@ Gitlab Release:
 This CI job's workflow is:
 
 1. updates the changelog from the commits
+
 1. commit the changelog to git
+
 1. adds a `git tag` to the changelog commit. 
+
 1. pushes the change back to the repo
+
 1. creates a git release from the `git tag`
 
 | :octagonal_sign: **NOTE** |
@@ -126,5 +139,6 @@ This CI job's workflow is:
     > None
 
 ## License
+
 To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)
 
