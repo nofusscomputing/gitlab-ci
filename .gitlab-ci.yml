@@ -1,18 +1,17 @@
-variables:
-  JOB_ROOT_DIR: '.'
-  SECURE_LOG_LEVEL: debug
-  GIT_SUBMODULE_STRATEGY: recursive
-  MY_PROJECT_ID: "28543717"
-  LICENSE_FINDER_CLI_OPTS: '--recursive'
 
 stages:
   - validation
+  - build
+  - prepare
   - test
   - release
   - sync
+  - publish
 
 include:
   - local: $JOB_ROOT_DIR/lint/yaml.gitlab-ci.yaml
+  - local: $JOB_ROOT_DIR/template/website.gitlab-ci.yaml
+
   - local: $JOB_ROOT_DIR/conventional_commits/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/git_push_mirror/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/gitlab_release/.gitlab-ci.yml
@@ -20,6 +19,17 @@ include:
   - local: $JOB_ROOT_DIR/python/.gitlab-ci.yml
   - template: Security/Dependency-Scanning.gitlab-ci.yml
   #- template: Security/License-Scanning.gitlab-ci.yml
+
+
+variables:
+  JOB_ROOT_DIR: '.'
+  SECURE_LOG_LEVEL: debug
+  GIT_SUBMODULE_STRATEGY: recursive
+  GIT_SYNC_URL: "https://$GITHUB_USERNAME_ROBOT:$GITHUB_TOKEN_ROBOT@github.com/NoFussComputing/gitlab-ci.git"
+  MY_PROJECT_ID: "28543717"
+  LICENSE_FINDER_CLI_OPTS: '--recursive'
+  MDLINT_PATHS: "**/*.md **/**/*.md **/**/**/*.md **/**/**/**/*.md **/**/**/**/**/**/*.md #**CHANGELOG.md #CHANGELOG.md #website-template/** #.gitlab/**"
+
 
 # Scanner doesn't Pickup multiple pip files. Disable and specify jobs with pip file.
 gemnasium-python-dependency_scanning:
@@ -109,13 +119,6 @@ gilab-ci.yml Lint (python 3.11):
   image: python:3.11-slim
 
 
-Markdown Linting:
-  variables:
-    #MDLINT_PATHS: '!website_template** !.gitlab** !CHANGELOG.md **/*.md'
-    MDLINT_PATHS: "**/*.md **/**/*.md **/**/**/*.md **/**/**/**/*.md **/**/**/**/**/**/*.md #**CHANGELOG.md #CHANGELOG.md #website-template/** #.gitlab/**"
-  extends:
-    - .Lint_Markdown
-
 
 Gitlab Release:
   variables:
@@ -125,7 +128,5 @@ Gitlab Release:
 
 
 Github (Push --mirror):
-  variables:
-    GIT_SYNC_URL: "https://$GITHUB_USERNAME_ROBOT:$GITHUB_TOKEN_ROBOT@github.com/NoFussComputing/gitlab-ci.git"
   extends:
     - .git_push_mirror

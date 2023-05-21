@@ -1,0 +1,16 @@
+# This gitlab-ci file is used for creating building pages directories for nofusscomputing.com.
+# by including this file, the jobs will be autocreated and only for pages jobs.
+
+include:
+  - local: $JOB_ROOT_DIR/.gitlab-ci_common.yaml
+  - local: $JOB_ROOT_DIR/mkdocs/.gitlab-ci.yml
+  - local: $JOB_ROOT_DIR/validation/.gitlab-ci.yml
+
+
+Lint Markdown:
+    extends: .Lint_Markdown
+
+
+Main Site:
+  extends: .MKDocs_Build
+  needs: [ 'Lint Markdown' ]
