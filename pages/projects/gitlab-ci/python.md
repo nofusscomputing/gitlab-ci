@@ -2,7 +2,7 @@
 title: Python
 description: How to use No Fuss Computings gitlab-ci job for Python
 date: 2021-08-11
-template: manual.html
+template: project.html
 about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
 ---
 

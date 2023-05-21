@@ -2,7 +2,7 @@
 title: Docker Container CI Template
 description: How to use No Fuss Computings gitlab-ci template for docker containers
 date: 2023-05-13
-template: manual.html
+template: project.html
 about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
 ---
 

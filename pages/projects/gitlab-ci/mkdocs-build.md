@@ -1,4 +1,11 @@
-# MKDocs Static Site Build
+---
+title: MKDocs Static Site Build
+description: How to use No Fuss Computings gitlab-ci job for MKDocs Static Site Build
+date: 2021-08-11
+template: project.html
+about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
+---
+
 
 Build a MKDocs site from the config specified in `mkdocs.yml`. _Only runs if `mkdocs.yml` exists in the repository root directory._ This job is designated to run on all branchs so that you can use the artifacts for deployment to `staging` and/or `production` as required.
 

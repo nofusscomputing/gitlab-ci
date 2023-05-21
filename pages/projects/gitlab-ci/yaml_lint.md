@@ -2,7 +2,7 @@
 title: YAML Linting
 description: How to use No Fuss Computings gitlab-ci job for YAML Linting
 date: 2021-08-11
-template: manual.html
+template: project.html
 about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
 ---
 

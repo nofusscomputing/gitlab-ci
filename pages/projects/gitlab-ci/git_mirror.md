@@ -2,7 +2,7 @@
 title: Git push mirror
 description: How to use No Fuss Computings gitlab-ci job for repository mirrororing
 date: 2021-08-03
-template: manual.html
+template: project.html
 about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
 ---
 
