@@ -17,10 +17,10 @@ nav:
 
   - projects/index.md
 
-  - Ansible Roles: projects/ansible-roles/README.md
+  - Ansible Roles: projects/ansible-roles/index.md
 
   - Gitlab CI: 
-    - projects/gitlab-ci/README.md
+    - projects/gitlab-ci/index.md
 
     - projects/gitlab-ci/ansible_roles.md
 
@@ -36,10 +36,7 @@ nav:
 
     - projects/gitlab-ci/yaml_lint.md
 
-  - Python Gitlab Management: projects/python-gitlab-management/README.md
-
-
-
+    - projects/gitlab-ci/mkdocs-build.md
 
 - Operations: 
 
