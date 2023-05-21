@@ -1,4 +1,5 @@
 # MKDocs Static Site Build
+
 Build a MKDocs site from the config specified in `mkdocs.yml`. _Only runs if `mkdocs.yml` exists in the repository root directory._ This job is designated to run on all branchs so that you can use the artifacts for deployment to `staging` and/or `production` as required.
 
 This job provides the following badge:
@@ -10,9 +11,11 @@ This job provides the following badge:
 - **Mandatory** file `mkdocs.yml` in the repository root directory with your MKDocs configuration
 
 ## your .gitlab-ci.yml changes
+
 To use this job add the following to your `.gitlab-ci.yml` file
 
 ``` yaml
+
 stages:
     - build
 
@@ -55,4 +58,5 @@ MKDocs build:
 - files in `"$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"`
 
 ## License
+
 To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)

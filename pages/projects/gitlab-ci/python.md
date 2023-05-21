@@ -15,7 +15,9 @@ These jobs provides the following badge:
 - `PyLint` - code quality [![PyLint Score](https://img.shields.io/badge/dynamic/json?&style=plastic&logo=python&label=PyLint%20Score&query=%24.PyLintScore&url=https%3A%2F%2Fgitlab.com%2Fnofusscomputing%2Fprojects%2Fgitlab-ci%2F-%2Fjobs%2Fartifacts%2Fdevelopment%2Fraw%2Fartifacts%2Fvalidation%2FPyLint%2Fbadge_pylint.json%3Fjob%3DPyLint)](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/jobs/artifacts/development/file/artifacts/validation/tests/gl-code-quality-report.html?job=PyLint)
 
 Use the following MD to add a badge adjusting the variables and ensuring everything is on one line.
+
 ``` md
+
 [![PyLint Score](https://img.shields.io/badge/dynamic/json?&style=plastic&logo=python&label=PyLint%20Score&query=%24.PyLintScore&url=https%3A%2F%2Fgitlab.com%2F
 
 {project path}
@@ -44,7 +46,9 @@ artifacts/validation/tests/gl-code-quality-report.html
 
 {Job Name}
 )
+
 ```
+
 |  Variable  |  Description  |
 |:----|:----|
 | `{project path}` | *project path, what's after gitlab.com/* |
@@ -60,6 +64,7 @@ artifacts/validation/tests/gl-code-quality-report.html
 To add the `PyLint` job, add the following to your `.gitlab-ci.yml` file
 
 ``` yaml
+
 stages:
     - validation
 
@@ -73,6 +78,7 @@ PyLint:
     extends:
         - .PyLint
     image: python:3.6-slim
+
 ```
 
 
@@ -88,6 +94,7 @@ PyLint:
 
  - This job will lint any yaml file in the specified directory using the specified rules.
 
+
 ## Artifacts
 
  - `$CI_PROJECT_DIR/artifacts` - Root artifact directory
@@ -95,4 +102,5 @@ PyLint:
  - `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/gl-code-quality-report.html` - html code quality report
 
 ## License
+
 To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)

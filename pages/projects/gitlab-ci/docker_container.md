@@ -7,12 +7,14 @@ about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
 ---
 
 - available tags `dev` for latest dev build
+
 - latest matches latest git tag
 
 
 - notate available platforms can be viewed in the job
 
 ``` yaml
+
   # Available platforms: linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/arm64, linux/riscv64, linux/ppc64, linux/ppc64le, linux/s390x, linux/386, linux/mips64le, linux/mips64, linux/arm/v7, linux/arm/v6
   # DOCKER_IMAGE_BUILD_TARGET_PLATFORMS: "linux/amd64,linux/arm64,linux/arm/v7"
   DOCKER_IMAGE_BUILD_NAME: $CI_PROJECT_NAME
@@ -26,4 +28,5 @@ about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
   # JOB_STOP_GIT_PUSH_MIRROR: 'any_value'
   # GIT_SYNC_URL: "https://$GITHUB_USERNAME_ROBOT:$GITHUB_TOKEN_ROBOT@github.com/NoFussComputing/config.git" # Must be defined for job to run
   # JOB_STOP_GITLAB_RELEASE: 'any value'
+
 ```
