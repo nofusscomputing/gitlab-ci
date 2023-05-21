@@ -14,3 +14,31 @@ Lint Markdown:
 Main Site:
   extends: .MKDocs_Build
   needs: [ 'Lint Markdown' ]
+
+
+pages:
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - mv "$CI_PROJECT_DIR/artifacts/build/Main Site/build" public
+  needs: [ 'Main Site' ]
+  environment: 
+    name: staging
+    url: $CI_PAGES_URL/projects/gitlab-ci/
+  artifacts:
+    paths:
+    - public
+  rules:
+    - if: '$JOB_STOP_GITLAB_PAGES'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: $CI_COMMIT_TAG
+      when: never
+    - if: '$CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != "master"'
+      exists:
+        - "mkdocs.yaml"
+        - "mkdocs.yml"
+      when: on_success
+    - when: never
