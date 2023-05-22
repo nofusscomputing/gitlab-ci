@@ -2,7 +2,7 @@ INHERIT: website-template/mkdocs.yml
 
 repo_name: Gitlab-CI
 repo_url: https://gitlab.com/nofusscomputing/projects/gitlab-ci
-edit_uri: ''
+edit_uri: '/-/ide/project/nofusscomputing/projects/gitlab-ci/edit/development/-/pages/'
 
 nav:
 - Home: index.md
