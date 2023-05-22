@@ -21,32 +21,37 @@ nav:
 
   - Gitlab CI: 
 
+    - Build:
+
+      - projects/gitlab-ci/mkdocs-build.md
+
+    - Linting:
+
+      - projects/gitlab-ci/markdown_lint.md
+
+      - projects/gitlab-ci/yaml_lint.md
+
+    - Templates:
+      
+      - projects/gitlab-ci/templates/index.md
+    
+      - projects/gitlab-ci/templates/ansible_roles.md
+
+      - projects/gitlab-ci/templates/docker_container.md
+
+      - projects/gitlab-ci/templates/website.md
+
+    - Validation:
+
+      - projects/gitlab-ci/conventional_commits.md
+
     - projects/gitlab-ci/index.md
-
-    - projects/gitlab-ci/ansible_roles.md
-
-    - projects/gitlab-ci/conventional_commits.md
-
-    - projects/gitlab-ci/docker_container.md
 
     - projects/gitlab-ci/git_mirror.md
 
     - projects/gitlab-ci/gitlab_release.md
 
     - projects/gitlab-ci/python.md
-
-    - projects/gitlab-ci/yaml_lint.md
-
-    - projects/gitlab-ci/mkdocs-build.md
-
-    - projects/gitlab-ci/markdown_lint.md
-
-    - Templates:
-    
-      - projects/gitlab-ci/templates/index.md
-
-      - projects/gitlab-ci/templates/website.md
-
 
 - Operations: 
 
