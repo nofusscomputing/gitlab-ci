@@ -7,13 +7,13 @@ include:
   - local: $JOB_ROOT_DIR/lint/markdown.gitlab-ci.yaml
 
 
-Website Page Linting:
+Website.Lint:
   extends: .Lint_Markdown_Pages
 
 
-Website:
+Website.Build:
   extends: .MKDocs_Build
-  needs: [ 'Website Page Linting' ]
+  needs: [ 'Website.Lint' ]
 
 
 pages:
@@ -22,7 +22,7 @@ pages:
     GIT_STRATEGY: none
   script:
     - mv "$CI_PROJECT_DIR/artifacts/build/Website/build" public
-  needs: [ 'Website' ]
+  needs: [ 'Website.Build' ]
   environment: 
     name: staging
     url: $CI_PAGES_URL/projects/gitlab-ci/
