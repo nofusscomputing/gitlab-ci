@@ -12,6 +12,7 @@
     - echo "[DEBUG] ROOT_DIR[$ROOT_DIR]"
     - if [ ! -f "requirements.txt" ]; then pip install --upgrade pip -r $ROOT_DIR/mkdocs/requirements.txt; fi
     - if [ -f "requirements.txt" ]; then pip install --upgrade pip -r $ROOT_DIR/mkdocs/requirements.txt; pip install -r requirements.txt; fi
+    - if [ -f "website-template/requirements.txt" ]; then pip install --upgrade pip -r $ROOT_DIR/mkdocs/requirements.txt; pip install -r website-template/requirements.txt; fi
   script:
     - mkdocs build --clean --strict
     - mv "$MKDOCS_BUILD_PATH" "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/$MKDOCS_BUILD_PATH"
