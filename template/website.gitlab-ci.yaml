@@ -4,16 +4,16 @@
 include:
   - local: $JOB_ROOT_DIR/.gitlab-ci_common.yaml
   - local: $JOB_ROOT_DIR/mkdocs/.gitlab-ci.yml
-  - local: $JOB_ROOT_DIR/validation/.gitlab-ci.yml
+  - local: $JOB_ROOT_DIR/lint/markdown.gitlab-ci.yml
 
 
-Lint Markdown:
-    extends: .Lint_Markdown
+Website Page Linting:
+  extends: .Lint_Markdown_Pages
 
 
-Main Site:
+Website:
   extends: .MKDocs_Build
-  needs: [ 'Lint Markdown' ]
+  needs: [ 'Website Page Linting' ]
 
 
 pages:
@@ -21,8 +21,8 @@ pages:
   variables:
     GIT_STRATEGY: none
   script:
-    - mv "$CI_PROJECT_DIR/artifacts/build/Main Site/build" public
-  needs: [ 'Main Site' ]
+    - mv "$CI_PROJECT_DIR/artifacts/build/Website/build" public
+  needs: [ 'Website' ]
   environment: 
     name: staging
     url: $CI_PAGES_URL/projects/gitlab-ci/

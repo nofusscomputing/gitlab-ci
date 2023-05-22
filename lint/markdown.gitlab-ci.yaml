@@ -32,3 +32,14 @@
         - "**/**.md"
     - when: never
 
+
+
+.Lint_Markdown_Pages:
+  variables:
+    MDLINT_PATHS: "pages/*.md pages/**/*.md pages/**/**/*.md pages/**/**/**/*.md pages/**/**/**/**/**/*.md #CHANGELOG.md !gitlab-ci !website-template"
+  extends: .Lint_Markdown
+  rules:
+    - if: '$CI_COMMIT_BRANCH'
+      exists:
+        - "pages/"
+    - when: never

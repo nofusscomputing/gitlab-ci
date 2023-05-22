@@ -38,6 +38,8 @@ nav:
 
     - projects/gitlab-ci/mkdocs-build.md
 
+    - projects/gitlab-ci/markdown_lint.md
+
 - Operations: 
 
   - operations/index.md
