@@ -21,7 +21,7 @@ pages:
   variables:
     GIT_STRATEGY: none
   script:
-    - mv "$CI_PROJECT_DIR/artifacts/build/Website/build" public
+    - mv "$CI_PROJECT_DIR/artifacts/build/Website.Build/build" public
   needs: [ 'Website.Build' ]
   environment: 
     name: staging
