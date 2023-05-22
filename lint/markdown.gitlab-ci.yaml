@@ -36,13 +36,13 @@
     - when: never
 
 
-.Lint_Markdown_Pages:
+.Lint_Markdown_Docs:
   variables:
-    MDLINT_PATHS: "pages/*.md pages/**/*.md pages/**/**/*.md pages/**/**/**/*.md pages/**/**/**/**/**/*.md #CHANGELOG.md !gitlab-ci !website-template"
+    MDLINT_PATHS: "docs/*.md docs/**/*.md docs/**/**/*.md docs/**/**/**/*.md docs/**/**/**/**/**/*.md #CHANGELOG.md !gitlab-ci !website-template"
     MD_LINT_CONFIG_PATH: "$CI_PROJECT_DIR/website-template"
   extends: .Lint_Markdown
   rules:
     - if: '$CI_COMMIT_BRANCH'
       exists:
-        - "pages/index.md"
+        - "docs/index.md"
     - when: never
