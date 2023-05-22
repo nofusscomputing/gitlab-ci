@@ -36,9 +36,15 @@ pages:
       when: never
     - if: $CI_COMMIT_TAG
       when: never
+    - if: '$CI_COMMIT_BRANCH == "development"'
+      exists:
+        - "mkdocs.yaml"
+        - "mkdocs.yml"
+      when: always
     - if: '$CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != "master"'
       exists:
         - "mkdocs.yaml"
         - "mkdocs.yml"
-      when: on_success
+      when: manual
+      allow_failure: true
     - when: never
