@@ -41,6 +41,7 @@ Markdown Linting:
 |:----:|:----|
 | MDLINT_PATH | **Optional** specifies the path to lint. defaults to `"**/*.md"` |
 | MDLINT_EXCLUDE_PATHS | **optional** Specifies the paths to exclude from linting. Defaults to `"!gitlab-ci"` |
+| MD_LINT_CONFIG-PATH | **Optional** Specifies a path whenre the lint config file is. defaults to none. this variable enables you to specify a config that will be copied to the project root folder. ***Note:** if specified, the file will be deleted at the end of the linting job.*
 
 ## Job Workflow
 
