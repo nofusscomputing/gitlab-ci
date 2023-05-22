@@ -4,12 +4,12 @@
   variables:
     MDLINT_PATHS: "**/*.md **/**/*.md **/**/**/*.md **/**/**/**/*.md **/**/**/**/**/**/*.md #CHANGELOG.md !gitlab-ci"
     DEFAULT_ROOT_DIR: "./gitlab-ci"
-    MD_LINT_CONFIG-PATH: ""
+    MD_LINT_CONFIG_PATH: ""
   before_script:
     - mkdir -p "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/lint_markdown"
     - if [ "0$JOB_ROOT_DIR" == "0" ]; then ROOT_DIR=$DEFAULT_ROOT_DIR; else ROOT_DIR=$JOB_ROOT_DIR; fi
     - echo "[DEBUG] ROOT_DIR[$ROOT_DIR]"
-    - if [ "0$MD_LINT_CONFIG-PATH" != "0" ]; then cp "$MD_LINT_CONFIG-PATH/.markdownlint.json" $CI_PROJECT_DIR/.markdownlint.json; fi
+    - if [ "0$MD_LINT_CONFIG_PATH" != "0" ]; then cp "$MD_LINT_CONFIG_PATH/.markdownlint.json" $CI_PROJECT_DIR/.markdownlint.json; fi
     - cp -f "$ROOT_DIR/validation/.markdownlint-cli2.jsonc" "$CI_PROJECT_DIR/.markdownlint-cli2.jsonc"
     - npm install markdownlint-cli2 --global
     - npm install markdownlint-cli2-formatter-junit --global
@@ -40,7 +40,7 @@
 .Lint_Markdown_Pages:
   variables:
     MDLINT_PATHS: "pages/*.md pages/**/*.md pages/**/**/*.md pages/**/**/**/*.md pages/**/**/**/**/**/*.md #CHANGELOG.md !gitlab-ci !website-template"
-    MD_LINT_CONFIG-PATH: "$CI_PROJECT_DIR/website-template"
+    MD_LINT_CONFIG_PATH: "$CI_PROJECT_DIR/website-template"
   extends: .Lint_Markdown
   rules:
     - if: '$CI_COMMIT_BRANCH'
