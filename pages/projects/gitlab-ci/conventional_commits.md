@@ -28,20 +28,20 @@ Ensure that the merge request title is in the [conventional message](https://www
 
 ### Commit Messages
 
-All commit messages that form part of your merge request must be in [conventional message](https://www.conventionalcommits.org/en/v1.0.0/) format. 
+All commit messages that form part of your merge request must be in [conventional message](https://www.conventionalcommits.org/en/v1.0.0/) format.
 
 To fix them go back and edit your commit messages.
 
 
 #### fixing commit messages (suggestion)
 
-If only the last commit is the commit with an error just use `git commit --amend` and edit your commit message to be in the correct format and save. now push your changes. 
+If only the last commit is the commit with an error just use `git commit --amend` and edit your commit message to be in the correct format and save. now push your changes.
 
 You will require the following information if the commit message with the error is further down the commit tree:
 
- - Commit message SHA1 of your first commit message to the branch `{original_commit}`
+- Commit message SHA1 of your first commit message to the branch `{original_commit}`
 
- - Commit message SHA1 prior to your first commit `{source_commit}`
+- Commit message SHA1 prior to your first commit `{source_commit}`
 
 Run these commands once you have the information above.
 

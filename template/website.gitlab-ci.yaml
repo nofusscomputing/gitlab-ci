@@ -28,7 +28,7 @@ pages:
     url: $CI_PAGES_URL/projects/gitlab-ci/
   artifacts:
     paths:
-    - public
+      - public
   rules:
     - if: '$JOB_STOP_GITLAB_PAGES'
       when: never

@@ -52,14 +52,16 @@ Ansible Lint (python 3.6):
 
 ## Job Workflow
 
- - This job will lint any yml file in the specified directory using ansible rules.
+- This job will lint any yml file in the specified directory using ansible rules.
 
 
 ## Artifacts
 
- - `$CI_PROJECT_DIR/artifacts` - Root artifact directory
- - `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/$PYTHON_VERSION-ansible-lint.junit.xml` - JUnit Test report
- - `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/$PYTHON_VERSION-ansible-lint.log` - Linter log
+- `$CI_PROJECT_DIR/artifacts` - Root artifact directory
+
+- `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/$PYTHON_VERSION-ansible-lint.junit.xml` - JUnit Test report
+
+- `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/$PYTHON_VERSION-ansible-lint.log` - Linter log
 
 
 ## License

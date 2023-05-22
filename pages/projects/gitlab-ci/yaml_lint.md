@@ -12,6 +12,7 @@ This job provides the following badge:
 
 - None
 
+
 ## Dependencies
 
 - None
@@ -52,14 +53,16 @@ Yaml Lint (python 3.6):
 
 ## Job Workflow
 
- - This job will lint any yaml file in the specified directory using the specified rules.
+- This job will lint any yaml file in the specified directory using the specified rules.
 
 
 ## Artifacts
 
- - `$CI_PROJECT_DIR/artifacts` - Root artifact directory
- - `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/$PYTHON_VERSION-yaml-lint.junit.xml` - JUnit Test report
- - `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/$PYTHON_VERSION-yaml-lint.log` - Linter log
+- `$CI_PROJECT_DIR/artifacts` - Root artifact directory
+
+- `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/$PYTHON_VERSION-yaml-lint.junit.xml` - JUnit Test report
+
+- `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/$PYTHON_VERSION-yaml-lint.log` - Linter log
 
 
 ## License

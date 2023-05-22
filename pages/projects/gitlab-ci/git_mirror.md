@@ -13,6 +13,7 @@ This job provides the following badge:
 
 - None
 
+
 ## Dependencies
 
 - None
@@ -48,7 +49,7 @@ Github (Push --mirror):
 
 ## Job Workflow
 
- - This job is designed to run on successful completion of the validation tasks and only on the `development` and `master` branches. You can safely override the `rules` when creating the job with your own. i.e.
+- This job is designed to run on successful completion of the validation tasks and only on the `development` and `master` branches. You can safely override the `rules` when creating the job with your own. i.e.
 
 ``` yaml
 
@@ -70,7 +71,8 @@ This will cause the job to only run on the `development` branch.
 
 ## Artifacts
 
- - None
+- None
+
 
 ## License
 

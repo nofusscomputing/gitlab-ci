@@ -60,7 +60,9 @@ artifacts/validation/tests/gl-code-quality-report.html
 
 - None
 
+
 ## your .gitlab-ci.yml changes
+
 To add the `PyLint` job, add the following to your `.gitlab-ci.yml` file
 
 ``` yaml
@@ -92,14 +94,17 @@ PyLint:
 
 ## Job Workflow
 
- - This job will lint any yaml file in the specified directory using the specified rules.
+- This job will lint any yaml file in the specified directory using the specified rules.
 
 
 ## Artifacts
 
- - `$CI_PROJECT_DIR/artifacts` - Root artifact directory
- - `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/gl-code-quality-report.json` - Gitlab code quality report (displays in merge request)
- - `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/gl-code-quality-report.html` - html code quality report
+- `$CI_PROJECT_DIR/artifacts` - Root artifact directory
+
+- `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/gl-code-quality-report.json` - Gitlab code quality report (displays in merge request)
+
+- `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/gl-code-quality-report.html` - html code quality report
+
 
 ## License
 

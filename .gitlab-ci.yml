@@ -120,7 +120,6 @@ gilab-ci.yml Lint (python 3.11):
   image: python:3.11-slim
 
 
-
 Gitlab Release:
   variables:
     MY_COMMAND: ./sub-folder_changlog.sh

@@ -45,6 +45,7 @@ MKDocs build:
 | MKDOCS_INCLUDE_SOURCE | **Optional** Include the build source files in the artifacts. Default is Not set. Any value in this variable, will include the source files. |
 | MKDOCS_SOURCE_PATH | **Optional, if source files are not to be included** Set to the path where mkdocs uses to build the static html. |
 
+
 ## Job Workflow
 
 1. install mkdocs
@@ -63,6 +64,7 @@ MKDocs build:
 ## Artifacts
 
 - files in `"$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"`
+
 
 ## License
 

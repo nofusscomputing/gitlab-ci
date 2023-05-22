@@ -36,7 +36,6 @@
     - when: never
 
 
-
 .Lint_Markdown_Pages:
   variables:
     MDLINT_PATHS: "pages/*.md pages/**/*.md pages/**/**/*.md pages/**/**/**/*.md pages/**/**/**/**/**/*.md #CHANGELOG.md !gitlab-ci !website-template"
