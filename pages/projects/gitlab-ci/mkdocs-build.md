@@ -66,7 +66,5 @@ MKDocs build:
 
 - files in `"$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"`
 
-
-## License
-
-To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)
+!!! Note
+    Docs Still under development

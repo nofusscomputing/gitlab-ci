@@ -65,6 +65,5 @@ Yaml Lint (python 3.6):
 - `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/$PYTHON_VERSION-yaml-lint.log` - Linter log
 
 
-## License
-
-To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)
+!!! Note
+    Docs Still under development

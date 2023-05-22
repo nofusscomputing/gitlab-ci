@@ -140,8 +140,5 @@ This CI job's workflow is:
 - `Gitlab Release`
     > None
 
-
-### License
-
-To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)
-
+!!! Note
+    Docs Still under development

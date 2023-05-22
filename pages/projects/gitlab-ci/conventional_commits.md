@@ -119,7 +119,5 @@ In addition to the required variables above, the commitizen config file `.cz.yam
 
 ### Artifacts
 
-
-### License
-
-To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)
+!!! Note
+    Docs Still under development

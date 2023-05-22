@@ -73,7 +73,5 @@ This will cause the job to only run on the `development` branch.
 
 - None
 
-
-## License
-
-To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)
+!!! Note
+    Docs Still under development

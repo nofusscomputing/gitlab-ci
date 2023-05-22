@@ -105,7 +105,5 @@ PyLint:
 
 - `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/gl-code-quality-report.html` - html code quality report
 
-
-## License
-
-To view the license for this folder and any sub-folders, refer [here](https://gitlab.com/nofusscomputing/projects/gitlab-ci)
+!!! Note
+    Docs Still under development

@@ -11,13 +11,9 @@ nav:
 
   - articles/index.md
 
-  - Content Tags: tags.md
-
 - Projects: 
 
   - projects/index.md
-
-  #- Ansible Roles: projects/ansible-roles/index.md
 
   - Gitlab CI: 
 
