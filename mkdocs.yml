@@ -20,6 +20,7 @@ nav:
   - Ansible Roles: projects/ansible-roles/index.md
 
   - Gitlab CI: 
+
     - projects/gitlab-ci/index.md
 
     - projects/gitlab-ci/ansible_roles.md
@@ -39,6 +40,13 @@ nav:
     - projects/gitlab-ci/mkdocs-build.md
 
     - projects/gitlab-ci/markdown_lint.md
+
+    - templates:
+
+      - projects/gitlab-ci/templates/index.md
+
+      - projects/gitlab-ci/templates/website.md
+
 
 - Operations: 
 

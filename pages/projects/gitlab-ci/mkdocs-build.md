@@ -37,6 +37,7 @@ MKDocs build:
 
 ```
 
+
 ## CI/CD Variables required
 
 | var name | Description |
