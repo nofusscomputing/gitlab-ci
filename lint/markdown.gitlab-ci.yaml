@@ -40,9 +40,10 @@
 .Lint_Markdown_Pages:
   variables:
     MDLINT_PATHS: "pages/*.md pages/**/*.md pages/**/**/*.md pages/**/**/**/*.md pages/**/**/**/**/**/*.md #CHANGELOG.md !gitlab-ci !website-template"
+    MD_LINT_CONFIG-PATH: "$CI_PROJECT_DIR/website-template"
   extends: .Lint_Markdown
   rules:
     - if: '$CI_COMMIT_BRANCH'
       exists:
-        - "pages/"
+        - "pages/index.md"
     - when: never

@@ -4,7 +4,7 @@
 include:
   - local: $JOB_ROOT_DIR/.gitlab-ci_common.yaml
   - local: $JOB_ROOT_DIR/mkdocs/.gitlab-ci.yml
-  - local: $JOB_ROOT_DIR/lint/markdown.gitlab-ci.yml
+  - local: $JOB_ROOT_DIR/lint/markdown.gitlab-ci.yaml
 
 
 Website Page Linting:
