@@ -66,5 +66,18 @@ MKDocs build:
 
 - files in `"$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"`
 
+
+## Gitlab job Definition
+
+When you include this definition the following makes up the job definition
+
+``` yaml title=".gitlab-ci.yml"
+
+--8<--
+../../mkdocs/.gitlab-ci.yml
+--8<--
+
+```
+
 !!! Note
     Docs Still under development
