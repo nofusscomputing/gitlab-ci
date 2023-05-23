@@ -71,9 +71,9 @@ MKDocs build:
 
 When you include this definition the following makes up the job definition
 
-``` yaml title=".gitlab-ci.yml"
+``` yaml title=".gitlab-ci.yml" linenums="1"
 
---8<-- "../../mkdocs/.gitlab-ci.yml"
+--8<-- "mkdocs/.gitlab-ci.yml"
 
 ```
 
