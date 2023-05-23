@@ -59,5 +59,16 @@ Markdown Linting:
 
 - JUnit test report located at `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/*.junit.xml`
 
+
+## Gitlab job Definition
+
+When you include this definition the following makes up the job definition
+
+``` yaml title=".gitlab-ci.yml" linenums="1"
+
+--8<-- "lint/markdown.gitlab-ci.yml"
+
+```
+
 !!! Note
     Docs Still under development

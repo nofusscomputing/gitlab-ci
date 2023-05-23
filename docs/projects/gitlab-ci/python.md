@@ -105,5 +105,16 @@ PyLint:
 
 - `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/gl-code-quality-report.html` - html code quality report
 
+
+## Gitlab job Definition
+
+When you include this definition the following makes up the job definition
+
+``` yaml title=".gitlab-ci.yml" linenums="1"
+
+--8<-- "python/.gitlab-ci.yml"
+
+```
+
 !!! Note
     Docs Still under development

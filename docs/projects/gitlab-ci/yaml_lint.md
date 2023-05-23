@@ -65,5 +65,15 @@ Yaml Lint (python 3.6):
 - `$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME/$PYTHON_VERSION-yaml-lint.log` - Linter log
 
 
+## Gitlab job Definition
+
+When you include this definition the following makes up the job definition
+
+``` yaml title=".gitlab-ci.yml" linenums="1"
+
+--8<-- "lint/yaml.gitlab-ci.yml"
+
+```
+
 !!! Note
     Docs Still under development

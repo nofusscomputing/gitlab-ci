@@ -73,5 +73,16 @@ This will cause the job to only run on the `development` branch.
 
 - None
 
+
+## Gitlab job Definition
+
+When you include this definition the following makes up the job definition
+
+``` yaml title=".gitlab-ci.yml" linenums="1"
+
+--8<-- "git_push_mirror/.gitlab-ci.yml"
+
+```
+
 !!! Note
     Docs Still under development

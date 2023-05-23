@@ -119,5 +119,16 @@ In addition to the required variables above, the commitizen config file `.cz.yam
 
 ### Artifacts
 
+
+## Gitlab job Definition
+
+When you include this definition the following makes up the job definition
+
+``` yaml title=".gitlab-ci.yml" linenums="1"
+
+--8<-- "conventional_commits/.gitlab-ci.yml"
+
+```
+
 !!! Note
     Docs Still under development
