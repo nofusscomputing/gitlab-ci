@@ -30,7 +30,7 @@ variables:
   MY_PROJECT_ID: "28543717"
   LICENSE_FINDER_CLI_OPTS: '--recursive'
   MDLINT_PATHS: "**/*.md **/**/*.md **/**/**/*.md **/**/**/**/*.md **/**/**/**/**/**/*.md #**CHANGELOG.md #CHANGELOG.md #website-template/** #.gitlab/**"
-
+  PAGES_ENVIRONMENT_PATH: projects/gitlab-ci/
 
 # Scanner doesn't Pickup multiple pip files. Disable and specify jobs with pip file.
 gemnasium-python-dependency_scanning:
