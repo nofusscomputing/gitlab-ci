@@ -8,10 +8,12 @@ include:
 
 
 Website.Lint:
-  extends: .Lint_Markdown_Pages
+  extends: .Lint_Markdown_Docs
 
 
 Website.Build:
+  variables:
+    MKDOCS_SOURCE_PATH: docs
   extends: .MKDocs_Build
   needs: [ 'Website.Lint' ]
 
