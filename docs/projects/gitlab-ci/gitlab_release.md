@@ -140,5 +140,16 @@ This CI job's workflow is:
 - `Gitlab Release`
     > None
 
+
+## Gitlab job Definition
+
+When you include this definition the following makes up the job definition
+
+``` yaml title=".gitlab-ci.yml" linenums="1"
+
+--8<-- "gitlab_release/.gitlab-ci.yml"
+
+```
+
 !!! Note
     Docs Still under development
