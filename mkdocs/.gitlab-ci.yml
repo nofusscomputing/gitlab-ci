@@ -4,7 +4,7 @@
   variables:
     GIT_DEPTH: 0
     MKDOCS_BUILD_PATH: build
-    MKDOCS_SOURCE_PATH: pages
+    MKDOCS_SOURCE_PATH: docs
     DEFAULT_ROOT_DIR: './gitlab-ci'
   before_script:
     - mkdir -p "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/$CI_JOB_NAME"
