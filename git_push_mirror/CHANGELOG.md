@@ -1,5 +1,6 @@
 # Changelog
 
+2023-05-15 00:18:38 +0000 [a3fdca8](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a3fdca83bf7acb58d47792a66d1cd0728747361c) - build(version): bump version 0.6.1rc0 → 0.6.1rc1  
 2023-05-14 11:41:18 +0930 [1db2209](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1db2209dfb36fbdda28d68388aec9f62f85b57bc) - feat(git_push_mirror): always sync git tag  
 2023-05-13 15:35:28 +0930 [408e4ea](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/408e4eab9e1f61004f1e38af6d1531747b7da99b) - refactor: move docs as part of restructure  
 2023-05-13 11:47:56 +0930 [81445c0](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/81445c06e43bce10761e3a7fbad7df97f82d6bc2) - feat(git_push_mirror): ability to disable job with variable  

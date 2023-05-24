@@ -1,5 +1,7 @@
 # Changelog
 
+2023-05-21 01:48:53 +0930 [088c9fb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/088c9fb04c80961f4de8d2b129955ae8cd0b9529) - feat(conventional_commits): ensure .cz.yaml exists  
+2023-05-15 00:18:38 +0000 [a3fdca8](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a3fdca83bf7acb58d47792a66d1cd0728747361c) - build(version): bump version 0.6.1rc0 → 0.6.1rc1  
 2023-05-15 09:32:15 +0930 [93931cb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/93931cb9076e0db238f4e297abe3d8f37bd71b80) - feat(conventional): job not to run when bot pushes change  
 2023-05-15 09:23:02 +0930 [76db5b1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/76db5b17578d8585ed31e0728dbfb37ea2fae153) - fix(conventional_commits): never run on git tag  
 2023-05-14 14:10:06 +0930 [02e9e5f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/02e9e5f4f4cc0b93ae92c7ba3a2cfb38305af64c) - refactor(ci): inconsistant tabs  

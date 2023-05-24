@@ -1,5 +1,6 @@
 # Changelog
 
+2023-05-15 00:18:38 +0000 [a3fdca8](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a3fdca83bf7acb58d47792a66d1cd0728747361c) - build(version): bump version 0.6.1rc0 → 0.6.1rc1  
 2023-05-13 15:35:28 +0930 [408e4ea](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/408e4eab9e1f61004f1e38af6d1531747b7da99b) - refactor: move docs as part of restructure  
 2022-01-25 00:08:05 +0000 [ce1cc01](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ce1cc017e26ff7f6cee586cc7d98e4d292275672) - build(version): bump version 0.6.0 → 0.6.1rc0  
 2022-01-24 06:33:24 +0000 [46cc1fb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/46cc1fbb6a878e485af39e679b5184a9912c2e7f) - build(version): bump version 0.5.0 → 0.6.0  

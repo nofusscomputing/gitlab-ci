@@ -1,5 +1,9 @@
 # Changelog
 
+2023-05-21 01:48:53 +0930 [088c9fb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/088c9fb04c80961f4de8d2b129955ae8cd0b9529) - feat(conventional_commits): ensure .cz.yaml exists  
+2023-05-15 10:25:48 +0930 [18a2808](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/18a280878799fe077efa0ed5b11bceedd53eb5c8) - fix(gitlab_release): allow skip on dev branch  
+2023-05-15 10:19:49 +0930 [d89941d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d89941df05bfed4b0ad1277e715b224d232e7949) - feat(gitlab_release): dont automagic run on dev  
+2023-05-15 00:18:38 +0000 [a3fdca8](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a3fdca83bf7acb58d47792a66d1cd0728747361c) - build(version): bump version 0.6.1rc0 → 0.6.1rc1  
 2023-05-14 11:46:28 +0930 [e06ffef](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e06ffef66c4a0ba1f48f109c175239560909e698) - feat(gitlab_release): run on merge to development  
 2023-05-14 11:45:24 +0930 [199ea1f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/199ea1f23c6a3df2b40ae3d9a5668719301500d9) - feat(gitlab_release): never run on merge or git tag  
 2023-05-14 11:44:20 +0930 [a745cea](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a745ceac5ebce458b46593311e5285f40dcba349) - fix(gitlab_release): fixed rule to match nfc_bot  

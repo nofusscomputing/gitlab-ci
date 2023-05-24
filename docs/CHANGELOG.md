@@ -1,5 +1,8 @@
 # Changelog
 
-2023-05-14 15:50:23 +0930 [a925db1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a925db14641e709572b832278f43aabe48d153f7) - docs(yaml_lint): update docs for new variables  
-2023-05-14 15:45:30 +0930 [8581981](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8581981a43c31d6903865f067fa3f77adae949e5) - fix(markdown_lint): fix search paths  
-2023-05-13 15:35:28 +0930 [408e4ea](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/408e4eab9e1f61004f1e38af6d1531747b7da99b) - refactor: move docs as part of restructure  
+2023-05-23 12:42:16 +0930 [bcb8035](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bcb80358d9adb6b3a89fab1003f4434fb2949bdc) - ci(pages): add pages slug  
+2023-05-23 10:00:27 +0930 [28c04fb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/28c04fb2e854521167367161d13b09650829d17d) - docs: add job definitions to page  
+2023-05-23 09:46:43 +0930 [7a9aca3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7a9aca3a54b1faacb7e286bade84aff0ff4fd2e5) - fix(mkdocs): default to docs directory as root  
+2023-05-23 09:33:21 +0930 [657df7a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/657df7a5ceb59798c7bb072aed5bf7ef82aef9b6) - docs: add job definition to page  
+2023-05-23 09:22:18 +0930 [bb2cddf](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bb2cddf70bd883636f117453df640e91f1662c39) - chore: remove unneeded fils from docs  
+2023-05-23 09:10:19 +0930 [7c385b7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7c385b7552945699eb87ec3ec43169df0cb77297) - refactor(docs): pages dir renamed to docs  
