@@ -51,5 +51,3 @@ Gitlab Release:
 Github (Push --mirror):
   extends:
     - .git_push_mirror
-
-
