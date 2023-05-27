@@ -1,7 +1,8 @@
 variables:
     JOB_ROOT_DIR: 'gitlab-ci'
     GIT_SUBMODULE_STRATEGY: recursive
-
+    PIPELINE_RUN_TRIGGER: 'false'
+    PIPELINE_RUN_SCHEDULE: 'true'
 
 stages:
     - chores
