@@ -4,6 +4,7 @@ variables:
 
 
 stages:
+    - chores
     - validation
     - build
     - prepare

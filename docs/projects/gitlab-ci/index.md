@@ -21,6 +21,9 @@ about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
 
 The CI stages for these jobs are as follows, and in the order expected by the jobs:
 
+- chores
+    > automated tasks
+
 - validation
     > validation of files, commits,  Merge Request titles, code quality, license checks.
 
