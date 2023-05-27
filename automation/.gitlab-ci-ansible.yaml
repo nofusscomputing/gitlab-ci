@@ -1,9 +1,6 @@
 ---
-# This yaml is intended to automagically create automation jobs if included
+# This yaml is intended to run ansible jobs using nfc's ansible-ee image
 
-variables:
-    PIPELINE_RUN_TRIGGER: 'false'
-    PIPELINE_RUN_SCHEDULE: 'true'
 include:
   - local: $JOB_ROOT_DIR/.gitlab-ci_common.yaml
 
@@ -21,18 +18,23 @@ include:
     - echo "[DEBUG] ansible_inventory=$ansible_inventory"
     - echo "[DEBUG] ansible_playbook=$ansible_playbook"
     - echo "[DEBUG] ansible_tags=$ansible_tags"
-    - ansible-playbook $ansible_inventory $ansible_playbook $ansible_tags -vvv
+    - ansible-playbook $ansible_inventory $ANSIBLE_PLAYBOOK_DIR/$ansible_playbook $ansible_tags -vvv
   rules:
     - if: '$NFC_AUTO_JOBS == "false"'
       when: never
-    - if: '$CI_PIPELINE_SOURCE == "schedule" && $PIPELINE_RUN_SCHEDULE == "true" && $CI_COMMIT_BRANCH == "development"'
+    - if: '$CI_PIPELINE_SOURCE == "schedule" && $PIPELINE_RUN_SCHEDULE == "true"'
       exists:
         - ".nfc_automation.yaml"
       when: always
-    - if: '$CI_PIPELINE_SOURCE == "pipeline" && $PIPELINE_RUN_TRIGGER == "true" && $CI_COMMIT_BRANCH == "development"'
+    - if: '$CI_PIPELINE_SOURCE == "pipeline" && $PIPELINE_RUN_TRIGGER == "true"'
       exists:
         - ".nfc_automation.yaml"
       when: always
+    - if: "$CI_COMMIT_BRANCH == 'development'" # on push to dev run to chek for update
+      exists:
+        - ".nfc_automation.yaml"
+      when: always
+
     # this if for testing only
     # - if: '$CI_PIPELINE_SOURCE == "push"'
     #   when: always
@@ -40,11 +42,3 @@ include:
     #     - ".nfc_automation.yaml"
     - when: never 
 
-
-Update Git Submodules:
-  extends: .ansible_playbook
-  variables:
-    ansible_playbook: 'git_configuration.yaml'
-    ansible_tags: 'submodule'
-    PIPELINE_RUN_TRIGGER: 'false'
-    PIPELINE_RUN_SCHEDULE: 'false'
