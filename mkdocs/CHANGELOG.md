@@ -1,5 +1,7 @@
 # Changelog
 
+2023-05-28 10:31:26 +0930 [bade89c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bade89c5333ca853844e224f46a2d3dafab7179d) - fix(scheduled_pipelines): if scheduled pipeline only run schedualable jobs  
+2023-05-24 04:40:52 +0000 [0a17fe1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0a17fe1aa320c658c05d7a693ff76af4a54e6130) - build(version): bump version 0.6.1rc1 → 0.6.1rc2  
 2023-05-23 09:46:43 +0930 [7a9aca3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7a9aca3a54b1faacb7e286bade84aff0ff4fd2e5) - fix(mkdocs): default to docs directory as root  
 2023-05-22 18:05:24 +0930 [71a335c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/71a335c2667505c199bd67446327cd8794de5f52) - feat(mkdocs): install website-template requirements  
 2023-05-22 13:20:27 +0930 [a0b6d05](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a0b6d05a0f3f0fa84c825007f6ec9f28c945f3ef) - feat(mkdocs_build): always build  

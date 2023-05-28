@@ -1,3 +1,20 @@
+## 0.6.1rc3 (2023-05-28)
+
+### Bug Fixes
+
+- **scheduled_pipelines**: [bade89c5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bade89c5333ca853844e224f46a2d3dafab7179d) - if scheduled pipeline only run schedualable jobs [ [!30](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/30) [#29](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/29) ]
+
+### Code Refactor
+
+- **ansible_playbook**: [f9af921e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/f9af921e6b6ec10f9f77ec6a016c6cbb9559d1bf) - final logic adjustment for job [ [!29](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/29) [#25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/25) ]
+- **automation**: [1f6ee9ea](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1f6ee9ea27824df1c82bf85e1e239f57f2145bdf) - final logic changes [ [!29](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/29) [#25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/25) ]
+
+### Features
+
+- **auto_jobs**: [c5d27e83](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/c5d27e832e100156cb99c5ca580fd5a8eb600e0f) - created initial template to auto-create jobs [ [!29](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/29) [#26](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/26) ]
+- **variables**: [158cc94d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/158cc94d1a817f89b6603e9bac7678196b21d1d5) - added pipeline trigger and schedule [ [!29](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/29) [#26](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/26) ]
+- **automation**: [0d3eaa6a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0d3eaa6ac2dc448505b18c6aecd4a72e28ffde83) - job to run ansible playbooks [ [!29](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/29) [!8](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/8) [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) [#5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/5) ]
+
 ## 0.6.1rc2 (2023-05-24)
 
 ### Bug Fixes

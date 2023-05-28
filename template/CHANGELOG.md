@@ -1,5 +1,9 @@
 # Changelog
 
+2023-05-28 10:31:26 +0930 [bade89c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bade89c5333ca853844e224f46a2d3dafab7179d) - fix(scheduled_pipelines): if scheduled pipeline only run schedualable jobs  
+2023-05-27 15:24:21 +0930 [19dde28](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/19dde28526d5e3f7694da3246505537aa2e19c10) - chore: fix linting error  
+2023-05-27 15:21:27 +0930 [c5d27e8](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/c5d27e832e100156cb99c5ca580fd5a8eb600e0f) - feat(auto_jobs): created initial template to auto-create jobs  
+2023-05-24 04:40:52 +0000 [0a17fe1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0a17fe1aa320c658c05d7a693ff76af4a54e6130) - build(version): bump version 0.6.1rc1 → 0.6.1rc2  
 2023-05-23 12:37:40 +0930 [bef7684](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bef76847ec686fcff92229d7b9be0bcfc7b267da) - feat(template_website): enable specifying the url slug  
 2023-05-23 09:10:19 +0930 [7c385b7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7c385b7552945699eb87ec3ec43169df0cb77297) - refactor(docs): pages dir renamed to docs  
 2023-05-22 13:45:03 +0930 [0b9e737](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0b9e7375c911d65e06b0d801755449ab31cb45ea) - fix(template): use correct path for build artifact  

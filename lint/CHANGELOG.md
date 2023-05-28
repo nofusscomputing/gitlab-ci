@@ -1,5 +1,7 @@
 # Changelog
 
+2023-05-28 10:31:26 +0930 [bade89c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bade89c5333ca853844e224f46a2d3dafab7179d) - fix(scheduled_pipelines): if scheduled pipeline only run schedualable jobs  
+2023-05-24 04:40:52 +0000 [0a17fe1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0a17fe1aa320c658c05d7a693ff76af4a54e6130) - build(version): bump version 0.6.1rc1 → 0.6.1rc2  
 2023-05-23 13:40:13 +0930 [e26f590](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e26f590ebcf284be949be4e1d337e1f587755446) - fix(md_linting): must lint on git tag  
 2023-05-23 09:10:19 +0930 [7c385b7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7c385b7552945699eb87ec3ec43169df0cb77297) - refactor(docs): pages dir renamed to docs  
 2023-05-22 13:43:28 +0930 [065bcbf](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/065bcbf51717e6a29205ced8859a053a2915acd7) - chore(lint): correct lint errors  
