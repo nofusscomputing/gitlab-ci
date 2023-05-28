@@ -52,10 +52,12 @@
           when: never
         - if: "$CI_COMMIT_AUTHOR =='nfc_bot <helpdesk@nofusscomputing.com>'"
           when: never
-        - if: '$CI_COMMIT_BRANCH == "master" && $CI_PIPELINE_SOURCE == "push"'
+        - if: '$CI_COMMIT_BRANCH == "master" &&
+             ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
           when: on_success
           allow_failure: false
-        - if: '$CI_COMMIT_BRANCH == "development" && $CI_PIPELINE_SOURCE == "push"'
+        - if: '$CI_COMMIT_BRANCH == "development" &&
+              ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
           when: manual
           allow_failure: true
         # for testing
@@ -100,7 +102,8 @@ commit footer refs:
           when: never
         - if: '$CI_COMMIT_BRANCH == "development" || $CI_COMMIT_BRANCH == "master"'
           when: never
-        - if: '$CI_COMMIT_BRANCH && $CHANGELOG_FOOTER_REFERENCES != "False" && $CI_PIPELINE_SOURCE == "push"'
+        - if: '$CI_COMMIT_BRANCH && $CHANGELOG_FOOTER_REFERENCES != "False" && 
+              ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
           exists:
           - .cz.yaml
           when: always

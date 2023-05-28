@@ -29,7 +29,8 @@
       junit:
         - "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/lint_markdown/*.junit.xml"
   rules:
-    - if: '$CI_COMMIT_BRANCH && $CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_COMMIT_BRANCH && 
+          ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
       exists:
         - "**.md"
         - "**/**.md"
@@ -48,7 +49,8 @@
       exists:
         - "docs/index.md"
       when: always
-    - if: '$CI_COMMIT_BRANCH && $CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_COMMIT_BRANCH && 
+          ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
       exists:
         - "docs/index.md"
       when: always
