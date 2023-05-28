@@ -32,6 +32,7 @@ Docker Container:
 
 Docker Hub:
   extends: .publish-docker-hub
+  needs: [ "Docker Container" ]
 
 
 Gitlab Release:
