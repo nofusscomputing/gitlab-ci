@@ -12,6 +12,7 @@ include:
     ansible_inventory: ''
     ansible_playbook: ''
     ansible_tags: ''
+    ANSIBLE_FORCE_COLOR: 'true'
   script:
     - if [ "0$ansible_inventory" != '0' ]; then ansible_inventory=-i $ansible_inventory; fi
     - if [ "0$ansible_tags" != '0' ]; then ansible_tags=$(echo -n "--tags $ansible_tags"); fi
