@@ -90,7 +90,6 @@
       fi
 
     - docker logout docker.io
-  needs: [ "Docker Container" ]
   environment:
     name: DockerHub
     url: $DOCKER_IMAGE_PUBLISH_URL
