@@ -21,6 +21,7 @@ include:
   - local: $JOB_ROOT_DIR/gitlab_release/.gitlab-ci.yml
 
     # templates
+  - local: $JOB_ROOT_DIR/template/ansible-role.gitlab-ci.yaml
   - local: $JOB_ROOT_DIR/template/docker-image.gitlab-ci.yaml
   - local: $JOB_ROOT_DIR/template/website.gitlab-ci.yaml
 
