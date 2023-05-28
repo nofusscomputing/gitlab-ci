@@ -52,11 +52,11 @@
       when: never
     - if: "$CI_COMMIT_AUTHOR =='nfc_bot <helpdesk@nofusscomputing.com>'"
       when: never
-    - if: '$CI_COMMIT_BRANCH == "master"'
+    - if: '$CI_COMMIT_BRANCH == "master" && $CI_PIPELINE_SOURCE == "push"'
       exists:
       - .cz.yaml
       when: always
-    - if: '$CI_COMMIT_BRANCH'
+    - if: '$CI_COMMIT_BRANCH && $CI_PIPELINE_SOURCE == "push"'
       exists:
       - .cz.yaml
       when: always
