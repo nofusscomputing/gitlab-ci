@@ -23,7 +23,7 @@ include:
     # templates
   - local: $JOB_ROOT_DIR/template/ansible-role.gitlab-ci.yaml
   - local: $JOB_ROOT_DIR/template/docker-image.gitlab-ci.yaml
-  - local: $JOB_ROOT_DIR/template/website.gitlab-ci.yaml
+  - local: $JOB_ROOT_DIR/template/mkdocs-documentation.gitlab-ci.yaml
 
 
 #
