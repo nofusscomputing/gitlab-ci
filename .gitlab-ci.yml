@@ -1,5 +1,6 @@
 
 stages:
+  - chores
   - validation
   - build
   - prepare
@@ -11,7 +12,7 @@ stages:
 
 include:
   - local: $JOB_ROOT_DIR/lint/yaml.gitlab-ci.yaml
-  - local: $JOB_ROOT_DIR/template/website.gitlab-ci.yaml
+  - local: $JOB_ROOT_DIR/template/automagic.gitlab-ci.yaml
 
   - local: $JOB_ROOT_DIR/conventional_commits/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/git_push_mirror/.gitlab-ci.yml
@@ -119,15 +120,3 @@ gilab-ci.yml Lint (python 3.11):
   extends:
     - .yaml_lint_defaults
   image: python:3.11-slim
-
-
-Gitlab Release:
-  variables:
-    MY_COMMAND: ./sub-folder_changlog.sh
-  extends:
-    - .gitlab_release
-
-
-Github (Push --mirror):
-  extends:
-    - .git_push_mirror

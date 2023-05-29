@@ -23,6 +23,10 @@ nav:
 
       - projects/gitlab-ci/mkdocs-build.md
 
+    - Chores:
+
+      - projects/gitlab-ci/ansible_playbook.md
+
     - Linting:
 
       - projects/gitlab-ci/markdown_lint.md
@@ -35,9 +39,11 @@ nav:
     
       - projects/gitlab-ci/templates/ansible_roles.md
 
+      - projects/gitlab-ci/templates/automagic.md
+
       - projects/gitlab-ci/templates/docker_container.md
 
-      - projects/gitlab-ci/templates/website.md
+      - projects/gitlab-ci/templates/documentation_mkdocs.md
 
     - Validation:
 

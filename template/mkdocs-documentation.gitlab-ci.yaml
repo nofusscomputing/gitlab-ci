@@ -7,25 +7,22 @@ include:
   - local: $JOB_ROOT_DIR/lint/markdown.gitlab-ci.yaml
 
 
-Website.Lint:
+Documentation.Lint:
   extends: .Lint_Markdown_Docs
 
 
-Website.Build:
-  variables:
-    MKDOCS_SOURCE_PATH: docs
-  extends: .MKDocs_Build
-  needs: [ 'Website.Lint' ]
+Documentation.Build:
+  extends: .MKDocs_Build_Docs
+  needs: [ 'Documentation.Lint' ]
 
 
 pages:
   stage: deploy
   variables:
     GIT_STRATEGY: none
-    PAGES_ENVIRONMENT_PATH: ''
   script:
-    - mv "$CI_PROJECT_DIR/artifacts/build/Website.Build/build" public
-  needs: [ 'Website.Build' ]
+    - mv "$CI_PROJECT_DIR/artifacts/build/Documentation.Build/build" public
+  needs: [ 'Documentation.Build' ]
   environment: 
     name: staging
     url: $CI_PAGES_URL/$PAGES_ENVIRONMENT_PATH
