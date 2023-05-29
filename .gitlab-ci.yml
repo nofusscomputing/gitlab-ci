@@ -120,15 +120,3 @@ gilab-ci.yml Lint (python 3.11):
   extends:
     - .yaml_lint_defaults
   image: python:3.11-slim
-
-
-Gitlab Release:
-  variables:
-    MY_COMMAND: ./sub-folder_changlog.sh
-  extends:
-    - .gitlab_release
-
-
-Github (Push --mirror):
-  extends:
-    - .git_push_mirror
