@@ -39,9 +39,11 @@ nav:
     
       - projects/gitlab-ci/templates/ansible_roles.md
 
+      - projects/gitlab-ci/templates/automagic.md
+
       - projects/gitlab-ci/templates/docker_container.md
 
-      - projects/gitlab-ci/templates/website.md
+      - projects/gitlab-ci/templates/documentation_mkdocs.md
 
     - Validation:
 
