@@ -16,7 +16,7 @@ This job provides the following badge:
 
 ## Dependencies
 
-- None
+- **Mandatory** file `.nfc_automation.yaml` see [Documentation](../git_configuration/submodule/) for file details. 
 
 
 ## your .gitlab-ci.yml changes

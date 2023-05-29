@@ -1,6 +1,6 @@
 ---
-title: nfc project documentation Gitlab CI/CD Template
-description: How to use No Fuss Computings gitlab-ci template for building project docs for nofusscomputing.com
+title: mkdocs documentation Gitlab CI/CD Template
+description: How to use No Fuss Computings gitlab-ci template for building docs with mkdocs
 date: 2023-05-22
 template: project.html
 about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
@@ -14,9 +14,10 @@ This template creates the jobs applicable to publishing pages to a website. The 
 - notate that var `PAGES_ENVIRONMENT_PATH:` can be set to the slug of the page to show and is used for launching the environment to the url that contains the docs index page.
 
 
+## Dependencies
 
-!!! Note
-    This template is specifically designed for deployment to https://nofusscomputing.com. However you _may_ be able to override the job definition to use it for your website.
+- **Mandatory** file `docs/index.md` this is the index page of your dcoumentation.
+
 
 !!! Note
     Docs Still under development
