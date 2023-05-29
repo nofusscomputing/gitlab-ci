@@ -1,5 +1,6 @@
 
 stages:
+  - chores
   - validation
   - build
   - prepare
@@ -11,7 +12,7 @@ stages:
 
 include:
   - local: $JOB_ROOT_DIR/lint/yaml.gitlab-ci.yaml
-  - local: $JOB_ROOT_DIR/template/website.gitlab-ci.yaml
+  - local: $JOB_ROOT_DIR/template/automagic.gitlab-ci.yaml
 
   - local: $JOB_ROOT_DIR/conventional_commits/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/git_push_mirror/.gitlab-ci.yml
