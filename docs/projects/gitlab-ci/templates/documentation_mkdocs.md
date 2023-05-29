@@ -1,6 +1,6 @@
 ---
-title: Website Gitlab CI/CD Template
-description: How to use No Fuss Computings gitlab-ci template for website jobs
+title: nfc project documentation Gitlab CI/CD Template
+description: How to use No Fuss Computings gitlab-ci template for building project docs for nofusscomputing.com
 date: 2023-05-22
 template: project.html
 about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
@@ -20,3 +20,11 @@ This template creates the jobs applicable to publishing pages to a website. The 
 
 !!! Note
     Docs Still under development
+
+## gitlab-ci.yml definition
+
+``` yaml title=".gitlab-ci.yml" linenums="1"
+
+--8<-- "templates/mkdocs-documentation.gitlab-ci.yaml"
+
+```
