@@ -21,10 +21,11 @@ This template creates the jobs applicable to publishing pages to a website. The 
 !!! Note
     Docs Still under development
 
+
 ## gitlab-ci.yml definition
 
 ``` yaml title=".gitlab-ci.yml" linenums="1"
 
---8<-- "templates/mkdocs-documentation.gitlab-ci.yaml"
+--8<-- "template/mkdocs-documentation.gitlab-ci.yaml"
 
 ```
