@@ -34,9 +34,7 @@ Update Git Submodules:
   variables:
     ansible_playbook: 'git_configuration.yaml'
     ansible_tags: 'submodule'
-    PIPELINE_RUN_TRIGGER: 'false'
-    PIPELINE_RUN_SCHEDULE: 'false'
-
+    
 
 #
 # Release

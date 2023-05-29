@@ -11,7 +11,7 @@ This template is designed to autodetect which jobs should be created. By includi
 
 ## Docs ToDo
 
-- .
+- document variables `PIPELINE_RUN_TRIGGER: 'false'` and `PIPELINE_RUN_SCHEDULE: 'false'` as being used as a gate to enable the jobs to run by the specified source.
 
 
 !!! Note
