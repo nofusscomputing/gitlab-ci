@@ -16,7 +16,7 @@ Documentation.Build:
   needs: [ 'Documentation.Lint' ]
 
 
-Documentation.Deploy:
+pages:
   stage: deploy
   variables:
     GIT_STRATEGY: none
