@@ -45,3 +45,19 @@ include:
     #     - ".nfc_automation.yaml"
     - when: never 
 
+
+.submodule_update_trigger:
+  stage: publish
+  trigger:
+    project: $SUBMODULE_UPDATE_TRIGGER_PROJECT
+    branch: development
+    forward:
+      yaml_variables: false
+  variables:
+    PIPELINE_RUN_TRIGGER: 'true'
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - if: '$CI_COMMIT_BRANCH == "development" && $CI_PIPELINE_SOURCE == "push"'
+      when: on_success
+    - when: never
