@@ -120,3 +120,33 @@ gilab-ci.yml Lint (python 3.11):
   extends:
     - .yaml_lint_defaults
   image: python:3.11-slim
+
+
+Docker_Mail.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-mail
+
+
+git_configuration.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/git_configuration
+
+
+# Ansible-roles.Submodule.Deploy:
+#   extends: .submodule_update_trigger
+#   variables:
+#     SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible-roles
+
+
+Ops.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/ops
+
+
+Website.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/infrastructure/website
