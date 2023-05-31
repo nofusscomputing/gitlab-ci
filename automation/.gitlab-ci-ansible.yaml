@@ -6,7 +6,9 @@ include:
 
 
 .ansible_playbook:
-  image: nofusscomputing/ansible-ee:dev
+  image: 
+    name: nofusscomputing/ansible-ee:dev
+    pull_policy: [always]
   stage: chores
   variables:
     ansible_inventory: ''
