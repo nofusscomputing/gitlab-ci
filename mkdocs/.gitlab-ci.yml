@@ -45,9 +45,6 @@
   extends: .MKDocs_Build
   variables:
     MKDOCS_SOURCE_PATH: docs
-  needs:
-    - pipeline: $CI_PIPELINE_ID
-      job: 'Website.Lint'
   rules:
     - if: '$JOB_STOP_MKDOCS_BUILD'
       when: never
