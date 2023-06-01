@@ -122,22 +122,46 @@ gilab-ci.yml Lint (python 3.11):
   image: python:3.11-slim
 
 
-Docker_Mail.Submodule.Deploy:
+Ansible_playbooks.Submodule.Deploy:
   extends: .submodule_update_trigger
   variables:
-    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-mail
-
-
-git_configuration.Submodule.Deploy:
-  extends: .submodule_update_trigger
-  variables:
-    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/git_configuration
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/ansible_playbooks
 
 
 # Ansible-roles.Submodule.Deploy:
 #   extends: .submodule_update_trigger
 #   variables:
 #     SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible-roles
+
+
+config.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/infrastructure/config
+
+
+Docker_Mail.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-mail
+
+
+docker-buildx-qemu.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-buildx-qemu
+
+
+execution_environment.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/execution_environment
+
+
+git_configuration.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/git_configuration
 
 
 Ops.Submodule.Deploy:
