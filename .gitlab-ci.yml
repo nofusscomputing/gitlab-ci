@@ -128,10 +128,10 @@ Ansible_playbooks.Submodule.Deploy:
     SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/ansible_playbooks
 
 
-# Ansible-roles.Submodule.Deploy:
-#   extends: .submodule_update_trigger
-#   variables:
-#     SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible-roles
+Ansible-roles.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/ansible-roles
 
 
 config.Submodule.Deploy:
