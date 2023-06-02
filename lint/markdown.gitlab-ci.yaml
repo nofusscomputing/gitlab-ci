@@ -53,6 +53,13 @@
     - if: '$JOB_STOP_LINT_MARKDOWN_DOCS'
       when: never
 
+    - if:  # condition_git_tag
+        $CI_COMMIT_TAG != null &&
+        $CI_COMMIT_BRANCH == null
+      exists:
+        - '{docs/**,pages/**}/*.md'
+      when: always
+
     - if:  # condition_master_branch_push
         $CI_COMMIT_BRANCH == "master" && 
         $CI_PIPELINE_SOURCE == "push"
