@@ -17,12 +17,16 @@
     rules:
         - if: '$JOB_STOP_GIT_PUSH_MIRROR'
           when: never
-        - if: '$CI_COMMIT_TAG && $GIT_SYNC_URL != null'
-          when: always
-        - if: '$CI_COMMIT_BRANCH == "master" && $GIT_SYNC_URL != null &&
-              ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
-        - if: '$CI_COMMIT_BRANCH == "development" && $GIT_SYNC_URL != null &&
-              ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
-          when: always
-        - when: never
 
+        - if: $GIT_SYNC_URL == null
+          when: never
+
+        - if: # condition_master_or_dev_push
+            ( 
+              $CI_COMMIT_BRANCH == "master" || 
+              $CI_COMMIT_BRANCH == "development" 
+            ) && 
+            $CI_PIPELINE_SOURCE == "push"
+          when: always
+
+        - when: never

@@ -16,7 +16,7 @@ Documentation.Build:
   needs: [ 'Documentation.Lint' ]
 
 
-pages:
+Documentation.Pages.Deploy:
   stage: deploy
   variables:
     GIT_STRATEGY: none
@@ -32,21 +32,29 @@ pages:
   rules:
     - if: '$JOB_STOP_GITLAB_PAGES'
       when: never
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-      when: never
-    - if: $CI_COMMIT_TAG
-      when: never
-    - if: '$CI_COMMIT_BRANCH == "development" && 
-          ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
+
+    - if:  # condition_dev_branch_push
+        $CI_COMMIT_BRANCH == "development" && 
+        $CI_PIPELINE_SOURCE == "push"
       exists:
-        - "mkdocs.yaml"
-        - "mkdocs.yml"
+        - '{docs/**,pages/**}/*.md'
+      changes:
+        paths:
+          - '{docs/**,pages/**}/*.md'
+        compare_to: 'master'
       when: always
-    - if: '$CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != "master" && 
-          ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
+
+    - if:  # condition_not_master_or_dev_push
+        $CI_COMMIT_BRANCH != "master" && 
+        $CI_COMMIT_BRANCH != "development" && 
+        $CI_PIPELINE_SOURCE == "push"
       exists:
-        - "mkdocs.yaml"
-        - "mkdocs.yml"
-      when: manual
+        - '{docs/**,pages/**}/*.md'
+      changes:
+        paths:
+          - '{docs/**,pages/**}/*.md'
+        compare_to: 'development'
       allow_failure: true
+      when: manual
+
     - when: never
