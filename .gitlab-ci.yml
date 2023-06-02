@@ -114,11 +114,12 @@ PyLint:
 
 
 gilab-ci.yml Lint (python 3.11):
-  variables:
-    YAML_LINT_PATH: ".gitlab-ci* ./**/*gitlab-ci*"
-    YAML_LINT_EXTRA_ARGS: "{ extends: lint/.yamllint.yaml, ignore: [website-template/*] }"
+  # variables:
+  #   YAML_LINT_PATH: ".gitlab-ci* ./**/*gitlab-ci*"
+  #   YAML_LINT_EXTRA_ARGS: "{ extends: lint/.yamllint.yaml, ignore: [website-template/*] }"
   extends:
-    - .yaml_lint_defaults
+    # - .yaml_lint_defaults
+    - .Gitlab_CI.Lint.YAML
   image: python:3.11-slim
 
 
