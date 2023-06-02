@@ -68,22 +68,17 @@
         $CI_COMMIT_BRANCH == "master" && 
         $CI_PIPELINE_SOURCE == "push"
       exists:
-        #- '{!gitlab-ci/**, !website-template/**, **}/*gitlab-ci*'
-        - '{*, **/}*gitlab-ci*'
-        # - ".gitlab-ci*"
-        # - "**/*gitlab-ci*"
+        - '{*, **/**, **}/*gitlab-ci*'
       when: always
 
     - if: # condition_dev_branch_push
         $CI_COMMIT_BRANCH == "development" && 
         $CI_PIPELINE_SOURCE == "push"
       exists:
-        #- '{!gitlab-ci/**, !website-template/**, **}/*gitlab-ci*'
-        - '{*, **/}*gitlab-ci*'
+        - '{*, **/**, **}/*gitlab-ci*'
       changes:
         paths:
-          #- '{!gitlab-ci/**, !website-template/**, **}/*gitlab-ci*'
-          - '{*, **/}*gitlab-ci*'
+          - '{*, **/**, **}/*gitlab-ci*'
         compare_to: 'master'
       when: always
 
@@ -92,16 +87,10 @@
         $CI_COMMIT_BRANCH != "development" && 
         $CI_PIPELINE_SOURCE == "push"
       exists:
-        #- '{!gitlab-ci/**, !website-template/**, **}/*gitlab-ci*yml'
-        #- '{*, a}/*gitlab-ci*yml' # worked
-        #- '{!website-template/**, *, **, **/**}gitlab-ci*'
-        #- '{*, **, **/**, !website-template/**}/*gitlab-c*' worked
-        - '{*, **/}*gitlab-ci*'
+        - '{*, **/**, **}/*gitlab-ci*'
       changes:
         paths:
-          - '{*, **/}*gitlab-ci*'
-          # - ".gitlab-ci*"
-          # - "**/*gitlab-ci*"
+          - '{*, **/**, **}/*gitlab-ci*'
         compare_to: 'development'
       when: always
 
