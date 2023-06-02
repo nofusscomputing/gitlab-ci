@@ -31,7 +31,7 @@ include:
         - ".nfc_automation.yaml"
       when: always
 
-    - if: '$CI_PIPELINE_SOURCE == "pipeline" && $PIPELINE_RUN_TRIGGER == "true"'
+    - if: '($CI_PIPELINE_SOURCE == "pipeline" || $CI_PIPELINE_SOURCE == "parent_pipeline" ) && $PIPELINE_RUN_TRIGGER == "true"'
       exists:
         - ".nfc_automation.yaml"
       when: always
