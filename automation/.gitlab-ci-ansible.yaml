@@ -16,6 +16,7 @@ include:
     ansible_tags: ''
     ANSIBLE_FORCE_COLOR: 'true'
   script:
+    - export
     - if [ "0$ansible_inventory" != '0' ]; then ansible_inventory=-i $ansible_inventory; fi
     - if [ "0$ansible_tags" != '0' ]; then ansible_tags=$(echo -n "--tags $ansible_tags"); fi
     - echo "[DEBUG] ansible_inventory=$ansible_inventory"
@@ -47,7 +48,7 @@ include:
       when: always
 
     - if: # condition_dev_branch_push
-        $CI_COMMIT_BRANCH == "development" && 
+        $CI_COMMIT_BRANCH != "development" && 
         $CI_PIPELINE_SOURCE == "push"
       exists:
         - ".nfc_automation.yaml"
@@ -63,14 +64,22 @@ include:
 
 .submodule_update_trigger:
   stage: publish
-  trigger:
-    project: $SUBMODULE_UPDATE_TRIGGER_PROJECT
-    branch: development
-    forward:
-      yaml_variables: false
+  # trigger:
+  #   project: $SUBMODULE_UPDATE_TRIGGER_PROJECT
+  #   branch: development
+  #   # forward:
+  #   #   yaml_variables: false
+  script: # use script to trigger pipeline instead of trigger keyword. this is due to trigger keyword not allowing environment keyword.
+    - export TRIGGER_PROJECT_PATH=$(python3 -c "import urllib.parse, sys; print('$SUBMODULE_UPDATE_TRIGGER_PROJECT'.replace('/', '%2F'))")
+    - curl --request POST --form "token=$CI_JOB_TOKEN" --form ref=development "https://gitlab.com/api/v4/projects/$TRIGGER_PROJECT_PATH/trigger/pipeline"
+  environment: 
+    name: $SUBMODULE_UPDATE_TRIGGER_PROJECT
+    url: https://gitlab.com/$SUBMODULE_UPDATE_TRIGGER_PROJECT
   variables:
     PIPELINE_RUN_TRIGGER: 'true'
     GIT_CONFIG_SUBMODULE_NAME: $CI_PROJECT_NAME
+  inherit:
+    variables: false
   rules:
     - if: $CI_COMMIT_TAG
       when: never
