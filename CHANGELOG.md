@@ -1,3 +1,22 @@
+## 0.6.1rc5 (2023-06-02)
+
+### Bug Fixes
+
+- **gitlab_yaml_lint**: [efa62710](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/efa62710571e48872d700a8a8802a526fb86b1f6) - adjust logic to detect changes [ [!42](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/42) ]
+- **commit_footer_check**: [6accd863](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6accd8633ca0579de084d9762f610711ae1e5715) - run on non master/dev branches only [ [!42](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/42) ]
+
+### Code Refactor
+
+- **ci**: [9d767282](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9d767282ffa86c48077bd08b605cf50be76a9b07) - update ansible-role repo path [ [!40](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/40) [#74](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/74) ]
+
+### Features
+
+- **submodule_update_trigger**: [86b05338](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/86b05338854f94997cb5cf09fad0561c09f86461) - only update own submodule [ [!41](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/41) [#16](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/16) [!60](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/60) ]
+- **mkdocs_build**: [ff8c43c1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ff8c43c1ea2126cabf0ad2f400a784a9f90ec1ac) - always build on git tag [ [!41](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/41) ]
+- **ci_rules**: [04e7e928](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/04e7e928e0f4f2212078fd08fd87b2e024dd5257) - add exists and changes for rules [ [!41](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/41) [#32](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/32) ]
+- **yaml_anchors**: [862176f9](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/862176f9dca8cf8ee998456db0cc12f7084f7fc0) - initial conditional checks [ [!41](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/41) [#32](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/32) ]
+- **ci**: [6f810f80](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6f810f8084e54f0afc9ebb47bfcc855536046a08) - add more repos to update [ [!39](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/39) ]
+
 ## 0.6.1rc4 (2023-05-31)
 
 ### Bug Fixes
