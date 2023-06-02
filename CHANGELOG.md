@@ -1,3 +1,9 @@
+## 0.6.1rc6 (2023-06-02)
+
+### Bug Fixes
+
+- **md_lint**: [ba43bb9c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ba43bb9c8de87d723abcd0b4b7519c88d8c3b162) - lint on git tag [ [!43](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/43) ]
+
 ## 0.6.1rc5 (2023-06-02)
 
 ### Bug Fixes
