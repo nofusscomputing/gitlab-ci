@@ -25,15 +25,20 @@ include:
   rules:
     - if: '$NFC_AUTO_JOBS == "false"'
       when: never
+
     - if: '$CI_PIPELINE_SOURCE == "schedule" && $PIPELINE_RUN_SCHEDULE == "true"'
       exists:
         - ".nfc_automation.yaml"
       when: always
+
     - if: '$CI_PIPELINE_SOURCE == "pipeline" && $PIPELINE_RUN_TRIGGER == "true"'
       exists:
         - ".nfc_automation.yaml"
       when: always
-    - if: "$CI_COMMIT_BRANCH == 'development'" # on push to dev run to chek for update
+
+    - if: # condition_dev_branch_push
+        $CI_COMMIT_BRANCH == "development" && 
+        $CI_PIPELINE_SOURCE == "push"
       exists:
         - ".nfc_automation.yaml"
       when: always
@@ -58,6 +63,13 @@ include:
   rules:
     - if: $CI_COMMIT_TAG
       when: never
-    - if: '$CI_COMMIT_BRANCH == "development" && $CI_PIPELINE_SOURCE == "push"'
+
+    - if: # condition_master_or_dev_push
+        (
+          $CI_COMMIT_BRANCH == "master" || 
+          $CI_COMMIT_BRANCH == "development" 
+        )&& 
+        $CI_PIPELINE_SOURCE == "push"
       when: on_success
+
     - when: never
