@@ -94,24 +94,31 @@
     name: DockerHub
     url: $DOCKER_IMAGE_PUBLISH_URL
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-      when: never
-    - if: $CI_COMMIT_TAG
+
+    - if: # condition_git_tag
+        $CI_COMMIT_TAG != null &&
+        $CI_COMMIT_BRANCH == null
       exists:
-        - dockerfile
-        - dockerfile.j2
+        - '{dockerfile, dockerfile.j2}'
       when: on_success
-    - if: '$CI_COMMIT_BRANCH == "development" && 
-          ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
+
+    - if: # condition_master_branch_push
+        $CI_COMMIT_BRANCH == "master" && 
+        $CI_PIPELINE_SOURCE == "push"
       exists:
-        - dockerfile
-        - dockerfile.j2
-      when: on_success
-    - if: '$CI_COMMIT_BRANCH != "master" &&  
-          ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
+        - '{dockerfile, dockerfile.j2}'
+      when: always
+
+    - if: # condition_dev_branch_push
+        $CI_COMMIT_BRANCH == "development" && 
+        $CI_PIPELINE_SOURCE == "push"
       exists:
-        - dockerfile
-        - dockerfile.j2
+        - '{dockerfile, dockerfile.j2}'
+      changes:
+        paths:
+          - '{dockerfile, dockerfile.j2, includes**/**}'
+        compare_to: 'master'
       allow_failure: true
       when: manual
+
     - when: never

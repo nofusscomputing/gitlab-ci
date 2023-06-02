@@ -30,9 +30,46 @@ Docker Container:
   extends: .build_docker_container
 
 
-Docker Hub:
+Docker.Hub.Branch.Publish:
   extends: .publish-docker-hub
   needs: [ "Docker Container" ]
+
+  rules: # rules manually synced from docker/publish.gitlab-ci.yaml removing git tag
+
+    - if: # condition_master_branch_push
+        $CI_COMMIT_BRANCH == "master" && 
+        $CI_PIPELINE_SOURCE == "push"
+      exists:
+        - '{dockerfile, dockerfile.j2}'
+      when: always
+
+    - if: # condition_dev_branch_push
+        $CI_COMMIT_BRANCH == "development" && 
+        $CI_PIPELINE_SOURCE == "push"
+      exists:
+        - '{dockerfile, dockerfile.j2}'
+      changes:
+        paths:
+          - '{dockerfile, dockerfile.j2, includes**/**}'
+        compare_to: 'master'
+      allow_failure: true
+      when: manual
+
+    - when: never
+
+
+Docker.Hub.Tag.Publish:
+  extends: .publish-docker-hub
+  rules: # rules manually synced from docker/publish.gitlab-ci.yaml only keeping git tag
+
+    - if: # condition_git_tag
+        $CI_COMMIT_TAG != null &&
+        $CI_COMMIT_BRANCH == null
+      exists:
+        - '{dockerfile, dockerfile.j2}'
+      when: always
+
+    - when: never
 
 
 Gitlab Release:
