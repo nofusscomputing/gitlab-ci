@@ -13,6 +13,13 @@
   $CI_COMMIT_BRANCH != "development" && 
   $CI_PIPELINE_SOURCE == "push"
 
+.condition_master_or_dev_push: &condition_master_or_dev_push # condition_master_or_dev_push
+  (
+    $CI_COMMIT_BRANCH == "master" || 
+    $CI_COMMIT_BRANCH == "development" 
+  )&& 
+  $CI_PIPELINE_SOURCE == "push"
+
 .condition_git_tag: &condition_git_tag # condition_git_tag
   $CI_COMMIT_TAG != null &&
   $CI_COMMIT_BRANCH == null

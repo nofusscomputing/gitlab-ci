@@ -16,6 +16,7 @@ about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
 
 - other sub folders are for `` which **DO NOT** automagically create jobs, but are pure definitions only.
 
+- notate how each of the stages run and under what circumstance. *i.e. gitlab-ci.yml rules.exist/rules.changes*
 
 ## CI Stages
 
