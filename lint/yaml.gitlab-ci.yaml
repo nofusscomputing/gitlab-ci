@@ -2,7 +2,7 @@
 .yaml_lint_defaults:
     variables:
         YAML_LINT_PATH: "."
-        YAML_LINT_EXTRA_ARGS: "{ extends: $ROOT_DIR/lint/.yamllint.yaml, ignore: [gitlab-ci/*] }"
+        YAML_LINT_EXTRA_ARGS: "{ extends: $ROOT_DIR/lint/.yamllint.yaml, ignore: [gitlab-ci/*, website-template/*] }"
     stage: validation
     before_script:
         - if [ "0$JOB_ROOT_DIR" == "0" ]; then ROOT_DIR=gitlab-ci; else ROOT_DIR=$JOB_ROOT_DIR ; fi
@@ -36,14 +36,65 @@
     rules:
         - if: '$JOB_STOP_YAML_LINT'
           when: never
-        - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
-          when: never
-        - if: '$CI_COMMIT_TAG'
-          when: always
+
+        # - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+        #   when: never
+
+        # - if: '$CI_COMMIT_TAG'
+        #   when: always
+
         - if: '$CI_COMMIT_BRANCH == "master" &&
               ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
           when: always
+
         - if: '$CI_COMMIT_BRANCH &&
             ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
           when: always
+
         - when: never
+
+
+.Gitlab_CI.Lint.YAML:
+  variables:
+    YAML_LINT_PATH: ".gitlab-ci* ./**/*gitlab-ci*"
+    YAML_LINT_EXTRA_ARGS: "{ extends: lint/.yamllint.yaml, ignore: [gitlab-ci/*, website-template/*] }"
+  extends:
+    - .yaml_lint_defaults
+  rules:
+
+    - if: # condition_master_branch_push
+        $CI_COMMIT_BRANCH == "master" && 
+        $CI_PIPELINE_SOURCE == "push"
+      exists:
+        - ".gitlab-ci*"
+        - "**/*gitlab-ci*"
+      when: always
+
+    - if: # condition_dev_branch_push
+        $CI_COMMIT_BRANCH == "development" && 
+        $CI_PIPELINE_SOURCE == "push"
+      exists:
+        - ".gitlab-ci*"
+        - "**/*gitlab-ci*"
+      changes:
+        paths:
+          - ".gitlab-ci*"
+          - "**/*gitlab-ci*"
+        compare_to: 'master'
+      when: always
+
+    - if: # condition_not_master_or_dev_push
+        $CI_COMMIT_BRANCH != "master" && 
+        $CI_COMMIT_BRANCH != "development" && 
+        $CI_PIPELINE_SOURCE == "push"
+      exists:
+        - ".gitlab-ci*"
+        - "**/*gitlab-ci*"
+      changes:
+        paths:
+          - ".gitlab-ci*"
+          - "**/*gitlab-ci*"
+        compare_to: 'development'
+      when: always
+
+    - when: never
