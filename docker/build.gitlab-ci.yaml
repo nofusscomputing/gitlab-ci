@@ -111,7 +111,7 @@ variables:
         - '{dockerfile, dockerfile.j2}'
       changes:
         paths:
-          - '{dockerfile, dockerfile.j2, includes**/**}'
+          - '{dockerfile, dockerfile.j2, includes/**}'
         compare_to: 'master'
       when: always
 
@@ -123,7 +123,7 @@ variables:
         - '{dockerfile, dockerfile.j2}'
       changes:
         paths:
-          - '{dockerfile, dockerfile.j2, includes**/**}'
+          - '{dockerfile, dockerfile.j2, includes/**}'
         compare_to: 'development'
       when: always
 
