@@ -30,11 +30,8 @@ include:
 # Chores
 #
 Update Git Submodules:
-  extends: .ansible_playbook
-  variables:
-    ansible_playbook: 'git_configuration.yaml'
-    ansible_tags: 'submodule'
-    
+  extends: .ansible_playbook_git_submodule
+
 
 #
 # Release
