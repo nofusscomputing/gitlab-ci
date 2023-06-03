@@ -124,7 +124,7 @@ variables:
       changes:
         paths:
           - '{dockerfile, dockerfile.j2, includes**/**}'
-        compare_to: 'devlopment'
+        compare_to: 'development'
       when: always
 
     - when: never
