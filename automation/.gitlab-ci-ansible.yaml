@@ -61,6 +61,14 @@ include:
     # #   exists:
     # #     - ".nfc_automation.yaml"
     - when: never
+
+
+.ansible_playbook_git_submodule:
+  extends: .ansible_playbook
+  variables:
+    ansible_playbook: 'git_configuration.yaml'
+    ansible_tags: 'submodule'
+  rules:
     - if: '$NFC_AUTO_JOBS == "false"'
       when: never
 
@@ -96,7 +104,7 @@ include:
     #   when: always
     #   exists:
     #     - ".nfc_automation.yaml"
-    - when: never 
+    - when: never
 
 
 .submodule_update_trigger:
