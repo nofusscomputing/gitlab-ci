@@ -23,6 +23,44 @@ include:
     - echo "[DEBUG] ansible_tags=$ansible_tags"
     - ansible-playbook $ansible_inventory $ANSIBLE_PLAYBOOK_DIR/$ansible_playbook $ansible_tags -vvv
   rules:
+  # ToDo: at some stage redefine these rules so that the job can run if specified.
+    # - if: '$NFC_AUTO_JOBS == "false"'
+    #   when: never
+
+    # - if: '$CI_PIPELINE_SOURCE == "schedule" && $PIPELINE_RUN_SCHEDULE == "true"'
+    #   exists:
+    #     - ".nfc_automation.yaml"
+    #   when: always
+
+    # - if: 
+    #     (
+    #       $CI_PIPELINE_SOURCE == "api"
+    #         || 
+    #       $CI_PIPELINE_SOURCE == "pipeline"
+    #         || 
+    #       $CI_PIPELINE_SOURCE == "trigger" 
+    #         || 
+    #       $CI_PIPELINE_SOURCE == "parent_pipeline"
+    #     ) && 
+    #     $PIPELINE_RUN_TRIGGER == "true"
+    #   exists:
+    #     - ".nfc_automation.yaml"
+    #   when: always
+
+
+    # - if: # condition_dev_branch_push
+    #     $CI_COMMIT_BRANCH == "development" && 
+    #     $CI_PIPELINE_SOURCE == "push"
+    #   exists:
+    #     - ".nfc_automation.yaml"
+    #   when: always
+
+    # # this if for testing only
+    # # - if: '$CI_PIPELINE_SOURCE == "push"'
+    # #   when: always
+    # #   exists:
+    # #     - ".nfc_automation.yaml"
+    - when: never
     - if: '$NFC_AUTO_JOBS == "false"'
       when: never
 
