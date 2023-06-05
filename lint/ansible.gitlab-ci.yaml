@@ -41,17 +41,17 @@
         $CI_COMMIT_BRANCH == "master" && 
         $CI_PIPELINE_SOURCE == "push"
       exists:
-        - '{defaults/**,handlers/**,meta/**,tasks/**}/*.yaml'
+        - '{defaults/**, handlers/**, inventory/**, meta/**, playbooks/**. tasks/**}/*.{yaml,yml}'
       when: always
 
     - if: # condition_dev_branch_push
         $CI_COMMIT_BRANCH == "development" && 
         $CI_PIPELINE_SOURCE == "push"
       exists:
-        - '{defaults/**,handlers/**,meta/**,tasks/**}/*.yaml'
+        - '{defaults/**, handlers/**, inventory/**, meta/**, playbooks/**. tasks/**}/*.{yaml,yml}'
       changes:
         paths:
-          - '{defaults/**,handlers/**,meta/**,tasks/**}/*.yaml'
+          - '{defaults/**, handlers/**, inventory/**, meta/**, playbooks/**. tasks/**}/*.{yaml,yml}'
         compare_to: 'master'
       when: always
 
@@ -60,10 +60,10 @@
         $CI_COMMIT_BRANCH != "development" && 
         $CI_PIPELINE_SOURCE == "push"
       exists:
-        - '{defaults/**,handlers/**,meta/**,tasks/**}/*.yaml'
+        - '{defaults/**, handlers/**, inventory/**, meta/**, playbooks/**. tasks/**}/*.{yaml,yml}'
       changes:
         paths:
-          - '{defaults/**,handlers/**,meta/**,tasks/**}/*.yaml'
+          - '{defaults/**, handlers/**, inventory/**, meta/**, playbooks/**. tasks/**}/*.{yaml,yml}'
         compare_to: 'development'
       when: always
 

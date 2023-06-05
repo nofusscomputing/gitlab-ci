@@ -26,7 +26,7 @@ include:
 variables:
   JOB_ROOT_DIR: '.'
   SECURE_LOG_LEVEL: debug
-  GIT_SUBMODULE_STRATEGY: recursive
+  GIT_SUBMODULE_STRATEGY: normal
   GIT_SYNC_URL: "https://$GITHUB_USERNAME_ROBOT:$GITHUB_TOKEN_ROBOT@github.com/NoFussComputing/gitlab-ci.git"
   MY_PROJECT_ID: "28543717"
   LICENSE_FINDER_CLI_OPTS: '--recursive'
