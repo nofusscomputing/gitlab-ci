@@ -1,3 +1,24 @@
+## 0.6.1rc7 (2023-06-05)
+
+### Bug Fixes
+
+- **mkdocs**: [5ffc68d7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5ffc68d7241bb0c729a990b4a5b060bd6488ea8c) - adjust rules to match lint [ [!51](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/51) ]
+- **docker**: [097725c1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/097725c1be5d155cebada0cf2cbb17ddbd041e6e) - detect canges in include path corrected [ [!50](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/50) ]
+- **ci**: [9e098245](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9e098245d7a6272fd51aee0a479af3a233fdb30e) - typo in docker build [ [!49](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/49) [!20](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/20) ]
+- **ansible_playbook**: [13ee3bf5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/13ee3bf535dadf7cada645ddec74e2e29872ac2c) - No4 enable parent pipelines [ [!47](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/47) ]
+- **ansible_playbook**: [3c0543f7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3c0543f7ad0673bcb6600e6ff20693be5f784f23) - No3 enable parent pipelines [ [!45](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/45) ]
+- **ansible_playbook**: [f3fa9c5a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/f3fa9c5a416295cb2a0362a31f05995336ea9155) - enable parent pipelines [ [!45](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/45) ]
+- **ansible_playbook**: [3ee48daa](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3ee48daa10eee6dd80b79ed076c4ad4d1ff9bb57) - enable parent pipelines [ [!44](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/44) ]
+
+### Features
+
+- **ansible_lint**: [6a149f6e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6a149f6ed6d514c42d67b6b04cea114aa32067b8) - added inventory & playbooks directories [ [!50](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/50) [#22](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/22) [!27](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/27) ]
+- **ci**: [1dcb3ed5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1dcb3ed521538de47745ed00148bb4123708d90d) - dont git submodule recurse [ [!50](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/50) ]
+- **commit_footer_refs**: [f3256c58](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/f3256c5858e1b5b2b6444f9d8ae63f556f4acb30) - only run on changes [ [!50](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/50) ]
+- **ci**: [d8a6d5f7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d8a6d5f7ec1f73d5ae506301666383aac843708d) - git gubmodule update trigger moved to api call via curl [ [!48](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/48) [!62](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/62) ]
+- **ci**: [35cfa92c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/35cfa92cd900e7ed7008695bf0b65aaf147bb0ec) - git submodule job moved to own definition [ [!48](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/48) [!62](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/62) ]
+- **ansible_playbook**: [a86d17ef](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a86d17eff267750c3713968852d5013ef00ee226) - rules set to never 'ONLY' [ [!48](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/48) [!62](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/62) ]
+
 ## 0.6.1rc6 (2023-06-02)
 
 ### Bug Fixes
