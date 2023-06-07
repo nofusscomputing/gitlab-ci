@@ -30,6 +30,7 @@ variables:
     # See https://github.com/docker-library/docker/pull/166
     DOCKER_TLS_CERTDIR: ""
   before_script:
+    - git submodule foreach git submodule update --init
     - if [ "0$JOB_ROOT_DIR" == "0" ]; then ROOT_DIR=gitlab-ci; else ROOT_DIR=$JOB_ROOT_DIR ; fi
     - echo "[DEBUG] ROOT_DIR[$ROOT_DIR]"
     - docker info
