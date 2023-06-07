@@ -14,10 +14,12 @@ Documentation.Lint:
 Documentation.Build:
   extends: .MKDocs_Build_Docs
   needs: [ 'Documentation.Lint' ]
+  resource_group: Documentation
 
 # this name must always be called 'pages' so that gitlab pages work
 pages:
   stage: deploy
+  resource_group: Documentation
   variables:
     GIT_STRATEGY: none
   script:
