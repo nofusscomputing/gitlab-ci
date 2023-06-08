@@ -16,6 +16,7 @@ Ansible Lint (python 3.11):
     - .ansible_linter_defaults
   image: python:3.11-slim
   resource_group: build
+  needs: []
 
 
 Gitlab Release:
