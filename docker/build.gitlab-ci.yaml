@@ -102,17 +102,17 @@ variables:
         $CI_COMMIT_BRANCH == "master" && 
         $CI_PIPELINE_SOURCE == "push"
       exists:
-        - '{dockerfile, dockerfile.j2}'
+        - '{dockerfile,dockerfile.j2}'
       when: always
 
     - if: # condition_dev_branch_push
         $CI_COMMIT_BRANCH == "development" && 
         $CI_PIPELINE_SOURCE == "push"
       exists:
-        - '{dockerfile, dockerfile.j2}'
+        - '{dockerfile,dockerfile.j2}'
       changes:
         paths:
-          - '{dockerfile, dockerfile.j2, includes/**}'
+          - '{dockerfile,dockerfile.j2,includes/**}'
         compare_to: 'master'
       when: always
 
@@ -121,10 +121,10 @@ variables:
         $CI_COMMIT_BRANCH != "development" && 
         $CI_PIPELINE_SOURCE == "push"
       exists:
-        - '{dockerfile, dockerfile.j2}'
+        - '{dockerfile,dockerfile.j2}'
       changes:
         paths:
-          - '{dockerfile, dockerfile.j2, includes/**}'
+          - '{dockerfile,dockerfile.j2,includes/**}'
         compare_to: 'development'
       when: always
 
