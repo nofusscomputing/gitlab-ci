@@ -39,7 +39,7 @@
       exists:
         # - "**.md"
         # - "**/**.md"
-        - '{!docs/**,!pages/**,!gitlab-ci/**, !website-template/**, **}/*.md'
+        - '{!docs/**,!pages/**,!gitlab-ci/**,!website-template/**,**}/*.md'
       when: always
     - when: never
 

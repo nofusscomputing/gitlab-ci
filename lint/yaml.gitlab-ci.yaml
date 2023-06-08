@@ -44,12 +44,12 @@
     - if: '$CI_COMMIT_BRANCH &&
         ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")'
       exists:
-        - '{!gitlab-ci/**/*, !website-template/**/*, !.gitlab-ci, !*gitlab-ci*, **/*, **}.{yml, yaml}'
+        - '{!gitlab-ci/**/*,!website-template/**/*,!.gitlab-ci,!*gitlab-ci*,**/*,**}.{yml,yaml}'
         # - ".gitlab-ci*"
         # - "**/*gitlab-ci*"
       changes:
         paths:
-          - '{!gitlab-ci/**/*, !website-template/**/*, !.gitlab-ci, !*gitlab-ci*, **/*, **}.{yml, yaml}'
+          - '{!gitlab-ci/**/*,!website-template/**/*,!.gitlab-ci,!*gitlab-ci*,**/*,**}.{yml,yaml}'
         compare_to: 'master'
       when: always
 
@@ -59,7 +59,7 @@
 .Gitlab_CI.Lint.YAML:
   variables:
     YAML_LINT_PATH: ".gitlab-ci* ./**/*gitlab-ci*"
-    YAML_LINT_EXTRA_ARGS: "{ extends: lint/.yamllint.yaml, ignore: [gitlab-ci/*, website-template/*] }"
+    YAML_LINT_EXTRA_ARGS: "{ extends: lint/.yamllint.yaml,ignore: [gitlab-ci/*,website-template/*] }"
   extends:
     - .yaml_lint_defaults
   rules:
@@ -68,17 +68,17 @@
         $CI_COMMIT_BRANCH == "master" && 
         $CI_PIPELINE_SOURCE == "push"
       exists:
-        - '{*, **/**, **}/*gitlab-ci*'
+        - '{*,**/**,**}/*gitlab-ci*'
       when: always
 
     - if: # condition_dev_branch_push
         $CI_COMMIT_BRANCH == "development" && 
         $CI_PIPELINE_SOURCE == "push"
       exists:
-        - '{*, **/**, **}/*gitlab-ci*'
+        - '{*,**/**,**}/*gitlab-ci*'
       changes:
         paths:
-          - '{*, **/**, **}/*gitlab-ci*'
+          - '{*,**/**,**}/*gitlab-ci*'
         compare_to: 'master'
       when: always
 
@@ -87,10 +87,10 @@
         $CI_COMMIT_BRANCH != "development" && 
         $CI_PIPELINE_SOURCE == "push"
       exists:
-        - '{*, **/**, **}/*gitlab-ci*'
+        - '{*,**/**,**}/*gitlab-ci*'
       changes:
         paths:
-          - '{*, **/**, **}/*gitlab-ci*'
+          - '{*,**/**,**}/*gitlab-ci*'
         compare_to: 'development'
       when: always
 
