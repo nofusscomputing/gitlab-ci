@@ -28,12 +28,13 @@ variables:
 
 Docker Container:
   extends: .build_docker_container
+  resource_group: build
 
 
 Docker.Hub.Branch.Publish:
   extends: .publish-docker-hub
   needs: [ "Docker Container" ]
-
+  resource_group: build
   rules: # rules manually synced from docker/publish.gitlab-ci.yaml removing git tag
 
     - if: # condition_master_branch_push
@@ -60,6 +61,7 @@ Docker.Hub.Branch.Publish:
 
 Docker.Hub.Tag.Publish:
   extends: .publish-docker-hub
+  resource_group: build
   rules: # rules manually synced from docker/publish.gitlab-ci.yaml only keeping git tag
 
     - if: # condition_git_tag
