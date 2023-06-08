@@ -29,6 +29,7 @@ variables:
 Docker Container:
   extends: .build_docker_container
   resource_group: build
+  needs: []
 
 
 Docker.Hub.Branch.Publish:

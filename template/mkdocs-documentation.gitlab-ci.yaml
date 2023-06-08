@@ -9,6 +9,7 @@ include:
 
 Documentation.Lint:
   extends: .Lint_Markdown_Docs
+  needs: []
 
 
 Documentation.Build:
