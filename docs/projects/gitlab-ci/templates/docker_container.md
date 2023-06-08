@@ -13,6 +13,8 @@ about: https://gitlab.com/nofusscomputing/projects/gitlab-ci
 
 - notate available platforms can be viewed in the job
 
+- notate that resource groups are used. also mention that the resource group allows the git tag pipeline as forced to wait for the previous pipeline, tag push to build the image first
+
 ``` yaml
 
   # Available platforms: linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/arm64, linux/riscv64, linux/ppc64, linux/ppc64le, linux/s390x, linux/386, linux/mips64le, linux/mips64, linux/arm/v7, linux/arm/v6
