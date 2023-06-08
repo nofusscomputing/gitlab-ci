@@ -1,3 +1,25 @@
+## 0.6.1rc8 (2023-06-08)
+
+### Bug Fixes
+
+- **lint**: [4462ec04](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/4462ec04268c5b967f0672828d1cd7b3995894d9) - all lint to immediatly start job [ [!57](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/57) ]
+- **ci**: [9b00af99](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9b00af996ff96f58a26b83066004e5a9e94ac155) - correct dockerhub tag [ [!57](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/57) ]
+- **ci**: [6af454be](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6af454be4d2b658e0c362392ff502b3fb3da2cbf) - remove spaces from regex exists and changes [ [!56](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/56) ]
+- **ansible_lint**: [46d85bcf](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/46d85bcf49ea73545a5af4324c28af51a17acd3c) - enable first level dir paths [ [!55](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/55) ]
+- **docker_build**: [11b62099](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/11b6209992294e45a051e26963d772d75014e516) - on success push container to docker hub [ [!53](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/53) ]
+- **docker_build**: [e90b938b](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e90b938bba092bdaecbc1a43758218da0058427b) - init submodule submodules [ [!53](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/53) ]
+
+### Documentaton / Guides
+
+- [469255f4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/469255f450e946a712d379415e45a74eb8c07995) - added notes [ [!58](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/58) ]
+
+### Features
+
+- **ci**: [0ec520f0](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0ec520f02328b69642f929a19e8517c7d475a988) - add resource groups [ [!55](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/55) [#33](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/33) ]
+- **sync**: [e75464c7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e75464c7c409fd17864624d48c9fec8e6e3544e9) - immediatee git sync [ [!55](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/55) ]
+- **latest_artifacts**: [755fcac0](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/755fcac06e9f265789b02a88eb90df35ab1dbf07) - ensure artifats for jobs are always avail on branches [ [!54](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/54) [#34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/34) [#331232](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/331232) ]
+- **latest_artifacts**: [22dd4985](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/22dd4985be315be95be55b2b4edff5ae4ba1eeb4) - ensure artifats for jobs are always avail on branches [ [!52](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/52) [#34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/34) [#331232](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/331232) ]
+
 ## 0.6.1rc7 (2023-06-05)
 
 ### Bug Fixes
