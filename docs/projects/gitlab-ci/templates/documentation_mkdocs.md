@@ -13,6 +13,7 @@ This template creates the jobs applicable to publishing pages to a website. The 
 
 - notate that var `PAGES_ENVIRONMENT_PATH:` can be set to the slug of the page to show and is used for launching the environment to the url that contains the docs index page.
 
+- notate that resource groups are used.
 
 ## Dependencies
 
