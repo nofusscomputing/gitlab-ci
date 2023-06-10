@@ -105,40 +105,128 @@ Gitlab Release:
 > if you wish to run any commands you can add them to variable `MY_COMMAND`. The custom command will run under shell `/bin/sh`. This command is set to run before the version bump commit is conducted so any changes you wish to add as part of the version bump, you can do here as long as you `git add {changed file name}`.
 
 
-### CI/CD Variables required
-
-| var name | Description |
-|:----:|:----|
-| GIT_COMMIT_TOKEN | *this must be a personal token that has write access to the repository* |
-| CHANGELOG_FOOTER_REFERENCES |  ***Optional** If set to `False` the changelog will not output gitlab references for each entry of the changelog. If this variable is set globally, it will also prevent the creation of the CI job to validate a users commits as having gitlab references.*  |
+# GitLab CI Template
 
 
-### Job Workflow
-
-This CI job's workflow is:
-
-1. updates the changelog from the commits
-
-1. commit the changelog to git
-
-1. adds a `git tag` to the changelog commit.
-
-1. pushes the change back to the repo
-
-1. creates a git release from the `git tag`
-
-| :octagonal_sign: **NOTE** |
-|:----|
-| *If the user has forked the branch, they must keep the development brnach synced with the main repo. If they **don't** the CI job 'commit footer refs' will fail as it will not be able to fetch the parent (`development`) hash of the branch.* |
+## Job: gitlab_release
 
 
-### Artifacts
+### Stage
 
-- `ci commit footer`
-    > $CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/$CI_JOB_NAME.junit.xml
+`release`
 
-- `Gitlab Release`
-    > None
+
+### Image
+
+The job uses the `registry.gitlab.com/gitlab-org/release-cli:latest` image.
+
+
+### Variables
+
+The job does not use any additional variables.
+
+
+### Explanation
+
+The `gitlab_release` job is responsible for creating releases and tags for the GitLab repository. It follows a specific release workflow and utilizes the `release-cli` tool to automate the release process.
+
+
+### Steps
+
+1. Set ROOT_DIR variable: Sets the `ROOT_DIR` variable based on the value of `JOB_ROOT_DIR`.
+
+2. Create necessary directories: Creates necessary directories for storing artifacts and tests.
+
+3. Install dependencies: Updates the package manager and installs Git and Python 3. Sets up the Python environment by installing required packages.
+
+4. Clone repository: Clones the repository using the provided authentication token and checks out the `development` branch.
+
+5. Configure Git: Configures Git settings for the release process.
+
+6. Perform release steps: Executes release-related steps, such as running a custom command (`$MY_COMMAND`), generating the release changelog, and tagging the release.
+
+7. Push changes: Pushes the changes to the GitLab repository.
+
+8. Cleanup: Removes the cloned repository.
+
+
+### Rules
+
+- The job is never triggered when `$JOB_STOP_GITLAB_RELEASE` is true.
+
+- The job is never triggered when the commit author is `nfc_bot <helpdesk@nofusscomputing.com>`.
+
+- If the commit is pushed to the `master` branch, the job is only triggered on successful pipeline execution and failure is not allowed.
+
+- If the commit is pushed to the `development` branch, the job is triggered manually and failure is allowed.
+
+
+## Job: commit_footer_refs
+
+
+### Stage
+
+`validation`
+
+
+### Image
+
+The job uses the `python:3.6-slim` image.
+
+
+### Variables
+
+- `DEFAULT_ROOT_DIR`: The default root directory path.
+
+
+### Explanation
+
+The `commit_footer_refs` job validates the commit footer references in the GitLab repository. It checks if the commit messages adhere to the conventional commit format and generates a JUnit XML report.
+
+
+### Conventional Commits
+
+Conventional commits follow a specific format for commit messages, consisting of a type, optional scope, and a message. The format is as follows:
+
+```
+<type>(<scope>): <message>
+```
+
+- The `<type>` represents the nature of the changes, such as `feat` for a new feature, `fix` for a bug fix, `docs` for documentation changes, and so on.
+
+- The `<scope>` (optional) provides additional context for the commit, indicating the module, component, or area of code being modified.
+
+- The `<message>` contains a concise and descriptive summary of the changes.
+
+The commit footer can contain additional information, such as references to issues, feature requests, or pull requests.
+
+
+### Steps
+
+1. Create necessary directories: Creates necessary directories for storing artifacts and test results.
+
+2. Set ROOT_DIR variable: Sets the `ROOT_DIR` variable based on the value of `JOB_ROOT_DIR`.
+
+3. Install dependencies: Updates the package manager and installs Git and the required Python packages for the commit footer validation.
+
+4. Clone repository: Clones the repository and checks out the specified branch.
+
+5. Run commit_footer script: Executes the `commit_footer` script to validate the commit footer references.
+
+6. Generate artifacts: Generates a JUnit XML report for the test results.
+
+
+### Rules
+
+- The job is never triggered when `$JOB_STOP_CONVENTIONAL_COMMITS` is true.
+
+- The job is never triggered when `CHANGELOG_FOOTER_REFERENCES` is false.
+
+- The job is always triggered when the commit is not pushed to the master or development branch, and a .cz.yaml file is present, indicating the usage of conventional commits.
+
+- The job is never triggered otherwise.
+
+
 
 
 ## Gitlab job Definition
