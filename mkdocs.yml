@@ -20,6 +20,8 @@ nav:
   - Gitlab CI: 
 
     - Build:
+      
+      - projects/gitlab-ci/docker_build.md
 
       - projects/gitlab-ci/mkdocs-build.md
 
@@ -32,6 +34,10 @@ nav:
       - projects/gitlab-ci/markdown_lint.md
 
       - projects/gitlab-ci/yaml_lint.md
+
+    - Publish:
+      
+      - projects/gitlab-ci/docker_publish.md
 
     - Templates:
       
