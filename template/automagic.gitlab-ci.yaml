@@ -32,6 +32,8 @@ include:
 Update Git Submodules:
   extends: .ansible_playbook_git_submodule
 
+Search Issues for git patches:
+  extends: .ansible_playbook_mr_from_issue_comment_patch
 
 #
 # Release
