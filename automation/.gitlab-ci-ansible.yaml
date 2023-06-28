@@ -153,7 +153,6 @@ include:
     ansible_tags: 'gitlab_issue_patches'
     PIPELINE_RUN_TRIGGER: 'false'
     PIPELINE_RUN_SCHEDULE: 'false'
-    ANSIBLE_ROLES_PATH: $CI_PROJECT_DIR/roles
   needs: []
   rules:
     - if: '$NFC_AUTO_JOBS == "false"'
