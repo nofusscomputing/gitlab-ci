@@ -116,7 +116,7 @@
         - '{dockerfile,dockerfile.j2}'
       changes:
         paths:
-          - '{dockerfile,dockerfile.j2,includes/**}'
+          - '{dockerfile,dockerfile.j2,includes/**/*}'
         compare_to: 'master'
       allow_failure: true
       when: on_success
