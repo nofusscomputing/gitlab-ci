@@ -149,6 +149,12 @@ docker-buildx-qemu.Submodule.Deploy:
     SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-buildx-qemu
 
 
+docker_management.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/docker_management
+
+
 execution_environment.Submodule.Deploy:
   extends: .submodule_update_trigger
   variables:
