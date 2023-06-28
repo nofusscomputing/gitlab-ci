@@ -55,7 +55,7 @@ Docker.Hub.Branch.Publish:
           - '{dockerfile,dockerfile.j2,includes/**/*}'
         compare_to: 'master'
       allow_failure: true
-      when: manual
+      when: on_success
 
     - when: never
 
