@@ -8,7 +8,7 @@ include:
 .ansible_playbook:
   image: 
     name: nofusscomputing/ansible-ee:dev
-    pull_policy: [always]
+    pull_policy: always
   stage: chores
   variables:
     ansible_inventory: ''

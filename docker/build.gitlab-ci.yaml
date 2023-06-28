@@ -18,7 +18,9 @@ variables:
 
 .build_docker_container:
   stage: build
-  image: nofusscomputing/docker-buildx-qemu:dev
+  image: 
+    name: nofusscomputing/docker-buildx-qemu:dev
+    pull_policy: always
   services:
     - name: docker:23-dind
       entrypoint: ["env", "-u", "DOCKER_HOST"]
