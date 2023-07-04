@@ -119,6 +119,12 @@ gilab-ci.yml Lint (python 3.11):
   image: python:3.11-slim
 
 
+Ansible_docker_os.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/ansible_docker_os
+
+
 Ansible_playbooks.Submodule.Deploy:
   extends: .submodule_update_trigger
   variables:
