@@ -155,6 +155,12 @@ docker-buildx-qemu.Submodule.Deploy:
     SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-buildx-qemu
 
 
+docker-glpi.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-glpi
+
+
 docker_management.Submodule.Deploy:
   extends: .submodule_update_trigger
   variables:
@@ -171,6 +177,12 @@ git_configuration.Submodule.Deploy:
   extends: .submodule_update_trigger
   variables:
     SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/git_configuration
+
+
+nodered_ldap_self_service.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/nodered_ldap_self_service
 
 
 Ops.Submodule.Deploy:
