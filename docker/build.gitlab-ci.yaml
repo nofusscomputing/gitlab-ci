@@ -100,12 +100,12 @@ variables:
       fi
   rules:
 
-    - if: # condition_master_branch_push
-        $CI_COMMIT_BRANCH == "master" && 
-        $CI_PIPELINE_SOURCE == "push"
+    - if: # condition_git_tag
+        $CI_COMMIT_TAG != null &&
+        $CI_COMMIT_BRANCH == null
       exists:
         - '{dockerfile,dockerfile.j2}'
-      when: always
+      when: on_success
 
     - if: # condition_dev_branch_push
         $CI_COMMIT_BRANCH == "development" && 

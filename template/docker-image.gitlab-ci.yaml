@@ -38,12 +38,12 @@ Docker.Hub.Branch.Publish:
   resource_group: build
   rules: # rules manually synced from docker/publish.gitlab-ci.yaml removing git tag
 
-    - if: # condition_master_branch_push
-        $CI_COMMIT_BRANCH == "master" && 
-        $CI_PIPELINE_SOURCE == "push"
-      exists:
-        - '{dockerfile,dockerfile.j2}'
-      when: always
+    # - if: # condition_master_branch_push
+    #     $CI_COMMIT_BRANCH == "master" && 
+    #     $CI_PIPELINE_SOURCE == "push"
+    #   exists:
+    #     - '{dockerfile,dockerfile.j2}'
+    #   when: always
 
     - if: # condition_dev_branch_push
         $CI_COMMIT_BRANCH == "development" && 
