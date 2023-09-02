@@ -46,20 +46,26 @@
     - |
       DOCKER_HUB_TAG=dev
 
+      echo "[DEBUG] default: DOCKER_HUB_TAG=$DOCKER_HUB_TAG";
+
       if [ "0$CI_COMMIT_TAG" != "0" ]; then
 
         DOCKER_HUB_TAG=latest
 
+        echo "[DEBUG] stable: DOCKER_HUB_TAG=$DOCKER_HUB_TAG";
+
         if [[ "0$CI_COMMIT_TAG" == *"rc"* ]]; then
 
           DOCKER_HUB_TAG=dev
+
+          echo "[DEBUG] dev: DOCKER_HUB_TAG=$DOCKER_HUB_TAG";
 
         fi
 
       fi
 
       echo "[DEBUG] DOCKER_IMAGE_PUBLISH_NAME=$DOCKER_IMAGE_PUBLISH_NAME";
-      echo "[DEBUG] DOCKER_HUB_TAG=$DOCKER_HUB_TAG";
+      echo "[DEBUG] final: DOCKER_HUB_TAG=$DOCKER_HUB_TAG";
 
       if [ "0$DOCKER_IMAGE_BUILD_TARGET_PLATFORMS" != "0" ]; then
 
