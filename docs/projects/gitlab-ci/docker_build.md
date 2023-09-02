@@ -25,7 +25,7 @@ This job builds a Docker container using the `nofusscomputing/docker-buildx-qemu
 
 #### Rules
 
-- Rule 1: The job runs if the pipeline is triggered by a push to the `master` branch and a `dockerfile` or `dockerfile.j2` file exists.
+- Rule 1: The job runs if the pipeline is triggered by a git tag and a `dockerfile` or `dockerfile.j2` file exists.
 
 - Rule 2: The job runs if the pipeline is triggered by a push to the `development` branch and a `dockerfile` or `dockerfile.j2` file exists. It also checks for changes in the `dockerfile`, `dockerfile.j2`, or `includes/` directory compared to the `master` branch.
 
