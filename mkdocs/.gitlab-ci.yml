@@ -34,12 +34,12 @@
         - 'mkdocs.{yaml,yml}'
       when: always
 
-    - if:  # condition_master_branch_push
-        $CI_COMMIT_BRANCH == "master" && 
-        $CI_PIPELINE_SOURCE == "push"
-      exists:
-        - 'mkdocs.{yaml,yml}'
-      when: always
+    # - if:  # condition_master_branch_push
+    #     $CI_COMMIT_BRANCH == "master" && 
+    #     $CI_PIPELINE_SOURCE == "push"
+    #   exists:
+    #     - 'mkdocs.{yaml,yml}'
+    #   when: always
 
     - if:  # condition_dev_branch_push
         $CI_COMMIT_BRANCH == "development" && 
@@ -91,12 +91,12 @@
         - '{docs/**,pages/**}/*.md'
       when: always
 
-    - if:  # condition_master_branch_push
-        $CI_COMMIT_BRANCH == "master" && 
-        $CI_PIPELINE_SOURCE == "push"
-      exists:
-        - '{docs/**,pages/**}/*.md'
-      when: always
+    # - if:  # condition_master_branch_push
+    #     $CI_COMMIT_BRANCH == "master" && 
+    #     $CI_PIPELINE_SOURCE == "push"
+    #   exists:
+    #     - '{docs/**,pages/**}/*.md'
+    #   when: always
 
     - if:  # condition_dev_branch_push
         $CI_COMMIT_BRANCH == "development" && 

@@ -108,12 +108,12 @@
         - '{dockerfile,dockerfile.j2}'
       when: on_success
 
-    - if: # condition_master_branch_push
-        $CI_COMMIT_BRANCH == "master" && 
-        $CI_PIPELINE_SOURCE == "push"
-      exists:
-        - '{dockerfile,dockerfile.j2}'
-      when: on_success
+    # - if: # condition_master_branch_push
+    #     $CI_COMMIT_BRANCH == "master" && 
+    #     $CI_PIPELINE_SOURCE == "push"
+    #   exists:
+    #     - '{dockerfile,dockerfile.j2}'
+    #   when: on_success
 
     - if: # condition_dev_branch_push
         $CI_COMMIT_BRANCH == "development" && 
