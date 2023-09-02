@@ -36,7 +36,7 @@
         - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No tag to delete, version was not bumped"; else git tag -d $RELEASE_TAG; fi
         
         - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No push will be conducted, version was not bumped"; else git push; fi
-        - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No release will be created, version was not bumped"; else release-cli create --name "Release $RELEASE_TAG" --tag-name "$RELEASE_TAG" --ref "$RELEASE_TAG_SHA1" --description "$RELEASE_CHANGELOG"; fi
+        - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No release will be created, version was not bumped"; else release-cli create --name "Release $RELEASE_TAG" --tag-name "$RELEASE_TAG" --tag-message "$RELEASE_CHANGELOG" --ref "$RELEASE_TAG_SHA1" --description "$RELEASE_CHANGELOG"; fi
         - if [ "$CI_COMMIT_BRANCH" == "master" ] ; then git checkout master; fi
         - if [ "$CI_COMMIT_BRANCH" == "master" ] ; then git push --set-upstream origin master; fi
         - if [ "$CI_COMMIT_BRANCH" == "master" ] ; then git merge --no-ff development; fi
