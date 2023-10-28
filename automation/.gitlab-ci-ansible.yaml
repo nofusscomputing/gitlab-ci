@@ -128,6 +128,8 @@ include:
         --form ref=development \
         --form "variables[GIT_CONFIG_SUBMODULE_NAME]=$GIT_CONFIG_SUBMODULE_NAME" \
         --form "variables[PIPELINE_RUN_TRIGGER]=$PIPELINE_RUN_TRIGGER" \
+        --form "variables[GIT_COMMIT_TYPE]=$GIT_COMMIT_TYPE" \
+        --form "variables[GIT_COMMIT_TYPE_CATEGORY]=$GIT_COMMIT_TYPE_CATEGORY" \
       "https://gitlab.com/api/v4/projects/$TRIGGER_PROJECT_PATH/trigger/pipeline"
   environment: 
     name: $SUBMODULE_UPDATE_TRIGGER_PROJECT
