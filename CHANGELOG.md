@@ -1,3 +1,37 @@
+## 0.6.1 (2023-11-06)
+
+### Bug Fixes
+
+- **docker**: [359c664d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/359c664d97c516bd3b35fb46961288c74f6bd940) - always build on tag [ [!68](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/68) [#37](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/37) ]
+- **build**: [799de6c9](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/799de6c98c0925ef4a85cf246512041fc89534db) - adjust to enforce [ [!66](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/66) ]
+- **docker**: [4ea999ce](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/4ea999cec96824c2670c5d448dff8c06b1582adc) - ensure on any changes to directory path, build occurs [ [!64](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/64) [#38](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/38) [!76](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/76) ]
+- **template**: [4da44b77](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/4da44b77dfbc015d28fda34fcfe54d70a6542943) - issue comment patch remove setting role path [ [!62](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/62) ]
+
+### Code Refactor
+
+- **ansible**: [d21692f7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d21692f7886986db1808befb00b045c1a9a65a8f) - move submodule/issue patch to mr pipeline [ [!67](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/67) ]
+
+### Continious Integration
+
+- **deploy**: [f35d99dc](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/f35d99dc436d1e9ab200a8b94052de2fa23608fc) - added docker management repo [ [!63](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/63) ]
+
+### Documentaton / Guides
+
+- [535d0b42](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/535d0b42938fc66f94fd57018dd81e2111ad3abe) - update docker tag build [ [!68](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/68) [#37](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/37) ]
+- [d9b303ed](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d9b303edc1f61f1d7a4785b5b5396625cc98a179) - expand [ [!59](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/59) ]
+
+### Features
+
+- **conventional_commits**: [3918686e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3918686e483f6fabb6c487be6f2d7105da08d11a) - do not run on master branch [ [!70](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/70) [#40](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/40) ]
+- **sub_module_update**: [8eb57c58](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8eb57c580973fa49bd3ffb12553cc24e39c5afac) - enable passing commit type and category [ [!69](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/69) [#39](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/39) [!122](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/122) [#39](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/39) [!96](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/96) [!28](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/28) ]
+- **deploy**: [86a0292f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/86a0292fafa0fb139f068106dacfa2ee6917f4d4) - add new nfc repos [ [!68](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/68) ]
+- **release**: [837311c0](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/837311c0221820b93072e9bfcba2191a8b96b9ea) - annotate git tag with changelog [ [!68](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/68) ]
+- **build**: [e8758c4c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e8758c4ccecdbf0c22a5e67bf086762c68c6b915) - no docs/docker build on master push, only tag [ [!68](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/68) ]
+- **docker**: [0d797415](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0d7974152c26200c8beaa3a1ddecf504f4406ee3) - add debugging to publish [ [#36](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/36) [!68](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/68) [#36](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/36) [#11](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/11) ]
+- **deploy**: [1a168593](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1a168593eb0fd234885982a16bc216804e76d293) - added ansible.docker.os repo [ [!67](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/67) ]
+- **docker_publish**: [9489c99f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9489c99fe489c9b9b9e29fc2013d5ff6a990094a) - on merge to dev always publish [ [!65](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/65) ]
+- **template**: [da40e027](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/da40e027376c163ca4915f3edcf322b6e0b0c278) - added auto job mr from issue comment patch [ [!61](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/61) ]
+
 ## 0.6.1rc8 (2023-06-08)
 
 ### Bug Fixes
