@@ -1,3 +1,251 @@
+## 0.6.1rc8 (2023-06-08)
+
+### Bug Fixes
+
+- **lint**: [4462ec04](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/4462ec04268c5b967f0672828d1cd7b3995894d9) - all lint to immediatly start job [ [!57](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/57) ]
+- **ci**: [9b00af99](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9b00af996ff96f58a26b83066004e5a9e94ac155) - correct dockerhub tag [ [!57](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/57) ]
+- **ci**: [6af454be](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6af454be4d2b658e0c362392ff502b3fb3da2cbf) - remove spaces from regex exists and changes [ [!56](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/56) ]
+- **ansible_lint**: [46d85bcf](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/46d85bcf49ea73545a5af4324c28af51a17acd3c) - enable first level dir paths [ [!55](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/55) ]
+- **docker_build**: [11b62099](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/11b6209992294e45a051e26963d772d75014e516) - on success push container to docker hub [ [!53](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/53) ]
+- **docker_build**: [e90b938b](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e90b938bba092bdaecbc1a43758218da0058427b) - init submodule submodules [ [!53](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/53) ]
+
+### Documentaton / Guides
+
+- [469255f4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/469255f450e946a712d379415e45a74eb8c07995) - added notes [ [!58](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/58) ]
+
+### Features
+
+- **ci**: [0ec520f0](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0ec520f02328b69642f929a19e8517c7d475a988) - add resource groups [ [!55](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/55) [#33](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/33) ]
+- **sync**: [e75464c7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e75464c7c409fd17864624d48c9fec8e6e3544e9) - immediatee git sync [ [!55](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/55) ]
+- **latest_artifacts**: [755fcac0](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/755fcac06e9f265789b02a88eb90df35ab1dbf07) - ensure artifats for jobs are always avail on branches [ [!54](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/54) [#34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/34) [#331232](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/331232) ]
+- **latest_artifacts**: [22dd4985](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/22dd4985be315be95be55b2b4edff5ae4ba1eeb4) - ensure artifats for jobs are always avail on branches [ [!52](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/52) [#34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/34) [#331232](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/331232) ]
+
+## 0.6.1rc7 (2023-06-05)
+
+### Bug Fixes
+
+- **mkdocs**: [5ffc68d7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5ffc68d7241bb0c729a990b4a5b060bd6488ea8c) - adjust rules to match lint [ [!51](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/51) ]
+- **docker**: [097725c1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/097725c1be5d155cebada0cf2cbb17ddbd041e6e) - detect canges in include path corrected [ [!50](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/50) ]
+- **ci**: [9e098245](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9e098245d7a6272fd51aee0a479af3a233fdb30e) - typo in docker build [ [!49](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/49) [!20](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/20) ]
+- **ansible_playbook**: [13ee3bf5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/13ee3bf535dadf7cada645ddec74e2e29872ac2c) - No4 enable parent pipelines [ [!47](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/47) ]
+- **ansible_playbook**: [3c0543f7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3c0543f7ad0673bcb6600e6ff20693be5f784f23) - No3 enable parent pipelines [ [!45](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/45) ]
+- **ansible_playbook**: [f3fa9c5a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/f3fa9c5a416295cb2a0362a31f05995336ea9155) - enable parent pipelines [ [!45](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/45) ]
+- **ansible_playbook**: [3ee48daa](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3ee48daa10eee6dd80b79ed076c4ad4d1ff9bb57) - enable parent pipelines [ [!44](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/44) ]
+
+### Features
+
+- **ansible_lint**: [6a149f6e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6a149f6ed6d514c42d67b6b04cea114aa32067b8) - added inventory & playbooks directories [ [!50](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/50) [#22](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/22) [!27](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/27) ]
+- **ci**: [1dcb3ed5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1dcb3ed521538de47745ed00148bb4123708d90d) - dont git submodule recurse [ [!50](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/50) ]
+- **commit_footer_refs**: [f3256c58](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/f3256c5858e1b5b2b6444f9d8ae63f556f4acb30) - only run on changes [ [!50](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/50) ]
+- **ci**: [d8a6d5f7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d8a6d5f7ec1f73d5ae506301666383aac843708d) - git gubmodule update trigger moved to api call via curl [ [!48](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/48) [!62](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/62) ]
+- **ci**: [35cfa92c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/35cfa92cd900e7ed7008695bf0b65aaf147bb0ec) - git submodule job moved to own definition [ [!48](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/48) [!62](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/62) ]
+- **ansible_playbook**: [a86d17ef](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a86d17eff267750c3713968852d5013ef00ee226) - rules set to never 'ONLY' [ [!48](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/48) [!62](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/62) ]
+
+## 0.6.1rc6 (2023-06-02)
+
+### Bug Fixes
+
+- **md_lint**: [ba43bb9c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ba43bb9c8de87d723abcd0b4b7519c88d8c3b162) - lint on git tag [ [!43](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/43) ]
+
+## 0.6.1rc5 (2023-06-02)
+
+### Bug Fixes
+
+- **gitlab_yaml_lint**: [efa62710](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/efa62710571e48872d700a8a8802a526fb86b1f6) - adjust logic to detect changes [ [!42](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/42) ]
+- **commit_footer_check**: [6accd863](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6accd8633ca0579de084d9762f610711ae1e5715) - run on non master/dev branches only [ [!42](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/42) ]
+
+### Code Refactor
+
+- **ci**: [9d767282](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9d767282ffa86c48077bd08b605cf50be76a9b07) - update ansible-role repo path [ [!40](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/40) [#74](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/74) ]
+
+### Features
+
+- **submodule_update_trigger**: [86b05338](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/86b05338854f94997cb5cf09fad0561c09f86461) - only update own submodule [ [!41](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/41) [#16](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/16) [!60](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/60) ]
+- **mkdocs_build**: [ff8c43c1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ff8c43c1ea2126cabf0ad2f400a784a9f90ec1ac) - always build on git tag [ [!41](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/41) ]
+- **ci_rules**: [04e7e928](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/04e7e928e0f4f2212078fd08fd87b2e024dd5257) - add exists and changes for rules [ [!41](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/41) [#32](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/32) ]
+- **yaml_anchors**: [862176f9](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/862176f9dca8cf8ee998456db0cc12f7084f7fc0) - initial conditional checks [ [!41](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/41) [#32](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/32) ]
+- **ci**: [6f810f80](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6f810f8084e54f0afc9ebb47bfcc855536046a08) - add more repos to update [ [!39](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/39) ]
+
+## 0.6.1rc4 (2023-05-31)
+
+### Bug Fixes
+
+- **ansible_playbook**: [73ea66e6](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/73ea66e60d9cdb235aebda839e0a734212c997bc) - always pull image [ [!37](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/37) ]
+- **mkdocs_build**: [c47be421](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/c47be42184c96855f0702c0258931da9730df517) - ensure config file exists when run on branch [ [!36](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/36) ]
+- **automagic**: [8ced1720](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8ced1720e00f984e75c51bf8985e45d07aac8c09) - fix git submodule so it runs on schedule [ [!35](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/35) [#31](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/31) ]
+- **docs_environment**: [b68f6cb4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/b68f6cb4b4a571dee52cb765ddb6a5a70c78b364) - don't define empty env path [ [!34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/34) ]
+- **doc_pages**: [91ac4476](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/91ac4476fbefd2476d1c147c1681a1a53cc40201) - use updated job name [ [!34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/34) [#30](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/30) ]
+- **ansible_lint**: [75968b14](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/75968b140ca0b2734d6af14e78e7c598b6221600) - only run if tasks/main.yaml exists [ [!34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/34) ]
+- **mkdocs_build_website**: [0bc72554](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0bc72554534488d147356d148d635d490b8a1007) - renamed and normalized [ [!34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/34) [#30](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/30) ]
+- **sub_folder_changelog**: [203a9990](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/203a99903c28201f74304ca8689fae25a7a28aa0) - dont create changelog for docs [ [!34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/34) ]
+- **jobs**: [a010f7ba](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a010f7bab19fc89f71c8bc5a81a3d1944f4bdc05) - jobs that occur on push should also run on 'trigger' [ [!33](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/33) [#26](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/26) ]
+- **docker_publish**: [79855cdb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/79855cdb99762fd444bedddb6be59cb4ba41fe50) - job only run on dockerfile exists [ [!32](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/32) [#28](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/28) ]
+- **docker**: [502f12c2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/502f12c21689f86675a000e51ca415019fcad184) - job only run on dockerfile exists [ [!31](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/31) [#28](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/28) ]
+
+### Code Refactor
+
+- [e79b5545](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e79b554550dbabe5df429d6c57fe15cb2b144432) - rename website to documentation [ [!34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/34) ]
+- **ci**: [681b8f1a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/681b8f1a0293986a0b67ba13c72bf8dd92ca692a) - update deploy job name [ [!34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/34) ]
+- **docker_hub**: [7b4b01bd](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7b4b01bdab2c4299e892071ef3c19b324bf3768c) - move needs to template [ [!31](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/31) ]
+
+### Documentaton / Guides
+
+- [87165450](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/871654508cd183afc1240c9c5de16e9f762c89ee) - refine [ [!34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/34) ]
+- **automagic**: [95bc6a5b](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/95bc6a5b036d809ef4bce8af6f70568c595785eb) - added initial autmagic docs [ [!34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/34) ]
+- **ansible_playbook**: [39881505](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/398815055e013059afc6c4d99fa97bdeeb003909) - document ci job definition [ [!34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/34) [#26](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/26) [#27](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/27) ]
+
+### Features
+
+- **ci**: [7018440d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7018440dcbd09c2eb406817eab7df3e24e19687d) - on push to dev, update git sub modules on specified [ [!38](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/38) ]
+- **mkdocs_build_docs**: [5e491285](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5e4912857aea43678b2ef61230df3817f193d684) - keyword needs does not belong in definition [ [!36](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/36) ]
+- **lint_markdown_docs**: [9ebd0a27](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9ebd0a27f65b36b289b3e7c0647e839b5f7a2798) - ensure also detects website [ [!36](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/36) ]
+- **ci**: [44076553](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/440765537dcc4370d6558ec5d41fe7f87a5f7f4d) - use automagic ci template [ [!34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/34) ]
+- **automagic**: [18bc18c2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/18bc18c29b4ae08963d4c744e9479622b2cd921c) - add ansible template [ [!34](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/34) ]
+- **ansible_play**: [fff7d314](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/fff7d31498d486b1c39f1672df9b283ad02c21d8) - force output colour in job logs [ [!33](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/33) ]
+
+## 0.6.1rc3 (2023-05-28)
+
+### Bug Fixes
+
+- **scheduled_pipelines**: [bade89c5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bade89c5333ca853844e224f46a2d3dafab7179d) - if scheduled pipeline only run schedualable jobs [ [!30](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/30) [#29](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/29) ]
+
+### Code Refactor
+
+- **ansible_playbook**: [f9af921e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/f9af921e6b6ec10f9f77ec6a016c6cbb9559d1bf) - final logic adjustment for job [ [!29](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/29) [#25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/25) ]
+- **automation**: [1f6ee9ea](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1f6ee9ea27824df1c82bf85e1e239f57f2145bdf) - final logic changes [ [!29](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/29) [#25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/25) ]
+
+### Features
+
+- **auto_jobs**: [c5d27e83](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/c5d27e832e100156cb99c5ca580fd5a8eb600e0f) - created initial template to auto-create jobs [ [!29](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/29) [#26](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/26) ]
+- **variables**: [158cc94d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/158cc94d1a817f89b6603e9bac7678196b21d1d5) - added pipeline trigger and schedule [ [!29](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/29) [#26](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/26) ]
+- **automation**: [0d3eaa6a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0d3eaa6ac2dc448505b18c6aecd4a72e28ffde83) - job to run ansible playbooks [ [!29](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/29) [!8](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/8) [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) [#5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/5) ]
+
+## 0.6.1rc2 (2023-05-24)
+
+### Bug Fixes
+
+- **sub_folder_changelog**: [0482c014](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0482c0144ede393996449a22f1f7742c2e512ac2) - dont create in git submodules [ [!28](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/28) [#23](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/23) ]
+- **md_linting**: [e26f590e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e26f590ebcf284be949be4e1d337e1f587755446) - must lint on git tag [ [!27](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/27) [!3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/3) ]
+- **mkdocs**: [7a9aca3a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7a9aca3a54b1faacb7e286bade84aff0ff4fd2e5) - default to docs directory as root [ [!26](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/26) ]
+- **template**: [0b9e7375](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0b9e7375c911d65e06b0d801755449ab31cb45ea) - use correct path for build artifact [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **markdown_lint**: [18af7f83](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/18af7f831ad2399a6ae9809c51e87f19450db1a7) - use new lint path [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **markdown_lint**: [12d3a412](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/12d3a412ac73baff16b77488db143efd7311b542) - typo in config variable [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **mkdocs**: [f42b0ecf](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/f42b0ecf60def9d0f8d366d09ab91006b6fe32c6) - add placeholder pages [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **docker**: [f604c6e2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/f604c6e27d2e7704491f4c78979db40cf89764c0) - ensure qemu binfmt is loaded [ [!24](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/24) [!1861](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/1861) ]
+- **docker_hub**: [8e0f16c5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8e0f16c585978ded46164c80559b402c0cb2edf2) - push correct image [ [!24](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/24) ]
+- **lint**: [a754aa81](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a754aa81edf1570b4e8e2e7d4a23025c8b99f314) - use correct path for requirements.txt [ [!24](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/24) ]
+- **gitlab_release**: [18a28087](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/18a280878799fe077efa0ed5b11bceedd53eb5c8) - allow skip on dev branch [ [!17](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/17) ]
+
+### Code Refactor
+
+- **docs**: [7c385b75](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7c385b7552945699eb87ec3ec43169df0cb77297) - pages dir renamed to docs [ [!26](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/26) ]
+- **template_website**: [1b59d623](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1b59d62348465cc9cc069d5ee23e759316fa9b3c) - adjust names of jobs [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **markdown_lint**: [bce7396d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bce7396d8bbf5ec6600a3a34a05198a87c4fcc70) - move md linting to lint folder [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **docs**: [3a2a135d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3a2a135d0af50a9360870e0a7f362c3820543e40) - markdown linting errors fix [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **mkdocs**: [dacb9f22](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/dacb9f22dd9aee1ff741c7ac8078912d9a2b0dbf) - use locked version from website repo [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **docker**: [a90ccb81](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a90ccb81772e295cebe89d7a9c32ab700e19884d) - move docker jobs to their own file [ [!24](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/24) ]
+- [c34e382a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/c34e382a22cd39874abd8fb5116e831e888db8af) - use name that makes sense [ [!24](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/24) ]
+- [539e40e3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/539e40e3008e24411f62f439d394db4b5e69a066) - move ansible and yaml lint job to linting folder [ [!24](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/24) ]
+
+### Continious Integration
+
+- **pages**: [bcb80358](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bcb80358d9adb6b3a89fab1003f4434fb2949bdc) - add pages slug [ [!27](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/27) ]
+
+### Documentaton / Guides
+
+- [28c04fb2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/28c04fb2e854521167367161d13b09650829d17d) - add job definitions to page [ [!26](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/26) ]
+- [657df7a5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/657df7a5ceb59798c7bb072aed5bf7ef82aef9b6) - add job definition to page [ [!26](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/26) ]
+- [0bc3451b](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0bc3451bc20e7705a32d89e9f601af363523d946) - added edit url [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- [4fb85408](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/4fb85408b8f4e8b87eb97a43db50c86399d8e350) - move readme to project pages index [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- [b66abc19](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/b66abc1947676a624d32b4895a9a05000105f36a) - notate under development [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- [61200e52](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/61200e526efcb71bcec9f27ac4bd7c6f02fc23a6) - update structure [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **template**: [e40310fc](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e40310fc21b6af684f6db7858196e8180b6e03df) - add index and website [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- [55061ad5](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/55061ad5efd303cf5a53c4672409f7d159113c62) - use project template [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **mkdocs**: [1ec2666e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1ec2666e8565d5206aefaf5462f0f83f74fbbcb7) - moved to pages folder [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **conventional_commits**: [70dfb826](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/70dfb826d100432265e3f3b08948bb808855e0aa) - added config file requirement [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+
+### Features
+
+- **template_website**: [bef76847](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bef76847ec686fcff92229d7b9be0bcfc7b267da) - enable specifying the url slug [ [!27](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/27) ]
+- **docs**: [a8f675c1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a8f675c102d0027f23b4490aa3620b504d0193cc) - temp adding of requirements [ [!26](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/26) ]
+- **mkdocs**: [71a335c2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/71a335c2667505c199bd67446327cd8794de5f52) - install website-template requirements [ [!26](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/26) [!7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/7) ]
+- **pages**: [480502a7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/480502a7638f346be8334d3c03d5b00ec18f0c2f) - don't include projects in nav [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **template**: [8e2a2338](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8e2a233814bd76ebff3dd8ed5a79afe307a84755) - always deploy to pages on dev manual other [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **mkdocs_build**: [a0b6d05a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a0b6d05a0f3f0fa84c825007f6ec9f28c945f3ef) - always build [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **mkdocs_build**: [6d2e50e9](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6d2e50e947839576f098bd7700e00b9d6ab4be1e) - add manual build [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **template**: [4fa90d4c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/4fa90d4c4249ed8929e7dde2e7bd0e8581d0d8a7) - use md lint config from website-template [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **markdown_lint**: [38d46900](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/38d469007a388312c71a61916275d6a12aad8bbd) - enable specifying the lint config path [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **pages**: [15750124](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/157501245d7c347670055352f9263917a2c3f445) - use repo name [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **website**: [16d47d5e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/16d47d5e350e1c78f72c97780ed1732a43927fcc) - add pages job for website [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **template**: [91a50eb1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/91a50eb15bd92ca65481a73c6f095681281941fe) - created website job template [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **mkdocs**: [5556a57e](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5556a57ea5588d4f0cd1434bfdde5cd77e3b4f5c) - only run on success [ [!25](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/25) ]
+- **conventional_commits**: [088c9fb0](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/088c9fb04c80961f4de8d2b129955ae8cd0b9529) - ensure .cz.yaml exists [ [!24](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/24) ]
+- **docker_build**: [6765894c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/6765894cebc958df92fd3f42d93bd205101d1966) - enable spcifying the dockerfile to use [ [!24](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/24) ]
+- **template**: [67f39d96](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/67f39d9694b80ad0d2d08800d4faadf594fb6623) - added a ansible-role job template [ [!24](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/24) ]
+- **gitlab_release**: [d89941df](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d89941df05bfed4b0ad1277e715b224d232e7949) - dont automagic run on dev [ [!4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/4) [#21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/21) [!23](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/23) [#21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/21) [!4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/4) ]
+
+## 0.6.1rc1 (2023-05-15)
+
+### Bug Fixes
+
+- **ci**: [b0024c99](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/b0024c99b0cd06e12f95882749b3668a639cf24c) - v no longer suffix to tag [ [!22](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/22) ]
+- **docker**: [72f52898](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/72f52898869fe23174e649f0bf8327732fd52147) - setup ROOT_DIR [ [!3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/3) [!1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/1) [!22](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/22) [!3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/3) [!1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/1) ]
+- **conventional_commits**: [76db5b17](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/76db5b17578d8585ed31e0728dbfb37ea2fae153) - never run on git tag [ [!7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/7) [!22](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/22) [!7](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/7) ]
+- **markdown_lint**: [8581981a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8581981a43c31d6903865f067fa3f77adae949e5) - fix search paths [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **yaml_lint**: [a04b272c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a04b272c167dae27940211b7c77a4adcb33b2086) - remove extra var creation [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **yaml_lint**: [3b686a46](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/3b686a461be22b682642eb1143f2bd2ea2d3ef17) - ensure config is within double quote [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **yaml_lint**: [52c6ceda](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/52c6ceda83b04e1e18eaa9c32b1a41733dc26497) - scan all [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **yaml_lint**: [0d59871a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0d59871a1a73178c248b2189dfae2cd93f21c469) - enable specifying additional config [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **markdown_lint**: [cf10e289](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/cf10e289d21a5cc529bbe7effb189aab65875510) - enable job for md in sub folders [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) [#19](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/19) [!2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/2) ]
+- [d389d141](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d389d14192e1e483fbd48fa9b5c5bee25db14a20) - validation jobs on all except merge [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **gitlab_release**: [a745ceac](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a745ceac5ebce458b46593311e5285f40dcba349) - fixed rule to match nfc_bot [ [!20](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/20) [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) [!20](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/20) ]
+- **gitlab_release**: [e76378dd](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e76378dd068e200a1198f1811efb9d3bec7878f5) - only run on master on_success [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) [#16](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/16) ]
+- **ci**: [934a401a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/934a401a9620891b09a5fe9c9b0e50a97b43fa9b) - specify the commitizen version [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **markdown_lint**: [8391bf65](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8391bf659bf5dd39edf31205a68c699851e78be3) - remove quotes from search path variable. [ [#18](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/issues/18) ]
+
+### Code Refactor
+
+- **ci**: [02e9e5f4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/02e9e5f4f4cc0b93ae92c7ba3a2cfb38305af64c) - inconsistant tabs [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- [adc720bb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/adc720bbfa0dd8ff66f70fe56678b5f388ce8d0c) - cleanup non-needed dir [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **gitlab_release**: [1fa7fec3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1fa7fec38a54b7ddf460b1394a7024ef161fab24) - show debug before command [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- [408e4eab](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/408e4eab9e1f61004f1e38af6d1531747b7da99b) - move docs as part of restructure [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- [9a7ae710](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9a7ae7106e80a038b31cdc9fc172bb1f974ecb94) - set correct commit details for nfc_bot [ [!20](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/20) ]
+
+### Continious Integration
+
+- [1233d6ad](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1233d6ad90032f3a6c5a3a6ff0c92510d0ef298a) - disable licence scanning until fixed [ [!22](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/22) ]
+- **yaml_lint**: [ca60625b](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ca60625bf171924e91ea6eea5aa3decc51b7f0dc) - update to python 11
+- **markdown_linting**: [47e39849](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/47e3984916bf671e6dbc39e05160a2409fc78b6b) - exclude .gitlab and changelog [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- [49282457](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/492824572b963f048af993fc36d8696f9b0fe41e) - dont lint git submodule website-template [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **docs**: [72f8eb72](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/72f8eb720d5266b7aa83b5e2974da075a1c06875) - added mkdocs config [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+
+### Documentaton / Guides
+
+- **yaml_lint**: [a925db14](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a925db14641e709572b832278f43aabe48d153f7) - update docs for new variables [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+
+### Features
+
+- **conventional**: [93931cb9](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/93931cb9076e0db238f4e297abe3d8f37bd71b80) - job not to run when bot pushes change [ [!22](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/22) ]
+- **ci**: [7ed3f92d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/7ed3f92dd75397ad4623ada8469633dc8b0caf5f) - exclude website-template from yaml lint [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **ci**: [bbbf9e35](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bbbf9e35e2ad5d0fdf1c4c697f127dfe68d5e0da) - set correct search path [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **yaml_lint**: [0b4e85c3](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0b4e85c3134ff9f126056113383383559cdfb227) - added var to prevent job from runnng [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **gitlab_release**: [e06ffef6](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e06ffef66c4a0ba1f48f109c175239560909e698) - run on merge to development [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **gitlab_release**: [199ea1f2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/199ea1f23c6a3df2b40ae3d9a5668719301500d9) - never run on merge or git tag [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **git_push_mirror**: [1db2209d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1db2209dfb36fbdda28d68388aec9f62f85b57bc) - always sync git tag [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **template**: [8b9a0356](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8b9a0356dec7d99a63c4ed744b78ae707155e9f3) - added new template for ci pipeline for docker containers [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **common**: [9670fc47](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9670fc47401630ef6c407bd7eaccd3db64195543) - created a common ci file for inclusion [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **commit_footer_refs**: [8d512a9a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8d512a9a4bd7f4895645436f057c4bab3efb864e) - ability to disable job with variable [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **gitlab_release**: [a37acbfc](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a37acbfc7d3ea20ece7cb76e15a14858b26f8508) - ability to disable job with variable [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **git_push_mirror**: [81445c06](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/81445c06e43bce10761e3a7fbad7df97f82d6bc2) - ability to disable job with variable [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **conventional_commits**: [9e7d357b](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9e7d357bab2b92704d37ad5621df9fe8d1e31a26) - ability to disable job with variable [ [!21](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/21) ]
+- **markdown_lint**: [d75e9599](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d75e95998b4a195cfcc36683ffa6f058bf7b05be) - artifact locations to be hard set [ [!19](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/19) ]
+
+## v0.6.1rc0 (2022-01-25)
+
+### Bug Fixes
+
+- **lint_markdown**: [e0402ecf](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e0402ecfb2ab662a74bb70df7937b02576d5e41b) - ensure the correct path for the job directory is used [ [!2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/2) [!18](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/merge_requests/18) ]
+
 ## v0.6.0 (2022-01-24)
 
 ### Bug Fixes

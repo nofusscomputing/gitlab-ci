@@ -1,25 +1,37 @@
-variables:
-    JOB_ROOT_DIR: '.'
-    SECURE_LOG_LEVEL: debug
-    GIT_SUBMODULE_STRATEGY: recursive
-    MY_PROJECT_ID: "28543717"
-    LICENSE_FINDER_CLI_OPTS: '--recursive'
 
 stages:
-    - validation
-    - test
-    - release
-    - sync
+  - chores
+  - validation
+  - build
+  - prepare
+  - test
+  - release
+  - sync
+  - deploy
+  - publish
 
 include:
-  - local: $JOB_ROOT_DIR/yaml_lint/.gitlab-ci.yml
+  - local: $JOB_ROOT_DIR/lint/yaml.gitlab-ci.yaml
+  - local: $JOB_ROOT_DIR/template/automagic.gitlab-ci.yaml
+
   - local: $JOB_ROOT_DIR/conventional_commits/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/git_push_mirror/.gitlab-ci.yml
   - local: $JOB_ROOT_DIR/gitlab_release/.gitlab-ci.yml
-  - local: $JOB_ROOT_DIR/validation/.gitlab-ci.yml
+  - local: $JOB_ROOT_DIR/lint/markdown.gitlab-ci.yaml
   - local: $JOB_ROOT_DIR/python/.gitlab-ci.yml
   - template: Security/Dependency-Scanning.gitlab-ci.yml
-  - template: Security/License-Scanning.gitlab-ci.yml
+  #- template: Security/License-Scanning.gitlab-ci.yml
+
+
+variables:
+  JOB_ROOT_DIR: '.'
+  SECURE_LOG_LEVEL: debug
+  GIT_SUBMODULE_STRATEGY: normal
+  GIT_SYNC_URL: "https://$GITHUB_USERNAME_ROBOT:$GITHUB_TOKEN_ROBOT@github.com/NoFussComputing/gitlab-ci.git"
+  MY_PROJECT_ID: "28543717"
+  LICENSE_FINDER_CLI_OPTS: '--recursive'
+  MDLINT_PATHS: "**/*.md **/**/*.md **/**/**/*.md **/**/**/**/*.md **/**/**/**/**/**/*.md #**CHANGELOG.md #CHANGELOG.md #website-template/** #.gitlab/**"
+  PAGES_ENVIRONMENT_PATH: projects/gitlab-ci/
 
 # Scanner doesn't Pickup multiple pip files. Disable and specify jobs with pip file.
 gemnasium-python-dependency_scanning:
@@ -56,7 +68,8 @@ gemnasium-python-dependency_scanning:
     - if: $CI_COMMIT_BRANCH &&
           $GITLAB_FEATURES =~ /\bdependency_scanning\b/ &&
           $DS_DEFAULT_ANALYZERS =~ /gemnasium-python/ &&
-          $PIP_REQUIREMENTS_FILE
+          $PIP_REQUIREMENTS_FILE && 
+          ( $CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "pipeline")
 
 Ansible Dependencies:
   extends: .gemnasium-python-dependency_scanning
@@ -91,37 +104,94 @@ python Dependencies:
 yaml_lint Dependencies:
   extends: .gemnasium-python-dependency_scanning
   variables:
-    PIP_REQUIREMENTS_FILE: yaml_lint/requirements.txt
+    PIP_REQUIREMENTS_FILE: lint/requirements.txt
 
 
 PyLint:
-    extends:
-        - .PyLint
-    image: python:3.6-slim
-
-
-gilab-ci.yml Lint (python 3.6):
-    variables:
-        YAML_LINT_PATH: "/*/.gitlab-ci.yml"
-    extends:
-        - .yaml_lint_defaults
-    image: python:3.6-slim
-
-
-Markdown Linting:
   extends:
-    - .Lint_Markdown
+    - .PyLint
+  image: python:3.6-slim
 
 
-Gitlab Release:
-    variables:
-        MY_COMMAND: ./sub-folder_changlog.sh
-    extends:
-        - .gitlab_release
+gilab-ci.yml Lint (python 3.11):
+  extends:
+    - .Gitlab_CI.Lint.YAML
+  image: python:3.11-slim
 
 
-Github (Push --mirror):
-    variables:
-        GIT_SYNC_URL: "https://$GITHUB_USERNAME_ROBOT:$GITHUB_TOKEN_ROBOT@github.com/NoFussComputing/gitlab-ci.git"
-    extends:
-        - .git_push_mirror
+Ansible_docker_os.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/ansible_docker_os
+
+
+Ansible_playbooks.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/ansible_playbooks
+
+
+Ansible-roles.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/ansible-roles
+
+
+config.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/infrastructure/config
+
+
+Docker_Mail.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-mail
+
+
+docker-buildx-qemu.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-buildx-qemu
+
+
+docker-glpi.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-glpi
+
+
+docker_management.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/docker_management
+
+
+execution_environment.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/execution_environment
+
+
+git_configuration.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/git_configuration
+
+
+nodered_ldap_self_service.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/nodered_ldap_self_service
+
+
+Ops.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/ops
+
+
+Website.Submodule.Deploy:
+  extends: .submodule_update_trigger
+  variables:
+    SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/infrastructure/website

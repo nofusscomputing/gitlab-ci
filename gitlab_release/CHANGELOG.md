@@ -1,5 +1,23 @@
 # Changelog
 
+2023-05-28 10:31:26 +0930 [bade89c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bade89c5333ca853844e224f46a2d3dafab7179d) - fix(scheduled_pipelines): if scheduled pipeline only run schedualable jobs  
+2023-05-24 04:40:52 +0000 [0a17fe1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0a17fe1aa320c658c05d7a693ff76af4a54e6130) - build(version): bump version 0.6.1rc1 → 0.6.1rc2  
+2023-05-21 01:48:53 +0930 [088c9fb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/088c9fb04c80961f4de8d2b129955ae8cd0b9529) - feat(conventional_commits): ensure .cz.yaml exists  
+2023-05-15 10:25:48 +0930 [18a2808](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/18a280878799fe077efa0ed5b11bceedd53eb5c8) - fix(gitlab_release): allow skip on dev branch  
+2023-05-15 10:19:49 +0930 [d89941d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d89941df05bfed4b0ad1277e715b224d232e7949) - feat(gitlab_release): dont automagic run on dev  
+2023-05-15 00:18:38 +0000 [a3fdca8](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a3fdca83bf7acb58d47792a66d1cd0728747361c) - build(version): bump version 0.6.1rc0 → 0.6.1rc1  
+2023-05-14 11:46:28 +0930 [e06ffef](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e06ffef66c4a0ba1f48f109c175239560909e698) - feat(gitlab_release): run on merge to development  
+2023-05-14 11:45:24 +0930 [199ea1f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/199ea1f23c6a3df2b40ae3d9a5668719301500d9) - feat(gitlab_release): never run on merge or git tag  
+2023-05-14 11:44:20 +0930 [a745cea](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a745ceac5ebce458b46593311e5285f40dcba349) - fix(gitlab_release): fixed rule to match nfc_bot  
+2023-05-14 11:41:47 +0930 [1fa7fec](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1fa7fec38a54b7ddf460b1394a7024ef161fab24) - refactor(gitlab_release): show debug before command  
+2023-05-14 11:39:53 +0930 [e76378d](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/e76378dd068e200a1198f1811efb9d3bec7878f5) - fix(gitlab_release): only run on master on_success  
+2023-05-14 09:56:35 +0930 [934a401](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/934a401a9620891b09a5fe9c9b0e50a97b43fa9b) - fix(ci): specify the commitizen version  
+2023-05-13 15:35:28 +0930 [408e4ea](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/408e4eab9e1f61004f1e38af6d1531747b7da99b) - refactor: move docs as part of restructure  
+2023-05-13 11:49:52 +0930 [8d512a9](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/8d512a9a4bd7f4895645436f057c4bab3efb864e) - feat(commit_footer_refs): ability to disable job with variable  
+2023-05-13 11:48:47 +0930 [a37acbf](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a37acbfc7d3ea20ece7cb76e15a14858b26f8508) - feat(gitlab_release): ability to disable job with variable  
+2022-02-12 10:27:01 +0000 [9a7ae71](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9a7ae7106e80a038b31cdc9fc172bb1f974ecb94) - refactor: set correct commit details for nfc_bot  
+2022-01-25 00:08:05 +0000 [ce1cc01](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ce1cc017e26ff7f6cee586cc7d98e4d292275672) - build(version): bump version 0.6.0 → 0.6.1rc0  
+2022-01-24 06:33:24 +0000 [46cc1fb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/46cc1fbb6a878e485af39e679b5184a9912c2e7f) - build(version): bump version 0.5.0 → 0.6.0  
 2022-01-16 00:09:42 +0000 [1ef6c41](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1ef6c41818c40183f8019ea5cde48b4278e4d694) - build(version): bump version 0.4.0 → 0.5.0  
 2022-01-16 09:02:44 +0930 [82c6c9f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/82c6c9f5d53594544cea9a7bc59a10ab1e9ebedd) - feat(commit_footer_refs): never run on development or master.  
 2022-01-15 03:53:53 +0000 [5c9000a](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/5c9000a74859504ed64bbefa1fd193f80a2b69c2) - build(version): bump version 0.3.1 → 0.4.0  

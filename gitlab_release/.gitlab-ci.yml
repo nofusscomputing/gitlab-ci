@@ -18,24 +18,25 @@
         - git clone -b development $CLONE_URL repo
         - cd repo
         - git branch
-        - git config --global user.email "CI@nfc-gitlab"
-        - git config --global user.name "NFC CI"
+        - git config --global user.email "helpdesk@nofusscomputing.com"
+        - git config --global user.name "nfc_bot"
         - git push --set-upstream origin development
         - RELEASE_VERSION_CURRENT=$(cz -n cz_nfc version --project)        
     script:
         - "$MY_COMMAND"
         - if [ "$CI_COMMIT_BRANCH" == "development" ] ; then RELEASE_CHANGELOG=$(cz -n cz_nfc bump --changelog --changelog-to-stdout --prerelease rc); else RELEASE_CHANGELOG=$(cz -n cz_nfc bump --changelog --changelog-to-stdout); fi
         - RELEASE_VERSION_NEW=$(cz -n cz_nfc version --project)
-        - RELEASE_TAG=v$RELEASE_VERSION_NEW
-        - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No tag to delete, version was not bumped"; else git tag -d $RELEASE_TAG; fi
+        - RELEASE_TAG=$RELEASE_VERSION_NEW
         - echo "[DEBUG] RELEASE_VERSION_CURRENT[$RELEASE_VERSION_CURRENT]"
         - echo "[DEBUG] RELEASE_CHANGELOG[$RELEASE_CHANGELOG]"
         - echo "[DEBUG] RELEASE_VERSION_NEW[$RELEASE_VERSION_NEW]"
         - echo "[DEBUG] RELEASE_TAG[$RELEASE_TAG]"
         - RELEASE_TAG_SHA1=$(git log -n1 --format=format:"%H")
         - echo "[DEBUG] RELEASE_TAG_SHA1[$RELEASE_TAG_SHA1]"
+        - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No tag to delete, version was not bumped"; else git tag -d $RELEASE_TAG; fi
+        
         - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No push will be conducted, version was not bumped"; else git push; fi
-        - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No release will be created, version was not bumped"; else release-cli create --name "Release $RELEASE_TAG" --tag-name "$RELEASE_TAG" --ref "$RELEASE_TAG_SHA1" --description "$RELEASE_CHANGELOG"; fi
+        - if [ "0$RELEASE_VERSION_CURRENT" == "0$RELEASE_VERSION_NEW" ]; then echo "[DEBUG] No release will be created, version was not bumped"; else release-cli create --name "Release $RELEASE_TAG" --tag-name "$RELEASE_TAG" --tag-message "$RELEASE_CHANGELOG" --ref "$RELEASE_TAG_SHA1" --description "$RELEASE_CHANGELOG"; fi
         - if [ "$CI_COMMIT_BRANCH" == "master" ] ; then git checkout master; fi
         - if [ "$CI_COMMIT_BRANCH" == "master" ] ; then git push --set-upstream origin master; fi
         - if [ "$CI_COMMIT_BRANCH" == "master" ] ; then git merge --no-ff development; fi
@@ -43,14 +44,28 @@
     after_script:
         - rm -Rf repo
     rules:
-        - if: "$CI_COMMIT_AUTHOR =='NFC CI <CI@nfc-gitlab>'"
+        - if: '$JOB_STOP_GITLAB_RELEASE'
           when: never
-        - if: '$CI_COMMIT_BRANCH == "master"'
-          when: always
+
+        - if: "$CI_COMMIT_AUTHOR =='nfc_bot <helpdesk@nofusscomputing.com>'"
+          when: never
+
+        - if: # condition_master_branch_push
+            $CI_COMMIT_BRANCH == "master" && 
+            $CI_PIPELINE_SOURCE == "push"
           allow_failure: false
-        - if: '$CI_COMMIT_BRANCH == "development"'
+          when: on_success
+
+        - if: # condition_dev_branch_push
+            $CI_COMMIT_BRANCH == "development" && 
+            $CI_PIPELINE_SOURCE == "push"
           when: manual
           allow_failure: true
+
+        # for testing
+        # - if: '$CI_COMMIT_BRANCH != "master"'
+        #   when: always
+        #   allow_failure: true
         - when: never
 
 
@@ -85,9 +100,26 @@ commit footer refs:
             junit:
                 - "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/*.junit.xml"
     rules:
-        - if: '$CI_COMMIT_BRANCH == "development" || $CI_COMMIT_BRANCH == "master"'
+        - if: '$JOB_STOP_CONVENTIONAL_COMMITS'
           when: never
-        - if: '$CI_COMMIT_BRANCH && $CHANGELOG_FOOTER_REFERENCES != "False"'
-          when: always
-        - when: never
 
+        - if: $CHANGELOG_FOOTER_REFERENCES == "False"
+          when: never
+
+        # - if: '$CI_COMMIT_BRANCH == "development" || $CI_COMMIT_BRANCH == "master"'
+        #   when: never
+
+        - if: # condition_not_master_or_dev_push
+            $CI_COMMIT_BRANCH != "master" && 
+            $CI_COMMIT_BRANCH != "development" && 
+            $CI_PIPELINE_SOURCE == "push" &&
+            $CI_COMMIT_TAG == null
+          exists:
+          - .cz.yaml
+          changes: 
+            paths:
+              - "**/**"
+            compare_to: development
+          when: always
+
+        - when: never

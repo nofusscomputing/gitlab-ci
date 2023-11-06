@@ -6,6 +6,7 @@
         - apk update
         - apk add git
     script:
+        - if [ "0$GIT_SYNC_URL" == "0"]; then echo "[ERROR] you must define variable GIT_SYNC_URL for mirroring this repository."; fi
         - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/$CI_PROJECT_PATH --mirror $CI_PROJECT_NAME
         - cd $CI_PROJECT_NAME 
         - git remote add destination $GIT_SYNC_URL 
@@ -14,7 +15,18 @@
     artifacts:
         expire_in: 1 day
     rules:
-        - if: '$CI_COMMIT_BRANCH == "master"'
-        - if: '$CI_COMMIT_BRANCH == "development"'
+        - if: '$JOB_STOP_GIT_PUSH_MIRROR'
+          when: never
+
+        - if: $GIT_SYNC_URL == null
+          when: never
+
+        - if: # condition_master_or_dev_push
+            ( 
+              $CI_COMMIT_BRANCH == "master" || 
+              $CI_COMMIT_BRANCH == "development" 
+            ) && 
+            $CI_PIPELINE_SOURCE == "push"
           when: always
 
+        - when: never

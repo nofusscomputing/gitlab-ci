@@ -1,5 +1,18 @@
 # Changelog
 
+2023-05-28 10:31:26 +0930 [bade89c](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/bade89c5333ca853844e224f46a2d3dafab7179d) - fix(scheduled_pipelines): if scheduled pipeline only run schedualable jobs  
+2023-05-24 04:40:52 +0000 [0a17fe1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/0a17fe1aa320c658c05d7a693ff76af4a54e6130) - build(version): bump version 0.6.1rc1 → 0.6.1rc2  
+2023-05-21 01:48:53 +0930 [088c9fb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/088c9fb04c80961f4de8d2b129955ae8cd0b9529) - feat(conventional_commits): ensure .cz.yaml exists  
+2023-05-15 00:18:38 +0000 [a3fdca8](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/a3fdca83bf7acb58d47792a66d1cd0728747361c) - build(version): bump version 0.6.1rc0 → 0.6.1rc1  
+2023-05-15 09:32:15 +0930 [93931cb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/93931cb9076e0db238f4e297abe3d8f37bd71b80) - feat(conventional): job not to run when bot pushes change  
+2023-05-15 09:23:02 +0930 [76db5b1](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/76db5b17578d8585ed31e0728dbfb37ea2fae153) - fix(conventional_commits): never run on git tag  
+2023-05-14 14:10:06 +0930 [02e9e5f](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/02e9e5f4f4cc0b93ae92c7ba3a2cfb38305af64c) - refactor(ci): inconsistant tabs  
+2023-05-14 12:11:42 +0930 [d389d14](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/d389d14192e1e483fbd48fa9b5c5bee25db14a20) - fix: validation jobs on all except merge  
+2023-05-14 09:56:35 +0930 [934a401](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/934a401a9620891b09a5fe9c9b0e50a97b43fa9b) - fix(ci): specify the commitizen version  
+2023-05-13 15:35:28 +0930 [408e4ea](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/408e4eab9e1f61004f1e38af6d1531747b7da99b) - refactor: move docs as part of restructure  
+2023-05-13 11:47:21 +0930 [9e7d357](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/9e7d357bab2b92704d37ad5621df9fe8d1e31a26) - feat(conventional_commits): ability to disable job with variable  
+2022-01-25 00:08:05 +0000 [ce1cc01](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/ce1cc017e26ff7f6cee586cc7d98e4d292275672) - build(version): bump version 0.6.0 → 0.6.1rc0  
+2022-01-24 06:33:24 +0000 [46cc1fb](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/46cc1fbb6a878e485af39e679b5184a9912c2e7f) - build(version): bump version 0.5.0 → 0.6.0  
 2022-01-16 00:09:42 +0000 [1ef6c41](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/1ef6c41818c40183f8019ea5cde48b4278e4d694) - build(version): bump version 0.4.0 → 0.5.0  
 2022-01-16 09:02:02 +0930 [31517b4](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/31517b4bf00c1f177ef925d09b1a6714577f62c5) - ci(MR_Title): save the merge request title as a variable and debug output in job log.  
 2022-01-16 08:48:24 +0930 [73918f2](https://gitlab.com/nofusscomputing/projects/gitlab-ci/-/commit/73918f2f5e19440d0e300da3a20712739c316d88) - fix(commit.py): filter merge request search to 'opened' and on current branch.  
