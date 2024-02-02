@@ -140,3 +140,5 @@ Update Sub Repo:
       - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-bind
       - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-mail
       - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-buildx-qemu
+      - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/docker-glpi
+      - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/kubernetes_monitoring
