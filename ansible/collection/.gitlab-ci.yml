@@ -1,0 +1,397 @@
+---
+
+variables:
+  ANSIBLE_GALAXY_SERVER_URL: https://galaxy.ansible.com    # Optional, String. URL to the Galaxy server for uploads
+  ANSIBLE_GALAXY_UPLOAD_TOKEN: ""    # Mandatory, String. The token to upload to ansible galaxy
+  ANSIBLE_GALAXY_NAMESPACE: ""       # Mandatory, String. 
+  ANSIBLE_GALAXY_PACKAGE_NAME: ""    # Mandatory, String. 
+
+
+.ansible_collection_merge:
+  stage: chores
+  image: python:3.11-bookworm
+  before_script:
+    - | # Install Pre-req packages
+      apt update;
+
+      apt install -y --no-install-recommends \
+        curl \
+        git;
+
+    # ToDo: Install python deps
+      # commitizen
+
+    - | # setup git user
+      git config --global user.email "helpdesk@nofusscomputing.com";
+      git config --global user.name "nfc_bot";
+
+    - | # fetch repo details
+      git fetch -fpv;
+
+    - | # switch to dev branch
+      git switch development;
+
+    - | # pull dev branch
+      git pull development --rebase
+
+    - | # Store old version number
+      export OLD_VERSION=$(cz version --project)  # old ver
+
+    # rc codes https://commitizen-tools.github.io/commitizen/exit_codes/
+    - | # Bump the version
+      if [ $CI_COMMIT_BRANCH == "development" ]; then
+
+        cz bump --files-only --yes --prerelease alpha
+
+        export VERSION_BUMPED=$?
+
+      elif [ $CI_COMMIT_BRANCH == "master" ]; then
+
+        cz bump --files-only --yes
+
+        export VERSION_BUMPED=$?
+
+      else
+
+        echo "Something went wrong with creating the release";
+        exit 1;
+      
+      fi;
+
+    - | # Store new version number
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        export NEW_VERSION=$(cz version --project)
+
+      fi;
+
+    - | # git stage .cz.yaml
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        git add .cz.yaml;
+
+      fi;
+
+    - | # Update version in galaxy file
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        sed -E "s/version: (.+)/version: ${NEW_VERSION}/g" -i galaxy.yml
+
+      fi;
+
+    - | # git stage galaxy.yml
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        git add galaxy.yml
+
+      fi;
+
+    - | # changelog since last version - for development branch
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        cz changelog --incremental --dry-run > artifacts/incremental_changelog.txt
+
+      fi;
+
+    - | # store incremental changelog since last version
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        curl \
+          --header "JOB-TOKEN: $CI_JOB_TOKEN" \
+          --upload-file artifacts/incremental_changelog.txt \
+          "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${CI_PROJECT_NAME}/${NEW_VERSION}/incremental_changelog.txt"
+
+      fi;
+
+    - | # complete changelog since last normal release - for master branch
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        cz changelog --merge-prerelease --dry-run > artifacts/full_changelog.txt
+
+      fi;
+
+    - | # store full changelog (merge-prerelease)
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        curl \
+          --header "JOB-TOKEN: $CI_JOB_TOKEN" \
+          --upload-file artifacts/full_changelog.txt \
+          "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${CI_PROJECT_NAME}/${NEW_VERSION}/full_changelog.txt"
+
+      fi;
+
+    - | # Update CHANGELOG.md
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        if [ $CI_COMMIT_BRANCH == "development" ]; then
+
+          cz changelog --incremental;
+
+        elif [ $CI_COMMIT_BRANCH == "master" ]; then
+
+          cz changelog --merge-prerelease;
+
+        else
+
+          echo "This job should only run on 'development' and 'master' branches";
+          exit 1;
+        
+        fi;
+
+      fi;
+
+    - | # git stage CHANGELOG.md
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        git add CHANGELOG.md;
+
+      fi;
+
+
+  script:
+
+
+    - | # user overridable section for custom actions before commit and push
+      echo "if you need to add/edit files to be commited as part of the release, override the 'script:' section of the job with your custom commands"
+
+
+  after_script:
+
+    - | # commit any changes
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        cat <<EOF | git commit -F-
+        build: bump version ${OLD_VERSION} -> ${NEW_VERSION}
+
+        !${CI_MERGE_REQUEST_IID}
+        EOF
+
+      fi;
+
+    - | # Store the changes commit for the tag
+      export CHANGE_COMMIT=$(git log -n1 --format=format:"%H")
+
+    - | # push development to origin
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        git push --set-upstream origin development
+
+      fi;
+
+    - | # merge bump changes to master
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        if [ $CI_COMMIT_BRANCH == "master" ]; then
+
+          git merge --no-ff master;
+          git push --all;
+
+        fi;
+
+      fi;
+
+    - | # store metadata for use in later stages
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        cat <<EOF > artifacts/vars.env
+
+        export CHANGE_COMMIT=${CHANGE_COMMIT}
+
+        export NEW_VERSION=${NEW_VERSION}
+
+        export OLD_VERSION=${CURRENT_VERSION}
+
+        export VERSION_BUMPED=${VERSION_BUMPED}
+
+        EOF;
+
+        chmod +x artifacts/vars.env;
+
+        curl \
+          --header "JOB-TOKEN: $CI_JOB_TOKEN" \
+          --upload-file artifacts/metadata.env \
+          "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${CI_PROJECT_NAME}/${NEW_VERSION}/metadata.env";
+
+      fi;
+
+    - | # create git tag, if changed
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        git tag -m "$(cat artifacts/incremental_changelog.txt)" ${NEW_VERSION} ${CHANGE_COMMIT};
+
+      fi;
+
+    - | # push git tag to origin
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        git push --tags
+
+      fi;
+  artifacts:
+    untracked: false
+    when: on_success
+    expire_in: "3 days"
+    paths:
+      - "artifacts/*"
+  rules:
+
+    - if: # Occur on merge
+        $CI_COMMIT_BRANCH == "development"
+          and
+        $CI_PIPELINE_SOURCE == "push"
+      when: manual
+
+    - if: # Occur on merge
+        $CI_COMMIT_BRANCH == "master"
+          and
+        $CI_PIPELINE_SOURCE == "push"
+      when: always
+
+    - when: never
+
+
+# Feature Branch / git tag
+.ansible_collection_build:
+  stage: build
+  image: python:3.11-bookworm
+  before_script:
+    - | # Exit if mandatory variables not defined. On the first job in the pipeline for release.
+      if [ "$CI_COMMIT_TAG" ]; then
+
+        if [ "0$ANSIBLE_GALAXY_UPLOAD_TOKEN" == "0" ]; then
+
+          echo No galaxy token within vars;
+          exit 1;
+
+        fi;
+
+        if [ "0$ANSIBLE_GALAXY_NAMESPACE" == "0" ]; then
+
+          echo No galaxy token within vars;
+          exit 1;
+
+        fi;
+
+        if [ "0$ANSIBLE_GALAXY_PACKAGE_NAME" == "0" ]; then
+
+          echo No galaxy token within vars;
+          exit 1;
+
+        fi;
+
+      fi
+
+    # ToDo: install python deps
+      # for galaxy build
+
+  script:
+
+    - | # Build the collection
+      ansible-galaxy collection build . --verbose --force --output-path artifacts/galaxy/
+
+  artifacts:
+    untracked: false
+    when: on_success
+    expire_in: "3 days"
+    paths:
+      - "artifacts/*"
+  rules:
+
+    - if:
+        $CI_COMMIT_BRANCH != "development"
+          and
+        $CI_COMMIT_BRANCH != "master"
+          and
+        $CI_PIPELINE_SOURCE == "push"
+      when: always
+
+    - if: $CI_COMMIT_TAG != ""
+      when: always
+
+    - when: never
+
+
+
+# store built package in generic package registry
+.ansible_collection_stage_package:
+  stage: prepare
+  image: curlimages/curl:latest
+  variables:
+    GIT_STRATEGY: none
+  environment:
+    name: Gitlab Package Registry
+    url: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${CI_PROJECT_NAME}/${CI_COMMIT_TAG}/
+  script:
+    - |
+      curl \
+        --header "JOB-TOKEN: $CI_JOB_TOKEN" \
+        --upload-file artifacts/galaxy/$(ls artifacts/galaxy/) \
+        "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${CI_PROJECT_NAME}/${CI_COMMIT_TAG}/collection.tar.gz"
+  artifacts:
+    untracked: false
+    when: on_success
+    expire_in: "3 days"
+    paths:
+      - "artifacts/*"
+  rules:
+
+    - if: $CI_COMMIT_TAG != ""
+      when: on_success
+
+    - when: never
+
+
+# Only on git tag
+.ansible_collection_release:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  variables:
+    GIT_STRATEGY: none
+  script:
+
+    # ToDo: use gitlab release container to create release
+    # add galaxy link release url for the version
+
+  artifacts:
+    when: never
+  rules:
+
+    - if: $CI_COMMIT_TAG != ""
+      when: on_success
+
+    - when: never
+
+
+# Only on git tag
+.ansible_collection_publish_galaxy:
+  stage: publish
+  image: python:3.11-bookworm    
+  variables:
+    GIT_STRATEGY: none
+    ANSIBLE_GALAXY_SERVER_URL: https://galaxy.ansible.com
+  environment:
+    name: Ansible Galaxy
+    url: https://galaxy.ansible.com/ui/repo/published/${ANSIBLE_GALAXY_NAMESPACE}/${ANSIBLE_GALAXY_PACKAGE_NAME}/
+  before_script:
+
+    # ToDo: install required deps
+
+    - | # Download Staged package
+      wget \
+        --header="JOB-TOKEN: $CI_JOB_TOKEN" \
+        "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${CI_PROJECT_NAME}/${CI_COMMIT_TAG}/collection.tar.gz"
+
+  script:
+    - | # Publish package to Ansible Galaxy
+      ansible-galaxy collection publish \
+        --server $(ANSIBLE_GALAXY_SERVER_URL) \
+        --token $(ANSIBLE_GALAXY_UPLOAD_TOKEN) \
+        --verbose collection.tar.gz
+  artifacts:
+    when: never
+  rules:
+
+    - if: $CI_COMMIT_TAG != ""
+      when: on_success
+
+    - when: never

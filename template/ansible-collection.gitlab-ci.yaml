@@ -1,0 +1,26 @@
+
+include:
+  - local: $JOB_ROOT_DIR/ansible/collection/.gitlab-ci.yml
+
+
+Build Collection:
+  extends: .ansible_collection_build
+  # needs linting
+
+Stage Collection:
+  extends: .ansible_collection_stage_package
+  needs:
+    - Build Collection
+
+
+Gitlab Release:
+  extends: .gitlab_release
+  needs:
+    - Stage Collection
+
+
+Ansible Galaxy:
+  extends: .ansible_collection_publish_galaxy
+  needs:
+  - Stage Collection
+  - Gitlab Release
