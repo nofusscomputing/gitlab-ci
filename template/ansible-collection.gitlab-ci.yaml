@@ -4,7 +4,7 @@ include:
   - local: $JOB_ROOT_DIR/lint/ansible.gitlab-ci.yaml
 
 
-Merge Check:
+Create Release:
   extends: .ansible_collection_merge
   needs: []
 
