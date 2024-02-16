@@ -126,12 +126,19 @@ variables:
 
       fi;
 
+    - | # create git tag, if changed
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        git tag -m "$(cat artifacts/incremental_changelog.txt)" ${NEW_VERSION} ${CHANGE_COMMIT};
+
+      fi;
+
     - | # changelog since last version - for development branch
       echo "changelog since last version - for development branch";
 
       if [ "0$VERSION_BUMPED" == "00" ]; then
 
-        cz changelog --incremental --dry-run > artifacts/incremental_changelog.txt
+        cz changelog --dry-run "${NEW_VERSION}" > artifacts/incremental_changelog.txt
 
         ls -lR artifacts/
 
@@ -330,13 +337,6 @@ variables:
           --header "JOB-TOKEN: $CI_JOB_TOKEN" \
           --upload-file artifacts/metadata.env \
           "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${CI_PROJECT_NAME}/${NEW_VERSION}/metadata.env";
-
-      fi;
-
-    - | # create git tag, if changed
-      if [ "0$VERSION_BUMPED" == "00" ]; then
-
-        git tag -m "$(cat artifacts/incremental_changelog.txt)" ${NEW_VERSION} ${CHANGE_COMMIT};
 
       fi;
 
