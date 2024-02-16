@@ -126,19 +126,12 @@ variables:
 
       fi;
 
-    - | # create git tag, if changed
-      if [ "0$VERSION_BUMPED" == "00" ]; then
-
-        git tag -m "$(cat artifacts/incremental_changelog.txt)" ${NEW_VERSION} ${CHANGE_COMMIT};
-
-      fi;
-
     - | # changelog since last version - for development branch
       echo "changelog since last version - for development branch";
 
       if [ "0$VERSION_BUMPED" == "00" ]; then
 
-        cz changelog --dry-run "${NEW_VERSION}" > artifacts/incremental_changelog.txt
+        cz changelog  --incremental --dry-run --unreleased-version "${NEW_VERSION}" > artifacts/incremental_changelog.txt
 
         ls -lR artifacts/
 
@@ -161,7 +154,7 @@ variables:
 
       if [ "0$VERSION_BUMPED" == "00" ]; then
 
-        cz changelog --merge-prerelease --dry-run > artifacts/full_changelog.txt
+        cz changelog --merge-prerelease --dry-run --unreleased-version "${NEW_VERSION}" > artifacts/full_changelog.txt
 
       fi;
 
@@ -294,6 +287,13 @@ variables:
 
       git log -3;
 
+    
+    - | # create git tag, if changed
+      if [ "0$VERSION_BUMPED" == "00" ]; then
+
+        git tag -m "$(cat artifacts/incremental_changelog.txt)" ${NEW_VERSION} ${CHANGE_COMMIT};
+
+      fi;
 
     - | # push development to origin
       if [ "0$VERSION_BUMPED" == "00" ]; then
