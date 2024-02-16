@@ -225,6 +225,38 @@ variables:
 
       fi;
 
+    # - | # Find merge request ID 
+    #   echo "Trace CI_OPEN_MERGE_REQUESTS[${CI_OPEN_MERGE_REQUESTS}]";
+
+    #   if grep -q "," <<< "$CI_OPEN_MERGE_REQUESTS"; then
+
+    #     export MERGE_REQUEST_FOUND=$(echo "${CI_OPEN_MERGE_REQUESTS}" | cut -d "," -f 1 | cut -d '!' -f 2);
+
+    #   else
+
+    #     export MERGE_REQUEST_FOUND=$(echo "${CI_OPEN_MERGE_REQUESTS}" | cut -d '!' -f 2);
+
+    #   fi
+
+    #   echo "Trace MERGE_REQUEST_FOUND[${MERGE_REQUEST_FOUND}]";
+
+    #   if [ "$CI_MERGE_REQUEST_IID" ]; then
+
+    #     export MERGE_REQUEST_FOUND=${CI_MERGE_REQUEST_IID}
+
+    #     echo "Using CI_MERGE_REQUEST_IID[${CI_MERGE_REQUEST_IID}] as value for MERGE_REQUEST_FOUND";
+
+    #   fi
+
+    - | # Find merge request ID 
+      echo "Trace CI_OPEN_MERGE_REQUESTS[${CI_OPEN_MERGE_REQUESTS}]";
+
+      echo "Trace CI_MERGE_REQUEST_IID[${CI_MERGE_REQUEST_IID}]";
+
+      export MERGE_REQUEST_FOUND=$(git log -1 | grep -E '\!(.+)' | cut -d '!' -f 2);
+
+      echo "Trace MERGE_REQUEST_FOUND[${MERGE_REQUEST_FOUND}]";
+
     - | # commit any changes
       if [ "0$VERSION_BUMPED" == "00" ]; then
 
@@ -235,7 +267,7 @@ variables:
       cat <<EOF | git commit -F-
       build: bump version ${OLD_VERSION} -> ${NEW_VERSION}
 
-      !${CI_MERGE_REQUEST_IID}
+      !${MERGE_REQUEST_FOUND}
       EOF
 
       fi;
@@ -281,6 +313,8 @@ variables:
       cat <<EOF > artifacts/metadata.env
 
       export CHANGE_COMMIT=${CHANGE_COMMIT}
+
+      export MERGE_REQUEST_FOUND=${MERGE_REQUEST_FOUND}
 
       export NEW_VERSION=${NEW_VERSION}
 
