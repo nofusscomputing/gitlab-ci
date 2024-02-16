@@ -409,18 +409,21 @@ variables:
         ansible==9.2.0
 
     - | # Setup git to be on the tagged commit
+      if [ "${CI_COMMIT_TAG}" ]; then
 
-      echo "setting up git to be on revision ${CI_COMMIT_TAG}";
+        echo "setting up git to be on revision ${CI_COMMIT_TAG}";
 
-      git log -2;
+        git log -2;
 
-      git fetch -fpvt;
+        git fetch -fpvt;
 
-      git pull --rebase;
-      
-      git reset ${CI_COMMIT_TAG} --hard;
+        git pull origin development --rebase;
+        
+        git reset ${CI_COMMIT_TAG} --hard;
 
-      git log -2;
+        git log -2;
+
+      fi;
 
   script:
 
@@ -440,6 +443,12 @@ variables:
 
     - if: "$CI_COMMIT_AUTHOR =='nfc_bot <helpdesk@nofusscomputing.com>'"
       when: never
+
+    - if: # Occur on merge
+        $CI_COMMIT_BRANCH == "development"
+          &&
+        $CI_PIPELINE_SOURCE == "push"
+      when: always
 
     - if:
         $CI_COMMIT_BRANCH != "development"
