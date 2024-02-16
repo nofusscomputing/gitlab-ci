@@ -419,7 +419,7 @@ variables:
 
         git pull origin development --rebase;
         
-        git reset ${CI_COMMIT_TAG} --hard;
+        git checkout tags/${CI_COMMIT_TAG} -b development;
 
         git log -2;
 
