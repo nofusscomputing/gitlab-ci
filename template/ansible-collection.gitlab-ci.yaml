@@ -23,6 +23,12 @@ Ansible Lint:
     - if: "$CI_COMMIT_AUTHOR =='nfc_bot <helpdesk@nofusscomputing.com>'"
       when: never
 
+    - if: # Occur on merge
+        $CI_COMMIT_BRANCH == "development"
+          &&
+        $CI_PIPELINE_SOURCE == "push"
+      when: always
+
     - if:
         $CI_COMMIT_BRANCH != "development"
           &&
@@ -51,6 +57,12 @@ Ansible Lint (galaxy.yml):
 
     - if: "$CI_COMMIT_AUTHOR =='nfc_bot <helpdesk@nofusscomputing.com>'"
       when: never
+
+    - if: # Occur on merge
+        $CI_COMMIT_BRANCH == "development"
+          &&
+        $CI_PIPELINE_SOURCE == "push"
+      when: always
 
     - if:
         $CI_COMMIT_BRANCH != "development"
