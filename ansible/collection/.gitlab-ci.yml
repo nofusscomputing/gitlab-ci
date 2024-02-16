@@ -362,6 +362,7 @@ variables:
         $CI_COMMIT_BRANCH == "development"
           &&
         $CI_PIPELINE_SOURCE == "push"
+      allow_failure: true
       when: manual
 
     - if: # Occur on merge
