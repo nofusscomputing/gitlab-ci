@@ -1,10 +1,10 @@
 ---
 
 variables:
-  ANSIBLE_GALAXY_SERVER_URL: https://galaxy.ansible.com    # Optional, String. URL to the Galaxy server for uploads
-  ANSIBLE_GALAXY_UPLOAD_TOKEN: ""    # Mandatory, String. The token to upload to ansible galaxy
-  ANSIBLE_GALAXY_NAMESPACE: ""       # Mandatory, String. 
-  ANSIBLE_GALAXY_PACKAGE_NAME: ""    # Mandatory, String. 
+  ANSIBLE_GALAXY_UPLOAD_TOKEN: ""                          # Mandatory, String. The token to upload to ansible galaxy. DONT SET HERE, USE PIPELINE VARIABLES.
+  ANSIBLE_GALAXY_SERVER_URL: https://galaxy.ansible.com    # Optional, default=(as displayed)String. URL to the Galaxy server for uploads
+  ANSIBLE_GALAXY_NAMESPACE: ""                             # Mandatory, String. The ansible galaxy upload namespace
+  ANSIBLE_GALAXY_PACKAGE_NAME: ""                          # Mandatory, String. The Ansible Galaxy package name
 
 
 .ansible_collection_merge:
