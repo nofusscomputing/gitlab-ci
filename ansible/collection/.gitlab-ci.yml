@@ -307,8 +307,14 @@ variables:
 
         if [ $CI_COMMIT_BRANCH == "master" ]; then
 
-          git merge --no-ff master;
-          git push --all;
+          echo "Trace Checkout master branch";
+          git checkout master;
+
+          echo "Trace merge changes from development branch";
+          git merge --no-ff development;
+
+          echo "Trace push changes to origin";
+          git push origin master;
 
         fi;
 
