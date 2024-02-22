@@ -29,6 +29,7 @@ To be able to upload to Ansible Galaxy, you will be required to provide the jobs
 | Variable | Settings | Notes |
 |:---|:---:|:---|
 | `ANSIBLE_GALAXY_UPLOAD_TOKEN` | `masked`, `protected` |  |
+| `VERSION_BUMP_INCREMENT` | `major`, `minor`, `patch` | Used for manual run of the job. After setting the variable, that type of version bump will occur. |
 
 Within your `.gitlab-ci.yml` file there are varibales to be set, please see below.
 
