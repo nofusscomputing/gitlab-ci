@@ -361,6 +361,16 @@ variables:
 
       fi;
 
+    - | # Create Version Label
+      if [ "$CREATE_VERSION_LABEL" != "false" ]; then
+
+        curl \
+          --data "name=v${NEW_VERSION}&color=#eee600&description='phpIPAM Scan Agent Version that is affected'" 
+          --header "PRIVATE-TOKEN: $GIT_COMMIT_TOKEN" \
+          "https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/labels"
+
+      fi;
+
     - | # push git tag to origin
       if [ "0$VERSION_BUMPED" == "00" ]; then
 
