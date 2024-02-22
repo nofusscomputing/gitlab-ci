@@ -188,11 +188,11 @@ variables:
 
         if [ $CI_COMMIT_BRANCH == "development" ]; then
 
-          cz changelog --incremental;
+          cz changelog --incremental --unreleased-version "${NEW_VERSION}";
 
         elif [ $CI_COMMIT_BRANCH == "master" ]; then
 
-          cz changelog --merge-prerelease;
+          cz changelog --merge-prerelease --unreleased-version "${NEW_VERSION}";
 
         else
 
