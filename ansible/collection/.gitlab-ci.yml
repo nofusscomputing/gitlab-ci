@@ -67,15 +67,30 @@ variables:
 
     # rc codes https://commitizen-tools.github.io/commitizen/exit_codes/
     - | # Bump the version
+
+      if [ "0${VERSION_BUMP_INCREMENT}" != '0' ]; then
+
+        export BUMP_INCREMENT="--increment ${VERSION_BUMP_INCREMENT}";
+
+      fi;
+
       if [ $CI_COMMIT_BRANCH == "development" ]; then
 
-        cz bump --files-only --yes --prerelease alpha
+        cz bump \
+          --files-only \
+          --yes \
+          ${BUMP_INCREMENT} \
+          --prerelease alpha \
+
 
         export VERSION_BUMPED=$?
 
       elif [ $CI_COMMIT_BRANCH == "master" ]; then
 
-        cz bump --files-only --yes
+        cz bump \
+          --files-only \
+          ${BUMP_INCREMENT} \
+          --yes
 
         export VERSION_BUMPED=$?
 
