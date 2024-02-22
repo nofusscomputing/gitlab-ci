@@ -131,6 +131,7 @@ Update Sub Repo:
       - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/ansible-roles
       - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/ansible_docker_os
       - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/ansible_test
+      - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/collections/ci-test
       - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/common
       - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/docker_management
       - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/execution_environment
