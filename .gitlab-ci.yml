@@ -126,6 +126,7 @@ Update Sub Repo:
   parallel:
     matrix:
       - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/ops
+      - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/infrastructure/configuration-management/itil_runbooks
       - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/infrastructure/website
       - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/ansible_playbooks
       - SUBMODULE_UPDATE_TRIGGER_PROJECT: nofusscomputing/projects/ansible/ansible-roles
