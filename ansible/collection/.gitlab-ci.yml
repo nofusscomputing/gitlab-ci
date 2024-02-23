@@ -399,7 +399,11 @@ variables:
     - if: # Occur on merge
         $CI_COMMIT_BRANCH == "master"
           &&
-        $CI_PIPELINE_SOURCE == "push"
+        (
+          $CI_PIPELINE_SOURCE == "push"
+            ||
+          $CI_PIPELINE_SOURCE == "web"
+        )
       when: always
 
     - when: never
