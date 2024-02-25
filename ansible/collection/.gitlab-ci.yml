@@ -241,14 +241,40 @@ variables:
       fi;
 
     - | # Custom commands from RELEASE_ADDITIONAL_ACTIONS_BUMP
+        if [ -f ${RELEASE_ADDITIONAL_ACTIONS_BUMP} ]; then
 
-      if [ ${RELEASE_ADDITIONAL_ACTIONS_BUMP} ]; then
+          echo "Custom commands found in variable RELEASE_ADDITIONAL_ACTIONS_BUMP";
 
-        echo "Custom commands found in variable RELEASE_ADDITIONAL_ACTIONS_BUMP";
+          chmod +x ${RELEASE_ADDITIONAL_ACTIONS_BUMP};
 
-        ${RELEASE_ADDITIONAL_ACTIONS_BUMP}
+          echo '------------------------------ TRACE SoF ------------------------------';
 
-      fi;
+          echo "File: RELEASE_ADDITIONAL_ACTIONS_BUMP[${RELEASE_ADDITIONAL_ACTIONS_BUMP}]";
+
+          echo '------ contents ------';
+
+          echo "";
+
+          cat ${RELEASE_ADDITIONAL_ACTIONS_BUMP};
+
+          echo "";
+
+          echo '------ contents ------';
+
+          echo "";
+
+          ${RELEASE_ADDITIONAL_ACTIONS_BUMP};
+
+          echo "";
+
+          echo "git reset edited file: ${RELEASE_ADDITIONAL_ACTIONS_BUMP}";
+
+          git restore ${RELEASE_ADDITIONAL_ACTIONS_BUMP};
+
+          git status
+
+          echo '------------------------------ TRACE EoF ------------------------------'
+        fi;
 
     # - | # Find merge request ID 
     #   echo "Trace CI_OPEN_MERGE_REQUESTS[${CI_OPEN_MERGE_REQUESTS}]";
