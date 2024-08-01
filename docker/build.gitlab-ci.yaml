@@ -56,15 +56,20 @@ variables:
     - update-binfmts --display
     - |
 
+      if [ "0$NFC_IMAGE_DESCRIPTION" != "0" ]; then NFC_IMAGE_DESCRIPTION=${NFC_IMAGE_DESCRIPTION}; else NFC_IMAGE_DESCRIPTION="No Fuss Computing Image"; fi;
+
       if [ "0$DOCKER_IMAGE_BUILD_TARGET_PLATFORMS" != "0" ]; then
 
         echo "[DEBUG] building multiarch/specified arch image";
 
         docker buildx build --platform=$DOCKER_IMAGE_BUILD_TARGET_PLATFORMS . \
-          --label org.opencontainers.image.created="$(date '+%Y-%m-%d %H:%M:%S%:z')" \
+          --label org.opencontainers.image.created="$(date '+%Y-%m-%dT%H:%M:%S%:z')" \
+          --label org.opencontainers.image.description="$NFC_IMAGE_DESCRIPTION" \
           --label org.opencontainers.image.documentation="$CI_PROJECT_URL" \
           --label org.opencontainers.image.source="$CI_PROJECT_URL" \
           --label org.opencontainers.image.revision="$CI_COMMIT_SHA" \
+          --label io.artifacthub.package.readme-url="$CI_PROJECT_URL/-/raw/development/README.md?ref_type=heads" \
+          --label io.artifacthub.package.maintainers='[{"name":"No Fuss Computing","email":"helpdesk@nofusscomputing.com"}]' \
         --push \
         --build-arg CI_JOB_TOKEN=$CI_JOB_TOKEN --build-arg CI_PROJECT_ID=$CI_PROJECT_ID --build-arg CI_API_V4_URL=$CI_API_V4_URL \
         --file $DOCKER_DOCKERFILE \
@@ -73,7 +78,7 @@ variables:
         docker buildx imagetools inspect $DOCKER_IMAGE_BUILD_REGISTRY/$DOCKER_IMAGE_BUILD_NAME:$DOCKER_IMAGE_BUILD_TAG;
 
         # during docker multi platform build there are >=3 additional unknown images added to gitlab container registry. cleanup
-        
+
         DOCKER_MULTI_ARCH_IMAGES=$(docker buildx imagetools inspect "$DOCKER_IMAGE_BUILD_REGISTRY/$DOCKER_IMAGE_BUILD_NAME:$DOCKER_IMAGE_BUILD_TAG" --format "{{ range .Manifest.Manifests }}{{ if ne (print .Platform) \"&{unknown unknown  [] }\" }}$DOCKER_IMAGE_BUILD_REGISTRY/$DOCKER_IMAGE_BUILD_NAME:$DOCKER_IMAGE_BUILD_TAG@{{ println .Digest }}{{end}} {{end}}");
 
         docker buildx imagetools create $DOCKER_MULTI_ARCH_IMAGES --tag $DOCKER_IMAGE_BUILD_REGISTRY/$DOCKER_IMAGE_BUILD_NAME:$DOCKER_IMAGE_BUILD_TAG;
@@ -85,16 +90,19 @@ variables:
         echo "[DEBUG] building image";
 
         docker build . \
-          --label org.opencontainers.image.created="$(date '+%Y-%m-%d %H:%M:%S%:z')" \
+          --label org.opencontainers.image.created="$(date '+%Y-%m-%dT%H:%M:%S%:z')" \
+          --label org.opencontainers.image.description="$NFC_IMAGE_DESCRIPTION" \
           --label org.opencontainers.image.documentation="$CI_PROJECT_URL" \
           --label org.opencontainers.image.source="$CI_PROJECT_URL" \
           --label org.opencontainers.image.url="$CI_PROJECT_URL/-/releases/$(cz -n cz_nfc version --project)" \
           --label org.opencontainers.image.version="$(cz -n cz_nfc version --project)" \
           --label org.opencontainers.image.revision="$CI_COMMIT_SHA" \
+          --label io.artifacthub.package.readme-url="$CI_PROJECT_URL/-/raw/development/README.md?ref_type=heads" \
+          --label io.artifacthub.package.maintainers='[{"name":"No Fuss Computing","email":"helpdesk@nofusscomputing.com"}]' \
         --build-arg CI_JOB_TOKEN=$CI_JOB_TOKEN --build-arg CI_PROJECT_ID=$CI_PROJECT_ID --build-arg CI_API_V4_URL=$CI_API_V4_URL \
         --file $DOCKER_DOCKERFILE \
         --tag $DOCKER_IMAGE_BUILD_REGISTRY/$DOCKER_IMAGE_BUILD_NAME:$DOCKER_IMAGE_BUILD_TAG;
-      
+
       docker push $DOCKER_IMAGE_BUILD_REGISTRY/$DOCKER_IMAGE_BUILD_NAME:$DOCKER_IMAGE_BUILD_TAG;
 
       fi
