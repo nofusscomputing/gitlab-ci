@@ -21,6 +21,9 @@ include:
     - echo "[DEBUG] ansible_inventory=$ansible_inventory"
     - echo "[DEBUG] ansible_playbook=$ansible_playbook"
     - echo "[DEBUG] ansible_tags=$ansible_tags"
+    - echo "[TRACE] ********************************** start ******************************************"
+    - export
+    - echo "[TRACE] *********************************** end *******************************************"
     - ansible-playbook $ansible_inventory $ANSIBLE_PLAYBOOK_DIR/$ansible_playbook $ansible_tags --extra-vars "nfc_pb_host=localhost" -vvv
   rules:
   # ToDo: at some stage redefine these rules so that the job can run if specified.
