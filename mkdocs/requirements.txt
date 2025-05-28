@@ -1,3 +1,6 @@
+# MkDocs: show_signature_annotations=True
+black==25.1.0
+
 mkdocs==1.5.3
 mkdocstrings==0.25.1
 mkdocstrings-python==1.10.3
