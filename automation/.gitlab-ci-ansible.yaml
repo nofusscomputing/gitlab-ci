@@ -116,7 +116,7 @@ include:
   stage: publish
   image:
     name: debian:stable-slim
-    pull_policy: always
+    # pull_policy: always
   # trigger:
   #   project: $SUBMODULE_UPDATE_TRIGGER_PROJECT
   #   branch: development
