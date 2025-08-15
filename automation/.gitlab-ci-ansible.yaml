@@ -124,7 +124,8 @@ include:
   #   variables: false
   before_script:
     - apt update;
-    - apt install -y --no-install-recommends curl python3
+    - apt install -y --no-install-recommends curl python3 --reinstall ca-certificates
+    - update-ca-certificates --fresh
   script: 
   # use script to trigger pipeline instead of trigger keyword. 
   # this is due to trigger keyword not allowing environment keyword.
