@@ -114,11 +114,17 @@ include:
 
 .submodule_update_trigger:
   stage: publish
+  image:
+    name: debian:stable-slim
+    pull_policy: always
   # trigger:
   #   project: $SUBMODULE_UPDATE_TRIGGER_PROJECT
   #   branch: development
   # inherit:
   #   variables: false
+  before_script:
+    - apt update;
+    - apt install -y --no-install-recommends curl python3
   script: 
   # use script to trigger pipeline instead of trigger keyword. 
   # this is due to trigger keyword not allowing environment keyword.
