@@ -11,7 +11,9 @@
   stage: publish
   image: docker:23-cli
   services:
-    - docker:23-dind
+    - name: docker:23-dind
+      entrypoint: ["env", "-u", "DOCKER_HOST"]
+      command: ["dockerd-entrypoint.sh"]
   before_script:
     - |
 
