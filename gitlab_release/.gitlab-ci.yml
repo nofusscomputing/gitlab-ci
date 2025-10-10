@@ -9,7 +9,8 @@
         - apk update
         - apk add git
         - apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-        - python -m ensurepip  && ln -sf pip3 /usr/bin/pip
+        - rm -f /usr/lib/python*/EXTERNALLY-MANAGED
+        - python -m ensurepip && ln -sf pip3 /usr/bin/pip
         - pip install --upgrade pip
         - pip install -r $ROOT_DIR/gitlab_release/requirements.txt
         - pip install $ROOT_DIR/gitlab_release/python-module/cz_nfc/.
@@ -88,7 +89,6 @@ commit footer refs:
         - git remote add origin $CI_REPOSITORY_URL
         - git fetch --all
         - git checkout --track origin/$CI_COMMIT_BRANCH
-        - git submodule update --init
     script:
         - commit_footer > "$CI_PROJECT_DIR/artifacts/$CI_JOB_STAGE/tests/$CI_JOB_NAME.junit.xml"
     artifacts:

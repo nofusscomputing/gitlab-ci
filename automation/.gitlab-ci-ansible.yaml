@@ -6,7 +6,7 @@ include:
 
 
 .ansible_playbook:
-  image: 
+  image:
     name: nofusscomputing/ansible-ee:dev
     pull_policy: always
   stage: chores
@@ -21,7 +21,10 @@ include:
     - echo "[DEBUG] ansible_inventory=$ansible_inventory"
     - echo "[DEBUG] ansible_playbook=$ansible_playbook"
     - echo "[DEBUG] ansible_tags=$ansible_tags"
-    - ansible-playbook $ansible_inventory $ANSIBLE_PLAYBOOK_DIR/$ansible_playbook $ansible_tags -vvv
+    - echo "[TRACE] ********************************** start ******************************************"
+    - export
+    - echo "[TRACE] *********************************** end *******************************************"
+    - ansible-playbook $ansible_inventory $ANSIBLE_PLAYBOOK_DIR/$ansible_playbook $ansible_tags --extra-vars "nfc_pb_host=localhost" -vvv
   rules:
   # ToDo: at some stage redefine these rules so that the job can run if specified.
     # - if: '$NFC_AUTO_JOBS == "false"'
@@ -111,11 +114,18 @@ include:
 
 .submodule_update_trigger:
   stage: publish
+  image:
+    name: debian:stable-slim
+    # pull_policy: always
   # trigger:
   #   project: $SUBMODULE_UPDATE_TRIGGER_PROJECT
   #   branch: development
   # inherit:
   #   variables: false
+  before_script:
+    - apt update;
+    - apt install -y --no-install-recommends curl python3 --reinstall ca-certificates
+    - update-ca-certificates --fresh
   script: 
   # use script to trigger pipeline instead of trigger keyword. 
   # this is due to trigger keyword not allowing environment keyword.
