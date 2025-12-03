@@ -11,8 +11,8 @@
     - echo "[DEBUG] ROOT_DIR[$ROOT_DIR]"
     - if [ "0$MD_LINT_CONFIG_PATH" != "0" ]; then cp "$MD_LINT_CONFIG_PATH/.markdownlint.json" $CI_PROJECT_DIR/.markdownlint.json; fi
     - cp -f "$ROOT_DIR/lint/.markdownlint-cli2.jsonc" "$CI_PROJECT_DIR/.markdownlint-cli2.jsonc"
-    - npm install markdownlint-cli2 --global
-    - npm install markdownlint-cli2-formatter-junit --global
+    - npm install markdownlint-cli2@0.18.1 --global
+    - npm install markdownlint-cli2-formatter-junit@0.0.13 --global
   script:
     - echo "[DEBUG] MDLINT_PATHS=$MDLINT_PATHS"
     - markdownlint-cli2 $MDLINT_PATHS 1>&1 || EXITCODE=$?
